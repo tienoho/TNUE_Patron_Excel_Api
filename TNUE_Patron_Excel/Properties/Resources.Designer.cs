@@ -8,8 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TNUE_Patron_Excel.Properties
-{
+namespace TNUE_Patron_Excel.Properties {
+    using System;
+    using System.Drawing;
 
 
     /// <summary>
@@ -19,53 +20,219 @@ namespace TNUE_Patron_Excel.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TNUE_Patron_Excel.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
             }
         }
-    }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static Bitmap _321830
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("321830", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap ajax_loader_blue_round
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("ajax-loader-blue_round", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap background
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("background", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap customer_service_icon_48x48
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("customer-service-icon-48x48", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap database
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("database", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap Eye_icon
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("Eye-icon", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap home
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("home", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap library_logo
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("library-logo", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap login_icon
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("login_icon", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap login_icon50x50
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("login-icon50x50", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap mindtouch
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("mindtouch", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap no_image_icon
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("no-image-icon", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap reset_50x48
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("reset-50x48", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap Simple_Loader
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("Simple-Loader", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap simpleid_icon_adapt
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("simpleid-icon-adapt", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap Spinner
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("Spinner", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap tweek_error
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("tweek-error", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap username_login_50x50
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("username_login_50x50", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+
+		internal static Bitmap zoom_search_2_icon___Copy
+		{
+			get
+			{
+				object @object = ResourceManager.GetObject("zoom-search-2-icon - Copy", resourceCulture);
+				return (Bitmap)@object;
+			}
+		}
+	}
 }

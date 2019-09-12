@@ -16,7 +16,7 @@ namespace TNUE_Patron_Excel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormStartLoading());
         }
     }
 }
