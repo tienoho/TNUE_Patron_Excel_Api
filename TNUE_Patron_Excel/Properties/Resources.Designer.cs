@@ -10,9 +10,8 @@
 
 namespace TNUE_Patron_Excel.Properties {
     using System;
-    using System.Drawing;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -64,175 +63,191 @@ namespace TNUE_Patron_Excel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static Bitmap _321830
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("321830", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap ajax_loader_blue_round
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("ajax-loader-blue_round", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap background
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("background", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap customer_service_icon_48x48
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("customer-service-icon-48x48", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap database
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("database", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap Eye_icon
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("Eye-icon", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap home
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("home", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap library_logo
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("library-logo", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap login_icon
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("login_icon", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap login_icon50x50
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("login-icon50x50", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap mindtouch
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("mindtouch", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap no_image_icon
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("no-image-icon", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap reset_50x48
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("reset-50x48", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap Simple_Loader
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("Simple-Loader", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap simpleid_icon_adapt
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("simpleid-icon-adapt", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap Spinner
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("Spinner", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap tweek_error
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("tweek-error", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap username_login_50x50
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("username_login_50x50", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-
-		internal static Bitmap zoom_search_2_icon___Copy
-		{
-			get
-			{
-				object @object = ResourceManager.GetObject("zoom-search-2-icon - Copy", resourceCulture);
-				return (Bitmap)@object;
-			}
-		}
-	}
+        internal static System.Drawing.Bitmap _321830 {
+            get {
+                object obj = ResourceManager.GetObject("321830", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ajax_loader_blue_round {
+            get {
+                object obj = ResourceManager.GetObject("ajax-loader-blue_round", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap background {
+            get {
+                object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap customer_service_icon_48x48 {
+            get {
+                object obj = ResourceManager.GetObject("customer-service-icon-48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap database {
+            get {
+                object obj = ResourceManager.GetObject("database", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Eye_icon {
+            get {
+                object obj = ResourceManager.GetObject("Eye-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home {
+            get {
+                object obj = ResourceManager.GetObject("home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap library_logo {
+            get {
+                object obj = ResourceManager.GetObject("library-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap login_icon {
+            get {
+                object obj = ResourceManager.GetObject("login_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap login_icon50x50 {
+            get {
+                object obj = ResourceManager.GetObject("login-icon50x50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mindtouch {
+            get {
+                object obj = ResourceManager.GetObject("mindtouch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap no_image_icon {
+            get {
+                object obj = ResourceManager.GetObject("no-image-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reset_50x48 {
+            get {
+                object obj = ResourceManager.GetObject("reset-50x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Simple_Loader {
+            get {
+                object obj = ResourceManager.GetObject("Simple-Loader", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap simpleid_icon_adapt {
+            get {
+                object obj = ResourceManager.GetObject("simpleid-icon-adapt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Spinner {
+            get {
+                object obj = ResourceManager.GetObject("Spinner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tweek_error {
+            get {
+                object obj = ResourceManager.GetObject("tweek-error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap username_login_50x50 {
+            get {
+                object obj = ResourceManager.GetObject("username_login_50x50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zoom_search_2_icon___Copy {
+            get {
+                object obj = ResourceManager.GetObject("zoom-search-2-icon - Copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+    }
 }
