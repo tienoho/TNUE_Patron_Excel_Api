@@ -56,12 +56,13 @@ namespace TNUE_Patron_Excel.Tool
 
         public string getNgayHetHan(string str)
         {
-            DateTime dateTime = DateTime.Parse(DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy")).AddYears(4).ToString("dd/MM/yyyy"));
+            //DateTime dateTime = DateTime.Parse(DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy")).AddYears(4).ToString("dd/MM/yyyy"));
+            //string dateTime = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy")).AddYears(4).ToString("dd/MM/yyyy");
             try
             {
                 if (str == "" || str == null)
                 {
-                    str = dateTime.ToString("yyyyMMdd");
+                    str = DateTime.Now.AddYears(4).ToString("yyyyMMdd");
                 }
                 else
                 {
@@ -81,7 +82,7 @@ namespace TNUE_Patron_Excel.Tool
             }
             catch
             {
-                str = dateTime.ToString("yyyyMMdd");
+                str = DateTime.Now.AddYears(4).ToString("yyyyMMdd");
             }
             return str;
         }
@@ -165,7 +166,7 @@ namespace TNUE_Patron_Excel.Tool
                 {
                     if (str.Contains("/"))
                     {
-                        str = formatDateString(str);
+                        str = formatDatePasswordString(str);
                     }
                     else
                     {
@@ -181,6 +182,11 @@ namespace TNUE_Patron_Excel.Tool
 
             }
             return "01011990";
+        }
+        public string formatDatePasswordString(string str)
+        {
+            str = DateTime.ParseExact(str, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("ddMMyyyy");
+            return str;
         }
     }
 }

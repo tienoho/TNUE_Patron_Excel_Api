@@ -510,9 +510,11 @@ namespace TNUE_Patron_Excel.ControlMember
 			}
 			fileEx = (Microsoft.Office.Interop.Excel.Application)Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("00024500-0000-0000-C000-000000000046")));
             Excel.Workbook workbook = fileEx.Workbooks.Open(fileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-			DateTime dateTime = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy"));
-			DateTime dateTime2 = DateTime.Parse(dateTime.AddYears(4).ToString("dd/MM/yyyy"));
-			listPatron = new List<Patron>();
+            //DateTime dateTime = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy"));
+            //DateTime dateTime2 = DateTime.Parse(dateTime.AddYears(4).ToString("dd/MM/yyyy"));
+            string dateTime = DateTime.Now.ToString("dd/MM/yyyy");
+            string dateTime2 = DateTime.Now.AddYears(4).ToString("dd/MM/yyyy");
+            listPatron = new List<Patron>();
 			sbList = new StringBuilder();
 			int count = fileEx.Worksheets.Count;
 			string str = txtLine.Text.Trim();

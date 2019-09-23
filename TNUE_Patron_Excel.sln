@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNUE_Patron_Excel", "TNUE_Patron_Excel\TNUE_Patron_Excel.csproj", "{CC180FBB-327A-49DA-A9A5-75ADE43D3692}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup Upload Patron TNUE", "Setup Upload Patron TNUE\Setup Upload Patron TNUE.vdproj", "{ED84A913-734C-40DC-B134-31C8789704C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{CC180FBB-327A-49DA-A9A5-75ADE43D3692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC180FBB-327A-49DA-A9A5-75ADE43D3692}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC180FBB-327A-49DA-A9A5-75ADE43D3692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED84A913-734C-40DC-B134-31C8789704C0}.Debug|Any CPU.ActiveCfg = Debug
+		{ED84A913-734C-40DC-B134-31C8789704C0}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

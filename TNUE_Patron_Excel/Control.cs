@@ -338,298 +338,384 @@ namespace TNUE_Patron_Excel
 
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TNUE_Patron_Excel.Control));
-			label7 = new System.Windows.Forms.Label();
-			_pnlLeft = new System.Windows.Forms.Panel();
-			btnXoa = new System.Windows.Forms.Button();
-			btnEditRemove = new System.Windows.Forms.Button();
-			btnRest = new System.Windows.Forms.Button();
-			btnAddMember = new System.Windows.Forms.Button();
-			lbStatus = new System.Windows.Forms.Label();
-			label1 = new System.Windows.Forms.Label();
-			btnSinhVien = new System.Windows.Forms.Button();
-			_btNhanVien = new System.Windows.Forms.Button();
-			label5 = new System.Windows.Forms.Label();
-			lblInformation = new System.Windows.Forms.Label();
-			_pnlRight = new System.Windows.Forms.Panel();
-			danhMucToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			đăngNhậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			QLNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			ConvertPicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			dataPatronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			trơGiupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			thôngTinPhiênBanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			liênHêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			menuStrip1 = new System.Windows.Forms.MenuStrip();
-			addLdapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			càiĐặtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			serverDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			serverLdapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			serverAlephToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-			_pnlLeft.SuspendLayout();
-			menuStrip1.SuspendLayout();
-			SuspendLayout();
-			label7.AutoSize = true;
-			label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			label7.ForeColor = System.Drawing.Color.FromArgb(0, 192, 0);
-			label7.Location = new System.Drawing.Point(12, 24);
-			label7.Name = "label7";
-			label7.Size = new System.Drawing.Size(178, 29);
-			label7.TabIndex = 45;
-			label7.Text = "TRANG CHÍNH";
-			_pnlLeft.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			_pnlLeft.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			_pnlLeft.Controls.Add(btnXoa);
-			_pnlLeft.Controls.Add(btnEditRemove);
-			_pnlLeft.Controls.Add(btnRest);
-			_pnlLeft.Controls.Add(btnAddMember);
-			_pnlLeft.Controls.Add(lbStatus);
-			_pnlLeft.Controls.Add(label1);
-			_pnlLeft.Controls.Add(btnSinhVien);
-			_pnlLeft.Controls.Add(_btNhanVien);
-			_pnlLeft.Controls.Add(label5);
-			_pnlLeft.Location = new System.Drawing.Point(12, 56);
-			_pnlLeft.Name = "_pnlLeft";
-			_pnlLeft.Size = new System.Drawing.Size(178, 555);
-			_pnlLeft.TabIndex = 46;
-			btnXoa.Cursor = System.Windows.Forms.Cursors.Hand;
-			btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			btnXoa.Image = TNUE_Patron_Excel.Properties.Resources.zoom_search_2_icon___Copy;
-			btnXoa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			btnXoa.Location = new System.Drawing.Point(27, 340);
-			btnXoa.Name = "btnXoa";
-			btnXoa.Size = new System.Drawing.Size(125, 57);
-			btnXoa.TabIndex = 54;
-			btnXoa.Text = "Xóa";
-			btnXoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			btnXoa.UseVisualStyleBackColor = true;
-			btnXoa.Click += new System.EventHandler(BtnXoa_Click);
-			btnEditRemove.Cursor = System.Windows.Forms.Cursors.Hand;
-			btnEditRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			btnEditRemove.Image = TNUE_Patron_Excel.Properties.Resources.no_image_icon;
-			btnEditRemove.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			btnEditRemove.Location = new System.Drawing.Point(27, 273);
-			btnEditRemove.Name = "btnEditRemove";
-			btnEditRemove.Size = new System.Drawing.Size(125, 61);
-			btnEditRemove.TabIndex = 53;
-			btnEditRemove.Text = "Cập nhập";
-			btnEditRemove.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			btnEditRemove.UseVisualStyleBackColor = true;
-			btnEditRemove.Click += new System.EventHandler(btnPic_Click);
-			btnRest.Cursor = System.Windows.Forms.Cursors.Hand;
-			btnRest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			btnRest.Image = TNUE_Patron_Excel.Properties.Resources.reset_50x48;
-			btnRest.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			btnRest.Location = new System.Drawing.Point(27, 466);
-			btnRest.Name = "btnRest";
-			btnRest.Size = new System.Drawing.Size(125, 82);
-			btnRest.TabIndex = 52;
-			btnRest.Text = "Làm mới dữ liệu";
-			btnRest.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			btnRest.UseVisualStyleBackColor = true;
-			btnRest.Click += new System.EventHandler(btnRest_Click);
-			btnRest.MouseLeave += new System.EventHandler(btnRest_MouseLeave);
-			btnRest.MouseMove += new System.Windows.Forms.MouseEventHandler(btnRest_MouseMove);
-			btnAddMember.Cursor = System.Windows.Forms.Cursors.Hand;
-			btnAddMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			btnAddMember.Image = TNUE_Patron_Excel.Properties.Resources.zoom_search_2_icon___Copy;
-			btnAddMember.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			btnAddMember.Location = new System.Drawing.Point(27, 210);
-			btnAddMember.Name = "btnAddMember";
-			btnAddMember.Size = new System.Drawing.Size(125, 57);
-			btnAddMember.TabIndex = 51;
-			btnAddMember.Text = "Thêm bạn đọc";
-			btnAddMember.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			btnAddMember.UseVisualStyleBackColor = true;
-			btnAddMember.Click += new System.EventHandler(btnData_Click);
-			btnAddMember.MouseLeave += new System.EventHandler(btnData_MouseLeave);
-			btnAddMember.MouseMove += new System.Windows.Forms.MouseEventHandler(btnData_MouseMove);
-			lbStatus.AutoSize = true;
-			lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 163);
-			lbStatus.ForeColor = System.Drawing.Color.Black;
-			lbStatus.Location = new System.Drawing.Point(3, 435);
-			lbStatus.Name = "lbStatus";
-			lbStatus.Size = new System.Drawing.Size(102, 24);
-			lbStatus.TabIndex = 50;
-			lbStatus.Text = "Trạng Thái";
-			label1.AutoSize = true;
-			label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 163);
-			label1.ForeColor = System.Drawing.Color.Black;
-			label1.Location = new System.Drawing.Point(33, 400);
-			label1.Name = "label1";
-			label1.Size = new System.Drawing.Size(102, 24);
-			label1.TabIndex = 49;
-			label1.Text = "Trạng Thái";
-			btnSinhVien.Cursor = System.Windows.Forms.Cursors.Hand;
-			btnSinhVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			btnSinhVien.Image = TNUE_Patron_Excel.Properties.Resources.username_login_50x50;
-			btnSinhVien.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			btnSinhVien.Location = new System.Drawing.Point(27, 122);
-			btnSinhVien.Name = "btnSinhVien";
-			btnSinhVien.Size = new System.Drawing.Size(125, 82);
-			btnSinhVien.TabIndex = 39;
-			btnSinhVien.Text = "Sinh Viên";
-			btnSinhVien.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			btnSinhVien.UseVisualStyleBackColor = true;
-			btnSinhVien.Click += new System.EventHandler(btnSinhVien_Click);
-			btnSinhVien.MouseLeave += new System.EventHandler(btnSinhVien_MouseLeave);
-			btnSinhVien.MouseMove += new System.Windows.Forms.MouseEventHandler(btnSinhVien_MouseMove);
-			_btNhanVien.Cursor = System.Windows.Forms.Cursors.Hand;
-			_btNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			_btNhanVien.Image = TNUE_Patron_Excel.Properties.Resources.customer_service_icon_48x48;
-			_btNhanVien.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			_btNhanVien.Location = new System.Drawing.Point(27, 34);
-			_btNhanVien.Name = "_btNhanVien";
-			_btNhanVien.Size = new System.Drawing.Size(125, 82);
-			_btNhanVien.TabIndex = 2;
-			_btNhanVien.Text = "Cán Bộ";
-			_btNhanVien.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			_btNhanVien.UseVisualStyleBackColor = true;
-			_btNhanVien.Click += new System.EventHandler(_btNhanVien_Click);
-			_btNhanVien.MouseLeave += new System.EventHandler(_btNhanVien_MouseLeave);
-			_btNhanVien.MouseMove += new System.Windows.Forms.MouseEventHandler(_btNhanVien_MouseMove);
-			label5.AutoSize = true;
-			label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			label5.ForeColor = System.Drawing.SystemColors.Highlight;
-			label5.Location = new System.Drawing.Point(32, 4);
-			label5.Name = "label5";
-			label5.Size = new System.Drawing.Size(120, 29);
-			label5.TabIndex = 38;
-			label5.Text = "Danh Mục";
-			lblInformation.AutoSize = true;
-			lblInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 163);
-			lblInformation.ForeColor = System.Drawing.Color.Black;
-			lblInformation.Location = new System.Drawing.Point(556, 28);
-			lblInformation.Name = "lblInformation";
-			lblInformation.Size = new System.Drawing.Size(91, 24);
-			lblInformation.TabIndex = 48;
-			lblInformation.Text = "Xin chào ";
-			_pnlRight.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-			_pnlRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			_pnlRight.Location = new System.Drawing.Point(196, 56);
-			_pnlRight.Name = "_pnlRight";
-			_pnlRight.Size = new System.Drawing.Size(1000, 555);
-			_pnlRight.TabIndex = 47;
-			danhMucToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[5]
-			{
-				đăngNhậpToolStripMenuItem,
-				homeToolStripMenuItem,
-				QLNDToolStripMenuItem,
-				ConvertPicToolStripMenuItem,
-				dataPatronToolStripMenuItem
-			});
-			danhMucToolStripMenuItem.Name = "danhMucToolStripMenuItem";
-			danhMucToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-			danhMucToolStripMenuItem.Text = "Danh Mu\u0323c";
-			đăngNhậpToolStripMenuItem.Image = TNUE_Patron_Excel.Properties.Resources.login_icon50x50;
-			đăngNhậpToolStripMenuItem.Name = "đăngNhậpToolStripMenuItem";
-			đăngNhậpToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-			đăngNhậpToolStripMenuItem.Text = "Đăng nhập";
-			đăngNhậpToolStripMenuItem.Click += new System.EventHandler(đăngNhậpToolStripMenuItem_Click);
-			homeToolStripMenuItem.Image = TNUE_Patron_Excel.Properties.Resources.home;
-			homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-			homeToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-			homeToolStripMenuItem.Text = "Trang Chính";
-			homeToolStripMenuItem.Click += new System.EventHandler(HomeToolStripMenuItem_Click);
-			QLNDToolStripMenuItem.Image = TNUE_Patron_Excel.Properties.Resources.username_login_50x50;
-			QLNDToolStripMenuItem.Name = "QLNDToolStripMenuItem";
-			QLNDToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-			QLNDToolStripMenuItem.Text = "Quản Lý Người Dùng";
-			QLNDToolStripMenuItem.Click += new System.EventHandler(QLNDToolStripMenuItem_Click);
-			ConvertPicToolStripMenuItem.Image = TNUE_Patron_Excel.Properties.Resources.no_image_icon;
-			ConvertPicToolStripMenuItem.Name = "ConvertPicToolStripMenuItem";
-			ConvertPicToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-			ConvertPicToolStripMenuItem.Text = "Chuyển đổi ảnh người dùng";
-			ConvertPicToolStripMenuItem.Click += new System.EventHandler(ConvertPicToolStripMenuItem_Click);
-			dataPatronToolStripMenuItem.Name = "dataPatronToolStripMenuItem";
-			dataPatronToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-			dataPatronToolStripMenuItem.Text = "Data Patron";
-			dataPatronToolStripMenuItem.Click += new System.EventHandler(DataPatronToolStripMenuItem_Click);
-			helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[3]
-			{
-				trơGiupToolStripMenuItem,
-				thôngTinPhiênBanToolStripMenuItem,
-				liênHêToolStripMenuItem
-			});
-			helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-			helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-			helpToolStripMenuItem.Text = "Help";
-			trơGiupToolStripMenuItem.Name = "trơGiupToolStripMenuItem";
-			trơGiupToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-			trơGiupToolStripMenuItem.Text = "Trơ\u0323 Giu\u0301p";
-			thôngTinPhiênBanToolStripMenuItem.Name = "thôngTinPhiênBanToolStripMenuItem";
-			thôngTinPhiênBanToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-			thôngTinPhiênBanToolStripMenuItem.Text = "Thông Tin Phiên Ba\u0309n";
-			liênHêToolStripMenuItem.Name = "liênHêToolStripMenuItem";
-			liênHêToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-			liênHêToolStripMenuItem.Text = "Liên Hê\u0323";
-			menuStrip1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[4]
-			{
-				danhMucToolStripMenuItem,
-				addLdapToolStripMenuItem,
-				càiĐặtToolStripMenuItem,
-				helpToolStripMenuItem
-			});
-			menuStrip1.Location = new System.Drawing.Point(0, 0);
-			menuStrip1.Name = "menuStrip1";
-			menuStrip1.Size = new System.Drawing.Size(1209, 24);
-			menuStrip1.TabIndex = 44;
-			menuStrip1.Text = "menuStrip1";
-			addLdapToolStripMenuItem.Name = "addLdapToolStripMenuItem";
-			addLdapToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
-			addLdapToolStripMenuItem.Text = "Thêm bạn đọc ldap";
-			addLdapToolStripMenuItem.Click += new System.EventHandler(AddLdapToolStripMenuItem_Click);
-			càiĐặtToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[3]
-			{
-				serverDatabaseToolStripMenuItem,
-				serverLdapToolStripMenuItem,
-				serverAlephToolStripMenuItem
-			});
-			càiĐặtToolStripMenuItem.Name = "càiĐặtToolStripMenuItem";
-			càiĐặtToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-			càiĐặtToolStripMenuItem.Text = "Cài Đặt";
-			serverDatabaseToolStripMenuItem.Image = TNUE_Patron_Excel.Properties.Resources.database;
-			serverDatabaseToolStripMenuItem.Name = "serverDatabaseToolStripMenuItem";
-			serverDatabaseToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-			serverDatabaseToolStripMenuItem.Text = "Server Database";
-			serverDatabaseToolStripMenuItem.Click += new System.EventHandler(serverDatabaseToolStripMenuItem_Click);
-			serverLdapToolStripMenuItem.Image = TNUE_Patron_Excel.Properties.Resources.simpleid_icon_adapt;
-			serverLdapToolStripMenuItem.Name = "serverLdapToolStripMenuItem";
-			serverLdapToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-			serverLdapToolStripMenuItem.Text = "Server Ldap";
-			serverLdapToolStripMenuItem.Click += new System.EventHandler(serverLdapToolStripMenuItem_Click);
-			serverAlephToolStripMenuItem.Image = TNUE_Patron_Excel.Properties.Resources.mindtouch;
-			serverAlephToolStripMenuItem.Name = "serverAlephToolStripMenuItem";
-			serverAlephToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-			serverAlephToolStripMenuItem.Text = "Server Aleph";
-			serverAlephToolStripMenuItem.Click += new System.EventHandler(serverAlephToolStripMenuItem_Click);
-			backgroundWorker1.WorkerSupportsCancellation = true;
-			backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(backgroundWorker1_DoWork);
-			base.AutoScaleDimensions = new System.Drawing.SizeF(6f, 13f);
-			base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			base.ClientSize = new System.Drawing.Size(1209, 618);
-			base.Controls.Add(label7);
-			base.Controls.Add(_pnlLeft);
-			base.Controls.Add(lblInformation);
-			base.Controls.Add(_pnlRight);
-			base.Controls.Add(menuStrip1);
-			base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			base.Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-			base.Name = "Control";
-			base.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			Text = "TNUE Patron";
-			base.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Control_FormClosed);
-			base.Load += new System.EventHandler(Control_Load);
-			_pnlLeft.ResumeLayout(false);
-			_pnlLeft.PerformLayout();
-			menuStrip1.ResumeLayout(false);
-			menuStrip1.PerformLayout();
-			ResumeLayout(false);
-			PerformLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Control));
+            this.label7 = new System.Windows.Forms.Label();
+            this._pnlLeft = new System.Windows.Forms.Panel();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnEditRemove = new System.Windows.Forms.Button();
+            this.btnRest = new System.Windows.Forms.Button();
+            this.btnAddMember = new System.Windows.Forms.Button();
+            this.lbStatus = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSinhVien = new System.Windows.Forms.Button();
+            this._btNhanVien = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblInformation = new System.Windows.Forms.Label();
+            this._pnlRight = new System.Windows.Forms.Panel();
+            this.danhMucToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngNhậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.QLNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertPicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataPatronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trơGiupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinPhiênBanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.liênHêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.addLdapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.càiĐặtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serverDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serverLdapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serverAlephToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this._pnlLeft.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label7.Location = new System.Drawing.Point(12, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(178, 29);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "TRANG CHÍNH";
+            // 
+            // _pnlLeft
+            // 
+            this._pnlLeft.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this._pnlLeft.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._pnlLeft.Controls.Add(this.btnXoa);
+            this._pnlLeft.Controls.Add(this.btnEditRemove);
+            this._pnlLeft.Controls.Add(this.btnRest);
+            this._pnlLeft.Controls.Add(this.btnAddMember);
+            this._pnlLeft.Controls.Add(this.lbStatus);
+            this._pnlLeft.Controls.Add(this.label1);
+            this._pnlLeft.Controls.Add(this.btnSinhVien);
+            this._pnlLeft.Controls.Add(this._btNhanVien);
+            this._pnlLeft.Controls.Add(this.label5);
+            this._pnlLeft.Location = new System.Drawing.Point(12, 56);
+            this._pnlLeft.Name = "_pnlLeft";
+            this._pnlLeft.Size = new System.Drawing.Size(178, 591);
+            this._pnlLeft.TabIndex = 46;
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.Image = global::TNUE_Patron_Excel.Properties.Resources.zoom_search_2_icon___Copy;
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnXoa.Location = new System.Drawing.Point(27, 340);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(125, 57);
+            this.btnXoa.TabIndex = 54;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.BtnXoa_Click);
+            // 
+            // btnEditRemove
+            // 
+            this.btnEditRemove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditRemove.Image = global::TNUE_Patron_Excel.Properties.Resources.no_image_icon;
+            this.btnEditRemove.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEditRemove.Location = new System.Drawing.Point(27, 273);
+            this.btnEditRemove.Name = "btnEditRemove";
+            this.btnEditRemove.Size = new System.Drawing.Size(125, 61);
+            this.btnEditRemove.TabIndex = 53;
+            this.btnEditRemove.Text = "Cập nhập";
+            this.btnEditRemove.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEditRemove.UseVisualStyleBackColor = true;
+            this.btnEditRemove.Click += new System.EventHandler(this.btnPic_Click);
+            // 
+            // btnRest
+            // 
+            this.btnRest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRest.Image = global::TNUE_Patron_Excel.Properties.Resources.reset_50x48;
+            this.btnRest.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRest.Location = new System.Drawing.Point(27, 498);
+            this.btnRest.Name = "btnRest";
+            this.btnRest.Size = new System.Drawing.Size(125, 82);
+            this.btnRest.TabIndex = 52;
+            this.btnRest.Text = "Làm mới dữ liệu";
+            this.btnRest.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRest.UseVisualStyleBackColor = true;
+            this.btnRest.Click += new System.EventHandler(this.btnRest_Click);
+            this.btnRest.MouseLeave += new System.EventHandler(this.btnRest_MouseLeave);
+            this.btnRest.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRest_MouseMove);
+            // 
+            // btnAddMember
+            // 
+            this.btnAddMember.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMember.Image = global::TNUE_Patron_Excel.Properties.Resources.zoom_search_2_icon___Copy;
+            this.btnAddMember.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAddMember.Location = new System.Drawing.Point(27, 210);
+            this.btnAddMember.Name = "btnAddMember";
+            this.btnAddMember.Size = new System.Drawing.Size(125, 57);
+            this.btnAddMember.TabIndex = 51;
+            this.btnAddMember.Text = "Thêm bạn đọc";
+            this.btnAddMember.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAddMember.UseVisualStyleBackColor = true;
+            this.btnAddMember.Click += new System.EventHandler(this.btnData_Click);
+            this.btnAddMember.MouseLeave += new System.EventHandler(this.btnData_MouseLeave);
+            this.btnAddMember.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnData_MouseMove);
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.AutoSize = true;
+            this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbStatus.ForeColor = System.Drawing.Color.Black;
+            this.lbStatus.Location = new System.Drawing.Point(3, 467);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(102, 24);
+            this.lbStatus.TabIndex = 50;
+            this.lbStatus.Text = "Trạng Thái";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(33, 432);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 24);
+            this.label1.TabIndex = 49;
+            this.label1.Text = "Trạng Thái";
+            // 
+            // btnSinhVien
+            // 
+            this.btnSinhVien.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSinhVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSinhVien.Image = global::TNUE_Patron_Excel.Properties.Resources.username_login_50x50;
+            this.btnSinhVien.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSinhVien.Location = new System.Drawing.Point(27, 122);
+            this.btnSinhVien.Name = "btnSinhVien";
+            this.btnSinhVien.Size = new System.Drawing.Size(125, 82);
+            this.btnSinhVien.TabIndex = 39;
+            this.btnSinhVien.Text = "Sinh Viên";
+            this.btnSinhVien.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSinhVien.UseVisualStyleBackColor = true;
+            this.btnSinhVien.Click += new System.EventHandler(this.btnSinhVien_Click);
+            this.btnSinhVien.MouseLeave += new System.EventHandler(this.btnSinhVien_MouseLeave);
+            this.btnSinhVien.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSinhVien_MouseMove);
+            // 
+            // _btNhanVien
+            // 
+            this._btNhanVien.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btNhanVien.Image = global::TNUE_Patron_Excel.Properties.Resources.customer_service_icon_48x48;
+            this._btNhanVien.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this._btNhanVien.Location = new System.Drawing.Point(27, 34);
+            this._btNhanVien.Name = "_btNhanVien";
+            this._btNhanVien.Size = new System.Drawing.Size(125, 82);
+            this._btNhanVien.TabIndex = 2;
+            this._btNhanVien.Text = "Cán Bộ";
+            this._btNhanVien.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this._btNhanVien.UseVisualStyleBackColor = true;
+            this._btNhanVien.Click += new System.EventHandler(this._btNhanVien_Click);
+            this._btNhanVien.MouseLeave += new System.EventHandler(this._btNhanVien_MouseLeave);
+            this._btNhanVien.MouseMove += new System.Windows.Forms.MouseEventHandler(this._btNhanVien_MouseMove);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label5.Location = new System.Drawing.Point(32, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(120, 29);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Danh Mục";
+            // 
+            // lblInformation
+            // 
+            this.lblInformation.AutoSize = true;
+            this.lblInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblInformation.ForeColor = System.Drawing.Color.Black;
+            this.lblInformation.Location = new System.Drawing.Point(556, 28);
+            this.lblInformation.Name = "lblInformation";
+            this.lblInformation.Size = new System.Drawing.Size(91, 24);
+            this.lblInformation.TabIndex = 48;
+            this.lblInformation.Text = "Xin chào ";
+            // 
+            // _pnlRight
+            // 
+            this._pnlRight.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this._pnlRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._pnlRight.Location = new System.Drawing.Point(196, 56);
+            this._pnlRight.Name = "_pnlRight";
+            this._pnlRight.Size = new System.Drawing.Size(1013, 591);
+            this._pnlRight.TabIndex = 47;
+            // 
+            // danhMucToolStripMenuItem
+            // 
+            this.danhMucToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.đăngNhậpToolStripMenuItem,
+            this.homeToolStripMenuItem,
+            this.QLNDToolStripMenuItem,
+            this.ConvertPicToolStripMenuItem,
+            this.dataPatronToolStripMenuItem});
+            this.danhMucToolStripMenuItem.Name = "danhMucToolStripMenuItem";
+            this.danhMucToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.danhMucToolStripMenuItem.Text = "Danh Mục";
+            // 
+            // đăngNhậpToolStripMenuItem
+            // 
+            this.đăngNhậpToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.login_icon50x50;
+            this.đăngNhậpToolStripMenuItem.Name = "đăngNhậpToolStripMenuItem";
+            this.đăngNhậpToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.đăngNhậpToolStripMenuItem.Text = "Đăng nhập";
+            this.đăngNhậpToolStripMenuItem.Click += new System.EventHandler(this.đăngNhậpToolStripMenuItem_Click);
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.home;
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.homeToolStripMenuItem.Text = "Trang Chính";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
+            // 
+            // QLNDToolStripMenuItem
+            // 
+            this.QLNDToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.username_login_50x50;
+            this.QLNDToolStripMenuItem.Name = "QLNDToolStripMenuItem";
+            this.QLNDToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.QLNDToolStripMenuItem.Text = "Quản Lý Người Dùng";
+            this.QLNDToolStripMenuItem.Click += new System.EventHandler(this.QLNDToolStripMenuItem_Click);
+            // 
+            // ConvertPicToolStripMenuItem
+            // 
+            this.ConvertPicToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.no_image_icon;
+            this.ConvertPicToolStripMenuItem.Name = "ConvertPicToolStripMenuItem";
+            this.ConvertPicToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.ConvertPicToolStripMenuItem.Text = "Chuyển đổi ảnh người dùng";
+            this.ConvertPicToolStripMenuItem.Click += new System.EventHandler(this.ConvertPicToolStripMenuItem_Click);
+            // 
+            // dataPatronToolStripMenuItem
+            // 
+            this.dataPatronToolStripMenuItem.Name = "dataPatronToolStripMenuItem";
+            this.dataPatronToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.dataPatronToolStripMenuItem.Text = "Data Patron";
+            this.dataPatronToolStripMenuItem.Click += new System.EventHandler(this.DataPatronToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.trơGiupToolStripMenuItem,
+            this.thôngTinPhiênBanToolStripMenuItem,
+            this.liênHêToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // trơGiupToolStripMenuItem
+            // 
+            this.trơGiupToolStripMenuItem.Name = "trơGiupToolStripMenuItem";
+            this.trơGiupToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.trơGiupToolStripMenuItem.Text = "Trợ Giúp";
+            // 
+            // thôngTinPhiênBanToolStripMenuItem
+            // 
+            this.thôngTinPhiênBanToolStripMenuItem.Name = "thôngTinPhiênBanToolStripMenuItem";
+            this.thôngTinPhiênBanToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.thôngTinPhiênBanToolStripMenuItem.Text = "Thông Tin Phiên Bản";
+            // 
+            // liênHêToolStripMenuItem
+            // 
+            this.liênHêToolStripMenuItem.Name = "liênHêToolStripMenuItem";
+            this.liênHêToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.liênHêToolStripMenuItem.Text = "Liên Hệ";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.danhMucToolStripMenuItem,
+            this.addLdapToolStripMenuItem,
+            this.càiĐặtToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1211, 24);
+            this.menuStrip1.TabIndex = 44;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // addLdapToolStripMenuItem
+            // 
+            this.addLdapToolStripMenuItem.Name = "addLdapToolStripMenuItem";
+            this.addLdapToolStripMenuItem.Size = new System.Drawing.Size(121, 20);
+            this.addLdapToolStripMenuItem.Text = "Thêm bạn đọc ldap";
+            this.addLdapToolStripMenuItem.Click += new System.EventHandler(this.AddLdapToolStripMenuItem_Click);
+            // 
+            // càiĐặtToolStripMenuItem
+            // 
+            this.càiĐặtToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.serverDatabaseToolStripMenuItem,
+            this.serverLdapToolStripMenuItem,
+            this.serverAlephToolStripMenuItem});
+            this.càiĐặtToolStripMenuItem.Name = "càiĐặtToolStripMenuItem";
+            this.càiĐặtToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.càiĐặtToolStripMenuItem.Text = "Cài Đặt";
+            // 
+            // serverDatabaseToolStripMenuItem
+            // 
+            this.serverDatabaseToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.database;
+            this.serverDatabaseToolStripMenuItem.Name = "serverDatabaseToolStripMenuItem";
+            this.serverDatabaseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.serverDatabaseToolStripMenuItem.Text = "Server Database";
+            this.serverDatabaseToolStripMenuItem.Click += new System.EventHandler(this.serverDatabaseToolStripMenuItem_Click);
+            // 
+            // serverLdapToolStripMenuItem
+            // 
+            this.serverLdapToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.simpleid_icon_adapt;
+            this.serverLdapToolStripMenuItem.Name = "serverLdapToolStripMenuItem";
+            this.serverLdapToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.serverLdapToolStripMenuItem.Text = "Server Ldap";
+            this.serverLdapToolStripMenuItem.Click += new System.EventHandler(this.serverLdapToolStripMenuItem_Click);
+            // 
+            // serverAlephToolStripMenuItem
+            // 
+            this.serverAlephToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.mindtouch;
+            this.serverAlephToolStripMenuItem.Name = "serverAlephToolStripMenuItem";
+            this.serverAlephToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.serverAlephToolStripMenuItem.Text = "Server Aleph";
+            this.serverAlephToolStripMenuItem.Click += new System.EventHandler(this.serverAlephToolStripMenuItem_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // Control
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1211, 650);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this._pnlLeft);
+            this.Controls.Add(this.lblInformation);
+            this.Controls.Add(this._pnlRight);
+            this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Control";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "TNUE Patron";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Control_FormClosed);
+            this.Load += new System.EventHandler(this.Control_Load);
+            this._pnlLeft.ResumeLayout(false);
+            this._pnlLeft.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
 		}
 	}
 }

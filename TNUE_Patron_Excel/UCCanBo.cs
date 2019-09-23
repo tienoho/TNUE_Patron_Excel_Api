@@ -365,8 +365,11 @@ namespace TNUE_Patron_Excel
 			}
 			fileEx = (Microsoft.Office.Interop.Excel.Application)Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("00024500-0000-0000-C000-000000000046")));
             Excel.Workbook workbook = fileEx.Workbooks.Open(fileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-			DateTime dateTime = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy"));
-			DateTime dateTime2 = DateTime.Parse(dateTime.AddYears(4).ToString("dd/MM/yyyy"));
+            Excel.Worksheet worksheet = new Excel.Worksheet();
+   //         DateTime dateTime = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy"));
+			//DateTime dateTime2 = DateTime.Parse(dateTime.AddYears(4).ToString("dd/MM/yyyy"));
+            string dateTime = DateTime.Now.ToString("dd/MM/yyyy");
+            string dateTime2 = DateTime.Now.AddYears(4).ToString("dd/MM/yyyy");
 			listPatron = new List<Patron>();
 			sbList = new StringBuilder();
 			int count = fileEx.Worksheets.Count;
@@ -374,7 +377,7 @@ namespace TNUE_Patron_Excel
 			int num = int.Parse(txtPatronId.Text);
 			for (int i = 1; i < count + 1; i++)
 			{
-                Excel.Worksheet worksheet = (Excel.Worksheet)(dynamic)fileEx.Sheets[i];
+                worksheet = (Excel.Worksheet)(dynamic)fileEx.Sheets[i];
 				try
 				{
 					int count2 = worksheet.UsedRange.Rows.Count;
@@ -419,7 +422,8 @@ namespace TNUE_Patron_Excel
 			}
 			workbook.Close(false, Type.Missing, Type.Missing);
 			fileEx.Quit();
-			Marshal.ReleaseComObject(workbook);
+            Marshal.ReleaseComObject(worksheet);
+            Marshal.ReleaseComObject(workbook);
 			Marshal.ReleaseComObject(fileEx);
 			listPatron.RemoveAll((Patron item) => item.MaSV_O == "");
 		}
