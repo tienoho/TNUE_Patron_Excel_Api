@@ -7,271 +7,271 @@ using System.Linq;
 using System.Windows.Forms;
 using TNUE_Patron_Excel.DBConnect;
 using TNUE_Patron_Excel.Ldap;
-using TNUE_Patron_Excel.Properties;
 using TNUE_Patron_Excel.Tool;
 
 namespace TNUE_Patron_Excel.ControlMember
 {
-	public class UCInsertUserLdap : UserControl
-	{
-		private List<Z308> listZ308 = null;
+    public class UCInsertUserLdap : UserControl
+    {
+        private List<Z308> listZ308 = null;
 
-		private ToolP tool = new ToolP();
+        private ToolP tool = new ToolP();
 
-		private List<User> ldapUser = null;
+        private List<User> ldapUser = null;
 
-		private List<ItemBlock> ListPatronNoLdap = null;
+        private List<ItemBlock> ListPatronNoLdap = null;
 
-		private List<string> PatronLdap = null;
+        private List<string> PatronLdap = null;
 
-		private string directoryPath = Application.StartupPath + "\\log";
+        private string directoryPath = Application.StartupPath + "\\log";
 
-		private IContainer components = null;
+        private IContainer components = null;
 
-		private GroupBox groupBox3;
+        private GroupBox groupBox3;
 
-		private DataGridView dgvAleph;
+        private DataGridView dgvAleph;
 
-		private GroupBox groupBox1;
+        private GroupBox groupBox1;
 
-		private Button btnThoat;
+        private Button btnThoat;
 
-		private FolderBrowserDialog folderBrowserDialog1;
+        private FolderBrowserDialog folderBrowserDialog1;
 
-		private GroupBox groupBox2;
+        private GroupBox groupBox2;
 
-		private Label lbCountListExcel;
+        private Label lbCountListExcel;
 
-		private Label lbCountHad;
+        private Label lbCountHad;
 
-		private PictureBox pb_TaiChinh;
+        private PictureBox pb_TaiChinh;
 
-		private DataGridView dgvLdap;
+        private DataGridView dgvLdap;
 
-		private Button btnUnSearch;
+        private Button btnUnSearch;
 
-		private Label label5;
+        private Label label5;
 
-		private TextBox txtSearch;
+        private TextBox txtSearch;
 
-		private Label label4;
+        private Label label4;
 
-		private TextBox txtPassword;
+        private TextBox txtPassword;
 
-		private Label label3;
+        private Label label3;
 
-		private TextBox txtPhone;
+        private TextBox txtPhone;
 
-		private Label label2;
+        private Label label2;
 
-		private TextBox txtEmail;
+        private TextBox txtEmail;
 
-		private Label label1;
+        private Label label1;
 
-		private TextBox txtMa;
+        private TextBox txtMa;
 
-		private Button btnSearch;
+        private Button btnSearch;
 
-		private Button btnCreat;
+        private Button btnCreat;
 
-		private DataGridViewTextBoxColumn pationID;
+        private DataGridViewTextBoxColumn pationID;
 
-		private DataGridViewTextBoxColumn Ma;
+        private DataGridViewTextBoxColumn Ma;
 
-		private DataGridViewTextBoxColumn HoTen;
+        private DataGridViewTextBoxColumn HoTen;
 
-		private Panel panel1;
+        private Panel panel1;
 
-		public UCInsertUserLdap()
-		{
-			InitializeComponent();
-		}
+        public UCInsertUserLdap()
+        {
+            InitializeComponent();
+        }
 
-		private void UCInsertUserLdap_Load(object sender, EventArgs e)
-		{
-			LoadForm();
-		}
+        private void UCInsertUserLdap_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
 
-		private void btnThoat_Click(object sender, EventArgs e)
-		{
-			Application.Exit();
-		}
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
-		private void LoadForm()
-		{
-			try
-			{
-				Loading_FS.text = "\tĐang cập nhập dữ liệu...";
-				Loading_FS.ShowSplash();
-				CloneList();
-				LoadData();
-				CreateFolder(directoryPath);
-				CheckDataGridView(dgvAleph, lbCountListExcel);
-				CheckDataGridView(dgvLdap, lbCountHad);
-				Loading_FS.CloseSplash();
-				panel1.Visible = true;
-			}
-			catch (Exception ex)
-			{
-				Loading_FS.CloseSplash();
-				MessageBox.Show("Lỗi không mong muốn !\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-			}
-		}
+        private void LoadForm()
+        {
+            try
+            {
+                Loading_FS.text = "\tĐang cập nhập dữ liệu...";
+                Loading_FS.ShowSplash();
+                CloneList();
+                LoadData();
+                CreateFolder(directoryPath);
+                CheckDataGridView(dgvAleph, lbCountListExcel);
+                CheckDataGridView(dgvLdap, lbCountHad);
+                Loading_FS.CloseSplash();
+                panel1.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                Loading_FS.CloseSplash();
+                MessageBox.Show("Lỗi không mong muốn !\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
 
-		private void LoadData()
-		{
-			ldapUser = new ModelLdap().GetAllListUser();
-			compreRemovePatron();
-			dgvAleph.DataSource = ListPatronNoLdap;
-			dgvLdap.DataSource = ldapUser;
-		}
+        private void LoadData()
+        {
+            ldapUser = new ModelLdap().GetAllListUser();
+            compreRemovePatron();
+            dgvAleph.DataSource = ListPatronNoLdap;
+            dgvLdap.DataSource = ldapUser;
+        }
 
-		private void CloneList()
-		{
-			listZ308 = new List<Z308>();
-			foreach (Z308 item in DataDBLocal.listZ308)
-			{
-				listZ308.Add(item);
-			}
-		}
+        private void CloneList()
+        {
+            listZ308 = new List<Z308>();
+            foreach (Z308 item in DataDBLocal.listZ308)
+            {
+                listZ308.Add(item);
+            }
+        }
 
-		private void CreateFolder(string directoryPath)
-		{
-			if (!Directory.Exists(directoryPath))
-			{
-				Directory.CreateDirectory(directoryPath);
-			}
-		}
+        private void CreateFolder(string directoryPath)
+        {
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+        }
 
-		private void WriterUserLdap()
-		{
-			if (txtMa.Text == "" && txtMa.Text == null)
-			{
-				MessageBox.Show("Không thể để trống mã!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-				return;
-			}
-			if (txtPassword.Text == "" && txtPassword.Text == null)
-			{
-				MessageBox.Show("Không thể để trống mật khẩu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-				return;
-			}
-			User user = new User();
-			user.cn = txtMa.Text.Trim();
-			user.sn = txtMa.Text.Trim();
-			user.userLogin = txtMa.Text.Trim();
-			user.userMail = txtEmail.Text.Trim();
-			user.telephoneNumber = txtPhone.Text.Trim();
-			user.userPassword = txtPassword.Text.Trim();
-			user.objectClass = "OpenLDAPPerson";
-			using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Ldap-Log-" + tool.getDate() + ".txt"))
-			{
-				streamWriter.WriteLine(user.userLogin + "\t" + new ModelLdap().CreateUser(user));
-			}
-			try
-			{
-				Loading_FS.text = "\tĐang tạo người dùng...";
-				Loading_FS.ShowSplash();
-				LoadData();
-				Loading_FS.CloseSplash();
-			}
-			catch
-			{
-			}
-			MessageBox.Show("Thành công!", "Thông báo!");
-		}
+        private void WriterUserLdap()
+        {
+            if (txtMa.Text == "" && txtMa.Text == null)
+            {
+                MessageBox.Show("Không thể để trống mã!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+            if (txtPassword.Text == "" && txtPassword.Text == null)
+            {
+                MessageBox.Show("Không thể để trống mật khẩu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+            User user = new User();
+            user.cn = txtMa.Text.Trim();
+            user.sn = txtMa.Text.Trim();
+            user.userLogin = txtMa.Text.Trim();
+            user.userMail = txtEmail.Text.Trim();
+            user.telephoneNumber = txtPhone.Text.Trim();
+            user.userPassword = txtPassword.Text.Trim();
+            user.objectClass = "OpenLDAPPerson";
+            using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Ldap-Log-" + tool.getDate() + ".txt"))
+            {
+                streamWriter.WriteLine(user.userLogin + "\t" + new ModelLdap().CreateUser(user));
+            }
+            try
+            {
+                Loading_FS.text = "\tĐang tạo người dùng...";
+                Loading_FS.ShowSplash();
+                LoadData();
+                Loading_FS.CloseSplash();
+            }
+            catch
+            {
+            }
+            MessageBox.Show("Thành công!", "Thông báo!");
+        }
 
-		private void compreRemovePatron()
-		{
-			PatronLdap = new List<string>();
-			ListPatronNoLdap = new List<ItemBlock>();
-			foreach (Z308 item in listZ308)
-			{
-				string text = item.Z308_REC_KEY.Trim();
-				text = text.Substring(2);
-				foreach (User item2 in ldapUser)
-				{
-					if (text.Equals(item2.userLogin))
-					{
-						PatronLdap.Add(item2.userLogin);
-					}
-				}
-			}
-			RemovePatron();
-		}
+        private void compreRemovePatron()
+        {
+            PatronLdap = new List<string>();
+            ListPatronNoLdap = new List<ItemBlock>();
+            foreach (Z308 item in listZ308)
+            {
+                string text = item.Z308_REC_KEY.Trim();
+                text = text.Substring(2);
+                foreach (User item2 in ldapUser)
+                {
+                    if (text.Equals(item2.userLogin))
+                    {
+                        PatronLdap.Add(item2.userLogin);
+                    }
+                }
+            }
+            RemovePatron();
+        }
 
-		private void RemovePatron()
-		{
-			List<Z308> list = listZ308;
-			foreach (string s in PatronLdap)
-			{
-				int index = listZ308.FindIndex(delegate(Z308 dsd)
-				{
-					string text = dsd.Z308_REC_KEY.Substring(2);
-					return text.Equals(s);
-				});
-				list.RemoveAt(index);
-			}
-			ListPatronNoLdap = new List<ItemBlock>();
-			foreach (Z308 item in list)
-			{
-				ItemBlock itemBlock = new ItemBlock();
-				itemBlock.PatronId = item.Z308_ID;
-				itemBlock.Ma = item.Z308_REC_KEY.Substring(2);
-				itemBlock.HoTen = item.Z308_ENCRYPTION;
-				ListPatronNoLdap.Add(itemBlock);
-			}
-		}
+        private void RemovePatron()
+        {
+            List<Z308> list = listZ308;
+            foreach (string s in PatronLdap)
+            {
+                int index = listZ308.FindIndex(delegate (Z308 dsd)
+                {
+                    string text = dsd.Z308_REC_KEY.Substring(2);
+                    return text.Equals(s);
+                });
+                list.RemoveAt(index);
+            }
+            ListPatronNoLdap = new List<ItemBlock>();
+            foreach (Z308 item in list)
+            {
+                ItemBlock itemBlock = new ItemBlock();
+                itemBlock.PatronId = item.Z308_ID;
+                itemBlock.Ma = item.Z308_REC_KEY.Substring(2);
+                itemBlock.HoTen = item.Z308_ENCRYPTION;
+                ListPatronNoLdap.Add(itemBlock);
+            }
+        }
 
-		private void CheckDataGridView(DataGridView gdv, Label lb)
-		{
-			if (gdv.ColumnCount > 0)
-			{
-				lb.Text = "Số lượng: " + gdv.RowCount.ToString();
-			}
-		}
+        private void CheckDataGridView(DataGridView gdv, Label lb)
+        {
+            if (gdv.ColumnCount > 0)
+            {
+                lb.Text = "Số lượng: " + gdv.RowCount.ToString();
+            }
+        }
 
-		private void BtnCreat_Click(object sender, EventArgs e)
-		{
-			WriterUserLdap();
-		}
+        private void BtnCreat_Click(object sender, EventArgs e)
+        {
+            WriterUserLdap();
+        }
 
-		private void DgvAleph_CellClick(object sender, DataGridViewCellEventArgs e)
-		{
-			int rowIndex = e.RowIndex;
-			try
-			{
-				txtMa.Text = dgvAleph.Rows[rowIndex].Cells[0].Value.ToString();
-			}
-			catch
-			{
-			}
-		}
+        private void DgvAleph_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            try
+            {
+                txtMa.Text = dgvAleph.Rows[rowIndex].Cells[0].Value.ToString();
+            }
+            catch
+            {
+            }
+        }
 
-		private void BtnSearch_Click(object sender, EventArgs e)
-		{
-			string inputText = txtSearch.Text.Trim().ToUpper();
-			dgvAleph.Columns.Clear();
-			dgvAleph.DataSource = (from r in ListPatronNoLdap.AsEnumerable()
-				where r.Ma.Contains(inputText)
-				select r).ToList();
-		}
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            string inputText = txtSearch.Text.Trim().ToUpper();
+            dgvAleph.Columns.Clear();
+            dgvAleph.DataSource = (from r in ListPatronNoLdap.AsEnumerable()
+                                   where r.Ma.Contains(inputText)
+                                   select r).ToList();
+        }
 
-		private void BtnUnSearch_Click(object sender, EventArgs e)
-		{
-			dgvAleph.DataSource = ListPatronNoLdap;
-		}
+        private void BtnUnSearch_Click(object sender, EventArgs e)
+        {
+            dgvAleph.DataSource = ListPatronNoLdap;
+            txtSearch.Clear();
+        }
 
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && components != null)
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && components != null)
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		private void InitializeComponent()
-		{
+        private void InitializeComponent()
+        {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -327,7 +327,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.dgvAleph.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvAleph.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAleph.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvAleph.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAleph.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pationID,
             this.Ma,
@@ -347,7 +347,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.pationID.HeaderText = "Patron ID";
             this.pationID.Name = "pationID";
             this.pationID.ReadOnly = true;
-            this.pationID.Width = 81;
             // 
             // Ma
             // 
@@ -355,7 +354,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.Ma.HeaderText = "Mã";
             this.Ma.Name = "Ma";
             this.Ma.ReadOnly = true;
-            this.Ma.Width = 49;
             // 
             // HoTen
             // 
@@ -363,7 +361,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.HoTen.HeaderText = "Họ tên";
             this.HoTen.Name = "HoTen";
             this.HoTen.ReadOnly = true;
-            this.HoTen.Width = 67;
             // 
             // groupBox1
             // 
@@ -434,7 +431,7 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(152, 166);
+            this.txtPassword.Location = new System.Drawing.Point(152, 165);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(281, 33);
             this.txtPassword.TabIndex = 130;
@@ -496,7 +493,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.btnCreat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreat.ForeColor = System.Drawing.Color.White;
             this.btnCreat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreat.Location = new System.Drawing.Point(152, 202);
+            this.btnCreat.Location = new System.Drawing.Point(152, 201);
             this.btnCreat.Name = "btnCreat";
             this.btnCreat.Size = new System.Drawing.Size(281, 35);
             this.btnCreat.TabIndex = 123;
@@ -564,7 +561,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.dgvLdap.AllowUserToDeleteRows = false;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvLdap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvLdap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLdap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLdap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLdap.Location = new System.Drawing.Point(3, 18);
             this.dgvLdap.Name = "dgvLdap";
@@ -628,6 +625,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
-		}
-	}
+        }
+    }
 }

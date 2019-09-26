@@ -27,11 +27,8 @@ namespace TNUE_Patron_Excel.Z303
 			stringBuilder.Append("<z303-user-type></z303-user-type>");
 			stringBuilder.Append("<z303-user-library></z303-user-library>");
 			stringBuilder.Append("<z303-open-date>" + p.Day + "</z303-open-date>");
-			stringBuilder.Append("<z303-update-date>" + p.Day + "</z303-update-date>");
-
-            stringBuilder.Append(new ToolP().WriteStringCheckNull(ngonNgu(p.QuocTich), "z303-con-lng"));
-            //stringBuilder.Append("<z303-con-lng>" + ngonNgu(p.QuocTich) + "</z303-con-lng>");
-
+			stringBuilder.Append("<z303-update-date>" + p.Day + "</z303-update-date>");            
+            stringBuilder.Append("<z303-con-lng>" + ngonNgu(p.QuocTich) + "</z303-con-lng>");
 			stringBuilder.Append("<z303-alpha>L</z303-alpha>");
 			stringBuilder.Append("<z303-name>" + hoTen + "</z303-name>");
 			stringBuilder.Append("<z303-title>" + z303_title(p.chucVu, p.GT) + "</z303-title>");

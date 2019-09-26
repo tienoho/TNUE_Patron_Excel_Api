@@ -64,8 +64,6 @@ namespace TNUE_Patron_Excel
 
 		private ToolStripMenuItem đăngNhậpToolStripMenuItem;
 
-		private ToolStripMenuItem QLNDToolStripMenuItem;
-
 		private ToolStripMenuItem homeToolStripMenuItem;
 
 		private ToolStripMenuItem ConvertPicToolStripMenuItem;
@@ -141,16 +139,6 @@ namespace TNUE_Patron_Excel
 			uCUpdatePatron.Show();
 			lblInformation.Text = "Chức năng: Cập nhập bạn đọc";
 		}
-
-		private void QLNDToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			_pnlRight.Controls.Clear();
-			UCControlMember uCControlMember = new UCControlMember();
-			_pnlRight.Controls.Add(uCControlMember);
-			uCControlMember.Show();
-			lblInformation.Text = "Chức năng: Control Member";
-		}
-
 		private void ConvertPicToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			_pnlRight.Controls.Clear();
@@ -197,7 +185,6 @@ namespace TNUE_Patron_Excel
 			_pnlRight.Enabled = bl;
 			addLdapToolStripMenuItem.Enabled = bl;
 			homeToolStripMenuItem.Enabled = bl;
-			QLNDToolStripMenuItem.Enabled = bl;
 			dataPatronToolStripMenuItem.Enabled = bl;
 		}
 
@@ -355,7 +342,6 @@ namespace TNUE_Patron_Excel
             this.danhMucToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngNhậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.QLNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ConvertPicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataPatronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -558,7 +544,6 @@ namespace TNUE_Patron_Excel
             this.danhMucToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.đăngNhậpToolStripMenuItem,
             this.homeToolStripMenuItem,
-            this.QLNDToolStripMenuItem,
             this.ConvertPicToolStripMenuItem,
             this.dataPatronToolStripMenuItem});
             this.danhMucToolStripMenuItem.Name = "danhMucToolStripMenuItem";
@@ -580,14 +565,6 @@ namespace TNUE_Patron_Excel
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.homeToolStripMenuItem.Text = "Trang Chính";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
-            // 
-            // QLNDToolStripMenuItem
-            // 
-            this.QLNDToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.username_login_50x50;
-            this.QLNDToolStripMenuItem.Name = "QLNDToolStripMenuItem";
-            this.QLNDToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.QLNDToolStripMenuItem.Text = "Quản Lý Người Dùng";
-            this.QLNDToolStripMenuItem.Click += new System.EventHandler(this.QLNDToolStripMenuItem_Click);
             // 
             // ConvertPicToolStripMenuItem
             // 
@@ -667,7 +644,7 @@ namespace TNUE_Patron_Excel
             // 
             this.serverDatabaseToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.database;
             this.serverDatabaseToolStripMenuItem.Name = "serverDatabaseToolStripMenuItem";
-            this.serverDatabaseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.serverDatabaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.serverDatabaseToolStripMenuItem.Text = "Server Database";
             this.serverDatabaseToolStripMenuItem.Click += new System.EventHandler(this.serverDatabaseToolStripMenuItem_Click);
             // 
@@ -675,7 +652,7 @@ namespace TNUE_Patron_Excel
             // 
             this.serverLdapToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.simpleid_icon_adapt;
             this.serverLdapToolStripMenuItem.Name = "serverLdapToolStripMenuItem";
-            this.serverLdapToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.serverLdapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.serverLdapToolStripMenuItem.Text = "Server Ldap";
             this.serverLdapToolStripMenuItem.Click += new System.EventHandler(this.serverLdapToolStripMenuItem_Click);
             // 
@@ -683,7 +660,7 @@ namespace TNUE_Patron_Excel
             // 
             this.serverAlephToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.mindtouch;
             this.serverAlephToolStripMenuItem.Name = "serverAlephToolStripMenuItem";
-            this.serverAlephToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.serverAlephToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.serverAlephToolStripMenuItem.Text = "Server Aleph";
             this.serverAlephToolStripMenuItem.Click += new System.EventHandler(this.serverAlephToolStripMenuItem_Click);
             // 

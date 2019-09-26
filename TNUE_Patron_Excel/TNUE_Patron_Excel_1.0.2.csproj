@@ -104,9 +104,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ControlMember\ItemBlock.cs" />
-    <Compile Include="ControlMember\UCControlMember.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="ControlMember\UCDeleteUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -214,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCConvertPic.resx">
       <DependentUpon>UCConvertPic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCSinhVien.resx">
+      <DependentUpon>UCSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

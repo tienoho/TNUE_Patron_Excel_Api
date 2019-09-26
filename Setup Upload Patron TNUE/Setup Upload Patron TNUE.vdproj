@@ -52,12 +52,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8915E3B56868E34E409631E492F1C1D4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_48A9A1CC6A3044559EE433993BAA3151"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -71,6 +65,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2479FA87F706430856CA21B71D19590D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8915E3B56868E34E409631E492F1C1D4"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -123,6 +123,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -352,15 +360,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup Upload Patron TNUE"
-        "ProductCode" = "8:{251D29AC-67FE-4B3E-9A15-3ECABC71E030}"
-        "PackageCode" = "8:{A88884FB-115E-4499-97E6-310F535D8932}"
+        "ProductCode" = "8:{DADD4EE7-4752-46FE-86FA-1335F1BA88A1}"
+        "PackageCode" = "8:{27EE1217-EA35-40C5-AE98-4DBA6A8EC3FC}"
         "UpgradeCode" = "8:{D50B42D0-DF88-4987-AA09-BDEC203AA57B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:TED"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -504,7 +512,7 @@
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C7E627CACD2C46C999E85B0AF1100AB4"
             {
             "Name" = "8:TNUE Upload Patron Excel"
-            "Arguments" = "8:/x{251D29AC-67FE-4B3E-9A15-3ECABC71E030}/qr"
+            "Arguments" = "8:/x{DADD4EE7-4752-46FE-86FA-1335F1BA88A1}/qr"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"

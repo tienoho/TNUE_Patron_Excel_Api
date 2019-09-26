@@ -363,23 +363,22 @@ namespace TNUE_Patron_Excel
                 MessageBox.Show("Chưa chọn file");
                 return;
             }
-            fileEx = (Microsoft.Office.Interop.Excel.Application)Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("00024500-0000-0000-C000-000000000046")));
-            Excel.Workbook workbook = fileEx.Workbooks.Open(fileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            Excel.Worksheet worksheet = new Excel.Worksheet();
-            //         DateTime dateTime = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy"));
-            //DateTime dateTime2 = DateTime.Parse(dateTime.AddYears(4).ToString("dd/MM/yyyy"));
-            string dateTime = DateTime.Now.ToString("dd/MM/yyyy");
-            string dateTime2 = DateTime.Now.AddYears(4).ToString("dd/MM/yyyy");
-            listPatron = new List<Patron>();
-            sbList = new StringBuilder();
-            int count = fileEx.Worksheets.Count;
-            string str = txtLine.Text.Trim();
-            int num = int.Parse(txtPatronId.Text);
-            for (int i = 1; i < count + 1; i++)
+            fileEx = new Excel.Application();
+            Excel.Workbook workbook = null;
+            Excel.Worksheet worksheet = null;
+            try
             {
-                worksheet = (Excel.Worksheet)(dynamic)fileEx.Sheets[i];
-                try
+                workbook = fileEx.Workbooks.Open(fileName);
+                string dateTime = DateTime.Now.ToString("dd/MM/yyyy");
+                string dateTime2 = DateTime.Now.AddYears(4).ToString("dd/MM/yyyy");
+                listPatron = new List<Patron>();
+                sbList = new StringBuilder();
+                int count = fileEx.Worksheets.Count;
+                string str = txtLine.Text.Trim();
+                int num = int.Parse(txtPatronId.Text);
+                for (int i = 1; i < count + 1; i++)
                 {
+                    worksheet = (Excel.Worksheet)(dynamic)fileEx.Sheets[i];
                     int count2 = worksheet.UsedRange.Rows.Count;
                     Excel.Range range = ((Excel.Worksheet)worksheet).get_Range((object)("A" + str), (object)("K" + count2));
                     int count3 = range.Rows.Count;
@@ -415,17 +414,26 @@ namespace TNUE_Patron_Excel
                         }
                     }
                 }
-                catch (Exception arg)
-                {
-                    MessageBox.Show("Lỗi: " + arg);
-                }
+                listPatron.RemoveAll((Patron item) => item.MaSV_O == "");
             }
-            workbook.Close(false, Type.Missing, Type.Missing);
-            fileEx.Quit();
-            Marshal.ReleaseComObject(worksheet);
-            Marshal.ReleaseComObject(workbook);
-            Marshal.ReleaseComObject(fileEx);
-            listPatron.RemoveAll((Patron item) => item.MaSV_O == "");
+            catch (Exception arg)
+            {
+                MessageBox.Show("Lỗi: " + arg);
+            }
+            finally
+            {
+                if (worksheet != null)
+                {
+                    Marshal.ReleaseComObject(worksheet);
+                }
+                if (workbook != null)
+                {
+                    workbook.Close(false, Type.Missing, Type.Missing);
+                    Marshal.ReleaseComObject(workbook);
+                }
+                fileEx.Quit();
+                Marshal.ReleaseComObject(fileEx);
+            }
         }
 
         private void WriterUserLdap()
