@@ -167,9 +167,11 @@
     <Compile Include="Z303\z303.cs" />
     <Compile Include="Z303\z303Block.cs" />
     <Compile Include="Z303\z304.cs" />
+    <Compile Include="Z303\z304Update.cs" />
     <Compile Include="Z303\z305.cs" />
     <Compile Include="Z303\z305Block.cs" />
     <Compile Include="Z303\z308.cs" />
+    <Compile Include="Z303\z308Update.cs" />
     <EmbeddedResource Include="Config\ConfigAleph.resx">
       <DependentUpon>ConfigAleph.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlMember\UCDeleteUser.resx">
       <DependentUpon>UCDeleteUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlMember\UCInsertUserLdap.resx">
+      <DependentUpon>UCInsertUserLdap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlMember\UCUpdatePatron.resx">
       <DependentUpon>UCUpdatePatron.cs</DependentUpon>

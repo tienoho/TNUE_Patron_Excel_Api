@@ -16,577 +16,577 @@ using TNUE_Patron_Excel.Z303;
 
 namespace TNUE_Patron_Excel
 {
-	public class UCCanBo : UserControl
-	{
-		private List<Z308> listZ308 = null;
+    public class UCCanBo : UserControl
+    {
+        private List<Z308> listZ308 = null;
 
-		private ToolP tool = new ToolP();
+        private ToolP tool = new ToolP();
 
-		private Microsoft.Office.Interop.Excel.Application fileEx = null;
+        private Microsoft.Office.Interop.Excel.Application fileEx = null;
 
-		private StringBuilder sbList = null;
+        private StringBuilder sbList = null;
 
-		private List<Patron> listPatron = null;
+        private List<Patron> listPatron = null;
 
-		private StringBuilder sbPatronXml;
+        private StringBuilder sbPatronXml;
 
-		private List<StringBuilder> listSb = null;
+        private List<StringBuilder> listSb = null;
 
-		private List<User> ldapUser = null;
+        private List<User> ldapUser = null;
 
-		private List<Patron> DSTonTai = null;
+        private List<Patron> DSTonTai = null;
 
-		private string fileName = "";
+        private string fileName = "";
 
-		private int countP = 1;
+        private int countP = 1;
 
-		private string directoryPath = System.Windows.Forms.Application.StartupPath + "\\log";
+        private string directoryPath = System.Windows.Forms.Application.StartupPath + "\\log";
 
-		private IContainer components = null;
+        private IContainer components = null;
 
-		private GroupBox groupBox3;
+        private GroupBox groupBox3;
 
-		private GroupBox groupBox1;
+        private GroupBox groupBox1;
 
-		private Button btnThoat;
+        private Button btnThoat;
 
-		private Label label6;
+        private Label label6;
 
-		private Button btn_ldap;
+        private Button btn_ldap;
 
-		private Button btn_api;
+        private Button btn_api;
 
-		private TextBox txtPatronId;
+        private TextBox txtPatronId;
 
-		private Label label4;
+        private Label label4;
 
-		private TextBox txtLine;
+        private TextBox txtLine;
 
-		private Label label5;
+        private Label label5;
 
-		private ComboBox comboBox1;
+        private ComboBox comboBox1;
 
-		private TextBox textBox3;
+        private TextBox textBox3;
 
-		private TextBox textBox2;
+        private TextBox textBox2;
 
-		private Label label2;
+        private Label label2;
 
-		private Button btnBrowserFile;
+        private Button btnBrowserFile;
 
-		private TextBox textBox1;
+        private TextBox textBox1;
 
-		private Label label1;
+        private Label label1;
 
-		private Button btnGetData;
+        private Button btnGetData;
 
-		private Label label3;
+        private Label label3;
 
-		private Button btnConvert;
+        private Button btnConvert;
 
-		private Button btnXml;
+        private Button btnXml;
 
-		private FolderBrowserDialog folderBrowserDialog1;
+        private FolderBrowserDialog folderBrowserDialog1;
 
-		private GroupBox groupBox2;
+        private GroupBox groupBox2;
 
-		private Label lbCountListExcel;
+        private Label lbCountListExcel;
 
-		private Label lbCountHad;
+        private Label lbCountHad;
 
-		private Button btnPush;
+        private Button btnPush;
 
-		private PictureBox pb_TaiChinh;
+        private PictureBox pb_TaiChinh;
 
-		private Label label7;
+        private Label label7;
 
-		private ComboBox cbLoaiBanDoc;
+        private ComboBox cbLoaiBanDoc;
 
-		private DataGridView dgvPatron;
+        private DataGridView dgvPatron;
 
-		private DataGridView dgvHad;
+        private DataGridView dgvHad;
 
-		private DataGridViewTextBoxColumn pationID;
+        private DataGridViewTextBoxColumn pationID;
 
-		private DataGridViewTextBoxColumn MaSV_O;
+        private DataGridViewTextBoxColumn MaSV_O;
 
-		private DataGridViewTextBoxColumn HoTen;
+        private DataGridViewTextBoxColumn HoTen;
 
-		private DataGridViewTextBoxColumn GT;
+        private DataGridViewTextBoxColumn GT;
 
-		private DataGridViewTextBoxColumn ngaySinh;
+        private DataGridViewTextBoxColumn ngaySinh;
 
-		private DataGridViewTextBoxColumn password;
+        private DataGridViewTextBoxColumn password;
 
-		private DataGridViewTextBoxColumn phone;
+        private DataGridViewTextBoxColumn phone;
 
-		private DataGridViewTextBoxColumn email;
+        private DataGridViewTextBoxColumn email;
 
-		private DataGridViewTextBoxColumn DiaChi;
+        private DataGridViewTextBoxColumn DiaChi;
 
-		private DataGridViewTextBoxColumn khoaHoc;
+        private DataGridViewTextBoxColumn khoaHoc;
 
-		private DataGridViewTextBoxColumn khoa;
+        private DataGridViewTextBoxColumn khoa;
 
-		private DataGridViewTextBoxColumn lopHoc;
+        private DataGridViewTextBoxColumn lopHoc;
 
-		private DataGridViewTextBoxColumn makh;
+        private DataGridViewTextBoxColumn makh;
 
-		private DataGridViewTextBoxColumn chucVu;
+        private DataGridViewTextBoxColumn chucVu;
 
-		private DataGridViewTextBoxColumn chucDanh;
+        private DataGridViewTextBoxColumn chucDanh;
 
-		private DataGridViewTextBoxColumn QuocTich;
+        private DataGridViewTextBoxColumn QuocTich;
 
-		private DataGridViewTextBoxColumn hocBong;
+        private DataGridViewTextBoxColumn hocBong;
 
-		private DataGridViewTextBoxColumn qdCongNhan;
+        private DataGridViewTextBoxColumn qdCongNhan;
 
-		private DataGridViewTextBoxColumn ngayHetHan;
+        private DataGridViewTextBoxColumn ngayHetHan;
 
-		private DataGridViewTextBoxColumn Day;
+        private DataGridViewTextBoxColumn Day;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
 
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
 
-		private Button btnUpdateLdap;
+        private Button btnUpdateLdap;
 
-		public UCCanBo()
-		{
-			InitializeComponent();
-		}
+        public UCCanBo()
+        {
+            InitializeComponent();
+        }
 
-		private void UCCanBo_Load(object sender, EventArgs e)
-		{
-			listZ308 = DataDBLocal.listZ308;
-			ComboxBlock();
-			ComboxLoaiBanDoc();
-			txtPatronId.Text = "1";
-			txtLine.Text = "3";
-			countP = new QueryDB().CountPatron();
-			txtPatronId.Text = $"{countP + 1:000000000000}";
-			CreateFolder(directoryPath);
-		}
-
-		private void CreateFolder(string directoryPath)
-		{
-			if (!Directory.Exists(directoryPath))
-			{
-				Directory.CreateDirectory(directoryPath);
-			}
-		}
-
-		private void btnThoat_Click(object sender, EventArgs e)
-		{
-			System.Windows.Forms.Application.Exit();
-		}
-
-		private void txtLine_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-			{
-				e.Handled = true;
-			}
-		}
-
-		private void btnBrowserFile_Click(object sender, EventArgs e)
-		{
-			OpenFileDialog openFileDialog = new OpenFileDialog();
-			openFileDialog.Filter = "excel file |*.xls;*.xlsx";
-			openFileDialog.FilterIndex = 1;
-			openFileDialog.RestoreDirectory = true;
-			openFileDialog.Multiselect = false;
-			openFileDialog.Title = "Chọn file excel";
-			if (openFileDialog.ShowDialog() == DialogResult.OK)
-			{
-				textBox1.Text = openFileDialog.FileName;
-			}
-			if (textBox1.Text != "")
-			{
-				readExcel2();
-				btnConvert.Enabled = true;
-				MessageBox.Show("Chuyển dữ liệu thành công!");
-			}
-		}
-
-		private void btnGetData_Click(object sender, EventArgs e)
-		{
-			if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
-			{
-				textBox2.Text = folderBrowserDialog1.SelectedPath;
-			}
-		}
-
-		private void btnConvert_Click(object sender, EventArgs e)
-		{
-			if (textBox1.Text != "")
-			{
-				compreRemovePatron();
-				WriteXML();
-				WriteXmlApi();
-				WriterUserLdap();
-				dgvPatron.DataSource = listPatron;
-				dgvHad.DataSource = DSTonTai;
-				CheckDataGridView(dgvPatron, lbCountListExcel);
-				CheckDataGridView(dgvHad, lbCountHad);
-				if (listPatron.Count > 0)
-				{
-					btn_api.Enabled = true;
-					btnXml.Enabled = true;
-					btn_ldap.Enabled = true;
-					btnPush.Enabled = true;
-					btnUpdateLdap.Enabled = true;
-					btnConvert.Enabled = false;
-				}
-				MessageBox.Show("chuyển đổi dữ liệu thành công!", "Thông báo!");
-			}
-		}
-
-		private void btnXml_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				ExportDanhSachTT();
-				File.WriteAllText(textBox2.Text + "/PatronTNUE-CanBo-" + tool.getDate() + ".xml", sbPatronXml.ToString());
-				MessageBox.Show("Xuất file thành công!", "Thông báo!");
-			}
-			catch
-			{
-				MessageBox.Show("Xuất file không thành công!", "Lỗi!");
-			}
-		}
-
-		private void btn_ldap_Click(object sender, EventArgs e)
-		{
-			using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Ldap-Log-" + tool.getDate() + ".txt"))
-			{
-				foreach (User item in ldapUser)
-				{
-					streamWriter.WriteLine(item.userLogin + "\t" + new ModelLdap().CreateUser(item));
-				}
-			}
-			MessageBox.Show("Thành công!", "Thông báo!");
-		}
-
-		private void btn_api_Click(object sender, EventArgs e)
-		{
-			using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Api-Patron-Log-" + tool.getDate() + ".txt"))
-			{
-				foreach (StringBuilder item in listSb)
-				{
-					streamWriter.WriteLine(new AlephAPI().Url(item.ToString()));
-				}
-			}
-			MessageBox.Show("Thành công!", "Thông báo!");
-		}
-
-		private void txtPatronId_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-			{
-				e.Handled = true;
-			}
-		}
-
-		private void ComboxBlock()
-		{
-			ComboboxItem comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Mở";
-			comboboxItem.Value = "00";
-			comboBox1.Items.Add(comboboxItem);
-			comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Khóa";
-			comboboxItem.Value = "05";
-			comboBox1.Items.Add(comboboxItem);
-			comboBox1.SelectedIndex = 0;
-		}
-
-		private void ComboxLoaiBanDoc()
-		{
-			ComboboxItem comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Cán Bộ";
-			comboboxItem.Value = "01";
-			cbLoaiBanDoc.Items.Add(comboboxItem);
-			comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Giảng Viên";
-			comboboxItem.Value = "04";
-			cbLoaiBanDoc.Items.Add(comboboxItem);
-			comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Thư Viện Viên";
-			comboboxItem.Value = "06";
-			cbLoaiBanDoc.Items.Add(comboboxItem);
-			cbLoaiBanDoc.SelectedIndex = 0;
-		}
-
-		private void readExcel2()
-		{
-			fileName = textBox1.Text;
-			if (fileName == null)
-			{
-				MessageBox.Show("Chưa chọn file");
-				return;
-			}
-			fileEx = (Microsoft.Office.Interop.Excel.Application)Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("00024500-0000-0000-C000-000000000046")));
+        private void UCCanBo_Load(object sender, EventArgs e)
+        {
+            listZ308 = DataDBLocal.listZ308;
+            ComboxBlock();
+            ComboxLoaiBanDoc();
+            txtPatronId.Text = "1";
+            txtLine.Text = "3";
+            countP = new QueryDB().CountPatron();
+            txtPatronId.Text = $"{countP + 1:000000000000}";
+            CreateFolder(directoryPath);
+        }
+
+        private void CreateFolder(string directoryPath)
+        {
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void txtLine_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnBrowserFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "excel file |*.xls;*.xlsx";
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.Multiselect = false;
+            openFileDialog.Title = "Chọn file excel";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = openFileDialog.FileName;
+            }
+            if (textBox1.Text != "")
+            {
+                readExcel2();
+                btnConvert.Enabled = true;
+                MessageBox.Show("Chuyển dữ liệu thành công!");
+            }
+        }
+
+        private void btnGetData_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                textBox2.Text = folderBrowserDialog1.SelectedPath;
+            }
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "")
+            {
+                compreRemovePatron();
+                WriteXML();
+                WriteXmlApi();
+                WriterUserLdap();
+                dgvPatron.DataSource = listPatron;
+                dgvHad.DataSource = DSTonTai;
+                CheckDataGridView(dgvPatron, lbCountListExcel);
+                CheckDataGridView(dgvHad, lbCountHad);
+                if (listPatron.Count > 0)
+                {
+                    btn_api.Enabled = true;
+                    btnXml.Enabled = true;
+                    btn_ldap.Enabled = true;
+                    btnPush.Enabled = true;
+                    btnUpdateLdap.Enabled = true;
+                    btnConvert.Enabled = false;
+                }
+                MessageBox.Show("chuyển đổi dữ liệu thành công!", "Thông báo!");
+            }
+        }
+
+        private void btnXml_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ExportDanhSachTT();
+                File.WriteAllText(textBox2.Text + "/PatronTNUE-CanBo-" + tool.getDate() + ".xml", sbPatronXml.ToString());
+                MessageBox.Show("Xuất file thành công!", "Thông báo!");
+            }
+            catch
+            {
+                MessageBox.Show("Xuất file không thành công!", "Lỗi!");
+            }
+        }
+
+        private void btn_ldap_Click(object sender, EventArgs e)
+        {
+            using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Ldap-Log-" + tool.getDate() + ".txt"))
+            {
+                foreach (User item in ldapUser)
+                {
+                    streamWriter.WriteLine(item.userLogin + "\t" + new ModelLdap().CreateUser(item));
+                }
+            }
+            MessageBox.Show("Thành công!", "Thông báo!");
+        }
+
+        private void btn_api_Click(object sender, EventArgs e)
+        {
+            using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Api-Patron-Log-" + tool.getDate() + ".txt"))
+            {
+                foreach (StringBuilder item in listSb)
+                {
+                    streamWriter.WriteLine(new AlephAPI().Url(item.ToString()));
+                }
+            }
+            MessageBox.Show("Thành công!", "Thông báo!");
+        }
+
+        private void txtPatronId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ComboxBlock()
+        {
+            ComboboxItem comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Mở";
+            comboboxItem.Value = "00";
+            comboBox1.Items.Add(comboboxItem);
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Khóa";
+            comboboxItem.Value = "05";
+            comboBox1.Items.Add(comboboxItem);
+            comboBox1.SelectedIndex = 0;
+        }
+
+        private void ComboxLoaiBanDoc()
+        {
+            ComboboxItem comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Cán Bộ";
+            comboboxItem.Value = "01";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Giảng Viên";
+            comboboxItem.Value = "04";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Thư Viện Viên";
+            comboboxItem.Value = "06";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+            cbLoaiBanDoc.SelectedIndex = 0;
+        }
+
+        private void readExcel2()
+        {
+            fileName = textBox1.Text;
+            if (fileName == null)
+            {
+                MessageBox.Show("Chưa chọn file");
+                return;
+            }
+            fileEx = (Microsoft.Office.Interop.Excel.Application)Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("00024500-0000-0000-C000-000000000046")));
             Excel.Workbook workbook = fileEx.Workbooks.Open(fileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             Excel.Worksheet worksheet = new Excel.Worksheet();
-   //         DateTime dateTime = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy"));
-			//DateTime dateTime2 = DateTime.Parse(dateTime.AddYears(4).ToString("dd/MM/yyyy"));
+            //         DateTime dateTime = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy"));
+            //DateTime dateTime2 = DateTime.Parse(dateTime.AddYears(4).ToString("dd/MM/yyyy"));
             string dateTime = DateTime.Now.ToString("dd/MM/yyyy");
             string dateTime2 = DateTime.Now.AddYears(4).ToString("dd/MM/yyyy");
-			listPatron = new List<Patron>();
-			sbList = new StringBuilder();
-			int count = fileEx.Worksheets.Count;
-			string str = txtLine.Text.Trim();
-			int num = int.Parse(txtPatronId.Text);
-			for (int i = 1; i < count + 1; i++)
-			{
+            listPatron = new List<Patron>();
+            sbList = new StringBuilder();
+            int count = fileEx.Worksheets.Count;
+            string str = txtLine.Text.Trim();
+            int num = int.Parse(txtPatronId.Text);
+            for (int i = 1; i < count + 1; i++)
+            {
                 worksheet = (Excel.Worksheet)(dynamic)fileEx.Sheets[i];
-				try
-				{
-					int count2 = worksheet.UsedRange.Rows.Count;
+                try
+                {
+                    int count2 = worksheet.UsedRange.Rows.Count;
                     Excel.Range range = ((Excel.Worksheet)worksheet).get_Range((object)("A" + str), (object)("K" + count2));
-					int count3 = range.Rows.Count;
-					int count4 = range.Columns.Count;
-					object[,] array = (object[,])(dynamic)range.Value2;
-					for (int j = 1; j <= array.GetLength(0); j++)
-					{
-						string text = Convert.ToString(array[j, 2]);
-						if (text != null && !text.Equals(""))
-						{
-							Patron patron = new Patron();
-							patron.pationID = $"{num:000000000000}";
-							patron.MaSV_O = Unicode.compound2Unicode(Convert.ToString(array[j, 2])).ToUpper().Trim();
-							patron.GT = tool.convertGender(Convert.ToString(array[j, 6]));
-							string text2 = Unicode.compound2Unicode(Convert.ToString(array[j, 3]) + " " + Convert.ToString(array[j, 4]));
-							patron.HoTen = text2.Trim();
-							patron.ngaySinh = tool.formatDate(Convert.ToString(array[j, 5]));
-							patron.password = tool.formatDatePassword(Convert.ToString(array[j, 5]));
-							patron.phone = Convert.ToString(array[j, 7]);
-							patron.email = Convert.ToString(array[j, 8]);
-							patron.makh = Convert.ToString(array[j, 9]);
-							string text3 = Unicode.compound2Unicode(Convert.ToString(array[j, 10]));
-							patron.chucVu = text3.Trim();
-							string text4 = Convert.ToString(array[j, 11]);
-							patron.chucDanh = Unicode.compound2Unicode(text4.Trim());
-							patron.ngayHetHan = tool.formatDate(dateTime2.ToString());
-							string text6 = patron.Day = tool.formatDate(dateTime.ToString());
-							patron.DiaChi = "";
-							patron.khoaHoc = "";
-							patron.lopHoc = "";
-							listPatron.Add(patron);
-							num++;
-						}
-					}
-				}
-				catch (Exception arg)
-				{
-					MessageBox.Show("Lỗi: " + arg);
-				}
-			}
-			workbook.Close(false, Type.Missing, Type.Missing);
-			fileEx.Quit();
+                    int count3 = range.Rows.Count;
+                    int count4 = range.Columns.Count;
+                    object[,] array = (object[,])(dynamic)range.Value2;
+                    for (int j = 1; j <= array.GetLength(0); j++)
+                    {
+                        string text = Convert.ToString(array[j, 2]);
+                        if (text != null && !text.Equals(""))
+                        {
+                            Patron patron = new Patron();
+                            patron.pationID = $"{num:000000000000}";
+                            patron.MaSV_O = Unicode.compound2Unicode(Convert.ToString(array[j, 2])).ToUpper().Trim();
+                            patron.GT = tool.convertGender(Convert.ToString(array[j, 6]));
+                            string text2 = Unicode.compound2Unicode(Convert.ToString(array[j, 3]) + " " + Convert.ToString(array[j, 4]));
+                            patron.HoTen = text2.Trim();
+                            patron.ngaySinh = tool.formatDate(Convert.ToString(array[j, 5]));
+                            patron.password = tool.formatDatePassword(Convert.ToString(array[j, 5]));
+                            patron.phone = Convert.ToString(array[j, 7]);
+                            patron.email = Convert.ToString(array[j, 8]);
+                            patron.makh = Convert.ToString(array[j, 9]);
+                            string text3 = Unicode.compound2Unicode(Convert.ToString(array[j, 10]));
+                            patron.chucVu = text3.Trim();
+                            string text4 = Convert.ToString(array[j, 11]);
+                            patron.chucDanh = Unicode.compound2Unicode(text4.Trim());
+                            patron.ngayHetHan = tool.formatDate(dateTime2.ToString());
+                            string text6 = patron.Day = tool.formatDate(dateTime.ToString());
+                            patron.DiaChi = "";
+                            patron.khoaHoc = "";
+                            patron.lopHoc = "";
+                            listPatron.Add(patron);
+                            num++;
+                        }
+                    }
+                }
+                catch (Exception arg)
+                {
+                    MessageBox.Show("Lỗi: " + arg);
+                }
+            }
+            workbook.Close(false, Type.Missing, Type.Missing);
+            fileEx.Quit();
             Marshal.ReleaseComObject(worksheet);
             Marshal.ReleaseComObject(workbook);
-			Marshal.ReleaseComObject(fileEx);
-			listPatron.RemoveAll((Patron item) => item.MaSV_O == "");
-		}
+            Marshal.ReleaseComObject(fileEx);
+            listPatron.RemoveAll((Patron item) => item.MaSV_O == "");
+        }
 
-		private void WriterUserLdap()
-		{
-			ldapUser = new List<User>();
-			foreach (Patron item in listPatron)
-			{
-				User user = new User();
-				user.cn = item.MaSV_O.Trim();
-				user.sn = item.MaSV_O.Trim();
-				user.userLogin = item.MaSV_O.Trim();
-				user.userMail = item.email;
-				user.userPassword = item.password;
-				user.objectClass = "OpenLDAPPerson";
-				user.telephoneNumber = item.phone;
-				ldapUser.Add(user);
-			}
-		}
+        private void WriterUserLdap()
+        {
+            ldapUser = new List<User>();
+            foreach (Patron item in listPatron)
+            {
+                User user = new User();
+                user.cn = item.MaSV_O.Trim();
+                user.sn = item.MaSV_O.Trim();
+                user.userLogin = item.MaSV_O.Trim();
+                user.userMail = item.email;
+                user.userPassword = item.password;
+                user.objectClass = "OpenLDAPPerson";
+                user.telephoneNumber = item.phone;
+                ldapUser.Add(user);
+            }
+        }
 
-		private void WriteXML()
-		{
-			string block = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
-			string status = (cbLoaiBanDoc.SelectedItem as ComboboxItem).Value.ToString();
-			sbPatronXml = new StringBuilder();
-			sbPatronXml.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-			sbPatronXml.AppendLine("<p-file-20>");
-			foreach (Patron item in listPatron)
-			{
-				sbPatronXml.AppendLine("<patron-record>");
-				sbPatronXml.Append(new z303().tab3(item));
-				sbPatronXml.Append(new z304().tab4(item));
-				sbPatronXml.Append(new z305().tab5(item, block, status));
-				sbPatronXml.Append(new z308().tab8(item));
-				sbPatronXml.AppendLine("</patron-record>");
-			}
-			sbPatronXml.AppendLine("</p-file-20>");
-		}
+        private void WriteXML()
+        {
+            string block = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
+            string status = (cbLoaiBanDoc.SelectedItem as ComboboxItem).Value.ToString();
+            sbPatronXml = new StringBuilder();
+            sbPatronXml.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            sbPatronXml.AppendLine("<p-file-20>");
+            foreach (Patron item in listPatron)
+            {
+                sbPatronXml.AppendLine("<patron-record>");
+                sbPatronXml.Append(new z303().tab3(item));
+                sbPatronXml.Append(new z304().tab4(item));
+                sbPatronXml.Append(new z305().tab5(item, block, status));
+                sbPatronXml.Append(new z308().tab8(item));
+                sbPatronXml.AppendLine("</patron-record>");
+            }
+            sbPatronXml.AppendLine("</p-file-20>");
+        }
 
-		private void WriteXmlApi()
-		{
-			listSb = new List<StringBuilder>();
-			StringBuilder stringBuilder = null;
-			string block = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
-			string status = (cbLoaiBanDoc.SelectedItem as ComboboxItem).Value.ToString();
-			foreach (Patron item in listPatron)
-			{
-				stringBuilder = new StringBuilder();
-				stringBuilder.Append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-				stringBuilder.Append("<p-file-20>");
-				stringBuilder.Append("<patron-record>");
-				stringBuilder.Append(new z303().tab3(item));
-				stringBuilder.Append(new z304().tab4(item));
-				stringBuilder.Append(new z305().tab5(item, block, status));
-				stringBuilder.Append(new z308().tab8(item));
-				stringBuilder.Append("</patron-record>");
-				stringBuilder.Append("</p-file-20>");
-				listSb.Add(stringBuilder);
-			}
-			ExportDanhSachTT();
-		}
+        private void WriteXmlApi()
+        {
+            listSb = new List<StringBuilder>();
+            StringBuilder stringBuilder = null;
+            string block = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
+            string status = (cbLoaiBanDoc.SelectedItem as ComboboxItem).Value.ToString();
+            foreach (Patron item in listPatron)
+            {
+                stringBuilder = new StringBuilder();
+                stringBuilder.Append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+                stringBuilder.Append("<p-file-20>");
+                stringBuilder.Append("<patron-record>");
+                stringBuilder.Append(new z303().tab3(item));
+                stringBuilder.Append(new z304().tab4(item));
+                stringBuilder.Append(new z305().tab5(item, block, status));
+                stringBuilder.Append(new z308().tab8(item));
+                stringBuilder.Append("</patron-record>");
+                stringBuilder.Append("</p-file-20>");
+                listSb.Add(stringBuilder);
+            }
+            ExportDanhSachTT();
+        }
 
-		private void ExportDanhSachTT()
-		{
-			if (listPatron.Count > 0)
-			{
-				sbList = new StringBuilder();
-				foreach (Patron item in listPatron)
-				{
-					sbList.Append(item.pationID);
-					sbList.Append("\t");
-					sbList.AppendLine(item.MaSV_O);
-				}
-				File.WriteAllText(textBox2.Text + "/DanhSachTT-CanBo-" + tool.getDate() + ".txt", sbList.ToString());
-			}
-		}
+        private void ExportDanhSachTT()
+        {
+            if (listPatron.Count > 0)
+            {
+                sbList = new StringBuilder();
+                foreach (Patron item in listPatron)
+                {
+                    sbList.Append(item.pationID);
+                    sbList.Append("\t");
+                    sbList.AppendLine(item.MaSV_O);
+                }
+                File.WriteAllText(textBox2.Text + "/DanhSachTT-CanBo-" + tool.getDate() + ".txt", sbList.ToString());
+            }
+        }
 
-		private void compreRemovePatron()
-		{
-			DSTonTai = new List<Patron>();
-			foreach (Z308 item in listZ308)
-			{
-				string text = item.Z308_REC_KEY.Trim();
-				text = text.Substring(2);
-				foreach (Patron item2 in listPatron)
-				{
-					if (text.Equals(item2.MaSV_O))
-					{
-						item2.pationID = item.Z308_ID;
-						DSTonTai.Add(item2);
-					}
-				}
-			}
-			List<Patron> list = new List<Patron>();
-			list = listPatron;
-			foreach (Patron s in DSTonTai)
-			{
-				int index = list.FindIndex((Patron dsd) => dsd.MaSV_O.Equals(s.MaSV_O));
-				listPatron.RemoveAt(index);
-			}
-		}
+        private void compreRemovePatron()
+        {
+            DSTonTai = new List<Patron>();
+            foreach (Z308 item in listZ308)
+            {
+                string text = item.Z308_REC_KEY.Trim();
+                text = text.Substring(2);
+                foreach (Patron item2 in listPatron)
+                {
+                    if (text.Equals(item2.MaSV_O))
+                    {
+                        item2.pationID = item.Z308_ID;
+                        DSTonTai.Add(item2);
+                    }
+                }
+            }
+            List<Patron> list = new List<Patron>();
+            list = listPatron;
+            foreach (Patron s in DSTonTai)
+            {
+                int index = list.FindIndex((Patron dsd) => dsd.MaSV_O.Equals(s.MaSV_O));
+                listPatron.RemoveAt(index);
+            }
+        }
 
-		private void CheckDataGridView(DataGridView gdv, Label lb)
-		{
-			if (gdv.ColumnCount > 0)
-			{
-				lb.Text = "Số lượng: " + gdv.RowCount.ToString();
-			}
-		}
+        private void CheckDataGridView(DataGridView gdv, Label lb)
+        {
+            if (gdv.ColumnCount > 0)
+            {
+                lb.Text = "Số lượng: " + gdv.RowCount.ToString();
+            }
+        }
 
-		private void btnPush_Click(object sender, EventArgs e)
-		{
-			if (textBox2.Text != "")
-			{
-				Loading_FS.text = "\tĐang đưa dữ liệu ...";
-				Loading_FS.ShowSplash();
-				using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Api-Patron-Log-" + tool.getDate() + ".txt"))
-				{
-					foreach (StringBuilder item in listSb)
-					{
-						streamWriter.WriteLine(new AlephAPI().Url(item.ToString()));
-					}
-				}
-				using (StreamWriter streamWriter2 = new StreamWriter(directoryPath + "/Ldap-Log-" + tool.getDate() + ".txt"))
-				{
-					foreach (User item2 in ldapUser)
-					{
-						streamWriter2.WriteLine(item2.userLogin + "\t" + new ModelLdap().CreateUser(item2));
-					}
-				}
-				DataDBLocal.listZ308 = new QueryDB().listZ308TED();
-				listZ308 = DataDBLocal.listZ308;
-				Loading_FS.CloseSplash();
-				MessageBox.Show("Thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-			}
-			else
-			{
-				MessageBox.Show("Chưa chọn đường dẫn lưu !", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-			}
-		}
+        private void btnPush_Click(object sender, EventArgs e)
+        {
+            if (textBox2.Text != "")
+            {
+                Loading_FS.text = "\tĐang đưa dữ liệu ...";
+                Loading_FS.ShowSplash();
+                using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Api-Patron-Log-" + tool.getDate() + ".txt"))
+                {
+                    foreach (StringBuilder item in listSb)
+                    {
+                        streamWriter.WriteLine(new AlephAPI().Url(item.ToString()));
+                    }
+                }
+                using (StreamWriter streamWriter2 = new StreamWriter(directoryPath + "/Ldap-Log-" + tool.getDate() + ".txt"))
+                {
+                    foreach (User item2 in ldapUser)
+                    {
+                        streamWriter2.WriteLine(item2.userLogin + "\t" + new ModelLdap().CreateUser(item2));
+                    }
+                }
+                DataDBLocal.listZ308 = new QueryDB().listZ308TED();
+                listZ308 = DataDBLocal.listZ308;
+                Loading_FS.CloseSplash();
+                MessageBox.Show("Thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn đường dẫn lưu !", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
 
-		private void btnUpdateLdap_Click(object sender, EventArgs e)
-		{
-			foreach (User item in ldapUser)
-			{
-				new ModelLdap().SetAdInfo(item.userLogin, ModelLdap.Property.mail, item.userMail);
-				new ModelLdap().SetAdInfo(item.userLogin, ModelLdap.Property.telephoneNumber, item.telephoneNumber);
-			}
-			MessageBox.Show("Thành công!", "Thông báo!");
-		}
+        private void btnUpdateLdap_Click(object sender, EventArgs e)
+        {
+            foreach (User item in ldapUser)
+            {
+                new ModelLdap().SetAdInfo(item.userLogin, ModelLdap.Property.mail, item.userMail);
+                new ModelLdap().SetAdInfo(item.userLogin, ModelLdap.Property.telephoneNumber, item.telephoneNumber);
+            }
+            MessageBox.Show("Thành công!", "Thông báo!");
+        }
 
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && components != null)
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && components != null)
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		private void InitializeComponent()
-		{
+        private void InitializeComponent()
+        {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -1441,7 +1441,7 @@ namespace TNUE_Patron_Excel
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
+        }
 
         private void TextBox2_TextChanged(object sender, EventArgs e)
         {

@@ -272,277 +272,362 @@ namespace TNUE_Patron_Excel.ControlMember
 
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			groupBox3 = new System.Windows.Forms.GroupBox();
-			dgvAleph = new System.Windows.Forms.DataGridView();
-			pationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			groupBox1 = new System.Windows.Forms.GroupBox();
-			btnUnSearch = new System.Windows.Forms.Button();
-			label5 = new System.Windows.Forms.Label();
-			txtSearch = new System.Windows.Forms.TextBox();
-			label4 = new System.Windows.Forms.Label();
-			txtPassword = new System.Windows.Forms.TextBox();
-			label3 = new System.Windows.Forms.Label();
-			txtPhone = new System.Windows.Forms.TextBox();
-			label2 = new System.Windows.Forms.Label();
-			txtEmail = new System.Windows.Forms.TextBox();
-			label1 = new System.Windows.Forms.Label();
-			txtMa = new System.Windows.Forms.TextBox();
-			btnCreat = new System.Windows.Forms.Button();
-			btnSearch = new System.Windows.Forms.Button();
-			pb_TaiChinh = new System.Windows.Forms.PictureBox();
-			btnThoat = new System.Windows.Forms.Button();
-			folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-			groupBox2 = new System.Windows.Forms.GroupBox();
-			dgvLdap = new System.Windows.Forms.DataGridView();
-			lbCountListExcel = new System.Windows.Forms.Label();
-			lbCountHad = new System.Windows.Forms.Label();
-			panel1 = new System.Windows.Forms.Panel();
-			groupBox3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)dgvAleph).BeginInit();
-			groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)pb_TaiChinh).BeginInit();
-			groupBox2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)dgvLdap).BeginInit();
-			panel1.SuspendLayout();
-			SuspendLayout();
-			groupBox3.Controls.Add(dgvAleph);
-			groupBox3.Font = new System.Drawing.Font("Segoe UI", 8.25f, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-			groupBox3.Location = new System.Drawing.Point(4, 246);
-			groupBox3.Name = "groupBox3";
-			groupBox3.Size = new System.Drawing.Size(498, 277);
-			groupBox3.TabIndex = 29;
-			groupBox3.TabStop = false;
-			groupBox3.Text = "DANH SÁCH ALEPH";
-			dgvAleph.AllowUserToAddRows = false;
-			dgvAleph.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			dgvAleph.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle;
-			dgvAleph.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-			dgvAleph.Columns.AddRange(pationID, Ma, HoTen);
-			dgvAleph.Dock = System.Windows.Forms.DockStyle.Fill;
-			dgvAleph.Location = new System.Drawing.Point(3, 18);
-			dgvAleph.Name = "dgvAleph";
-			dgvAleph.ReadOnly = true;
-			dgvAleph.RowHeadersWidth = 20;
-			dgvAleph.Size = new System.Drawing.Size(492, 256);
-			dgvAleph.TabIndex = 18;
-			dgvAleph.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(DgvAleph_CellClick);
-			pationID.DataPropertyName = "PatronId";
-			pationID.HeaderText = "Patron ID";
-			pationID.Name = "pationID";
-			pationID.ReadOnly = true;
-			pationID.Width = 81;
-			Ma.DataPropertyName = "Ma";
-			Ma.HeaderText = "Mã";
-			Ma.Name = "Ma";
-			Ma.ReadOnly = true;
-			Ma.Width = 49;
-			HoTen.DataPropertyName = "HoTen";
-			HoTen.HeaderText = "Họ tên";
-			HoTen.Name = "HoTen";
-			HoTen.ReadOnly = true;
-			HoTen.Width = 67;
-			groupBox1.Controls.Add(btnUnSearch);
-			groupBox1.Controls.Add(label5);
-			groupBox1.Controls.Add(txtSearch);
-			groupBox1.Controls.Add(label4);
-			groupBox1.Controls.Add(txtPassword);
-			groupBox1.Controls.Add(label3);
-			groupBox1.Controls.Add(txtPhone);
-			groupBox1.Controls.Add(label2);
-			groupBox1.Controls.Add(txtEmail);
-			groupBox1.Controls.Add(label1);
-			groupBox1.Controls.Add(txtMa);
-			groupBox1.Controls.Add(btnCreat);
-			groupBox1.Controls.Add(btnSearch);
-			groupBox1.Controls.Add(pb_TaiChinh);
-			groupBox1.Controls.Add(btnThoat);
-			groupBox1.Font = new System.Drawing.Font("Segoe UI", 14.25f, System.Drawing.FontStyle.Bold);
-			groupBox1.Location = new System.Drawing.Point(4, 3);
-			groupBox1.Name = "groupBox1";
-			groupBox1.Size = new System.Drawing.Size(984, 240);
-			groupBox1.TabIndex = 28;
-			groupBox1.TabStop = false;
-			groupBox1.Text = "Thêm bạn đọc ldap";
-			btnUnSearch.AutoSize = true;
-			btnUnSearch.BackColor = System.Drawing.Color.FromArgb(231, 76, 60);
-			btnUnSearch.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			btnUnSearch.FlatAppearance.BorderSize = 0;
-			btnUnSearch.Font = new System.Drawing.Font("Segoe UI", 12f, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-			btnUnSearch.ForeColor = System.Drawing.Color.White;
-			btnUnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			btnUnSearch.Location = new System.Drawing.Point(688, 164);
-			btnUnSearch.Name = "btnUnSearch";
-			btnUnSearch.Size = new System.Drawing.Size(103, 38);
-			btnUnSearch.TabIndex = 134;
-			btnUnSearch.Text = "Bỏ tìm";
-			btnUnSearch.UseVisualStyleBackColor = false;
-			btnUnSearch.Click += new System.EventHandler(BtnUnSearch_Click);
-			label5.AutoSize = true;
-			label5.Location = new System.Drawing.Point(615, 93);
-			label5.Name = "label5";
-			label5.Size = new System.Drawing.Size(125, 25);
-			label5.TabIndex = 133;
-			label5.Text = "Tìm kiếm mã";
-			txtSearch.Location = new System.Drawing.Point(571, 121);
-			txtSearch.Name = "txtSearch";
-			txtSearch.Size = new System.Drawing.Size(220, 33);
-			txtSearch.TabIndex = 132;
-			label4.AutoSize = true;
-			label4.Location = new System.Drawing.Point(12, 169);
-			label4.Name = "label4";
-			label4.Size = new System.Drawing.Size(96, 25);
-			label4.TabIndex = 131;
-			label4.Text = "Mật khẩu";
-			txtPassword.Location = new System.Drawing.Point(152, 166);
-			txtPassword.Name = "txtPassword";
-			txtPassword.Size = new System.Drawing.Size(281, 33);
-			txtPassword.TabIndex = 130;
-			label3.AutoSize = true;
-			label3.Location = new System.Drawing.Point(12, 130);
-			label3.Name = "label3";
-			label3.Size = new System.Drawing.Size(69, 25);
-			label3.TabIndex = 129;
-			label3.Text = "Phone";
-			txtPhone.Location = new System.Drawing.Point(152, 127);
-			txtPhone.Name = "txtPhone";
-			txtPhone.Size = new System.Drawing.Size(281, 33);
-			txtPhone.TabIndex = 128;
-			label2.AutoSize = true;
-			label2.Location = new System.Drawing.Point(12, 91);
-			label2.Name = "label2";
-			label2.Size = new System.Drawing.Size(59, 25);
-			label2.TabIndex = 127;
-			label2.Text = "Email";
-			txtEmail.Location = new System.Drawing.Point(152, 88);
-			txtEmail.Name = "txtEmail";
-			txtEmail.Size = new System.Drawing.Size(281, 33);
-			txtEmail.TabIndex = 126;
-			label1.AutoSize = true;
-			label1.Location = new System.Drawing.Point(12, 52);
-			label1.Name = "label1";
-			label1.Size = new System.Drawing.Size(101, 25);
-			label1.TabIndex = 125;
-			label1.Text = "Mã SV/CB";
-			txtMa.Enabled = false;
-			txtMa.Location = new System.Drawing.Point(152, 49);
-			txtMa.Name = "txtMa";
-			txtMa.Size = new System.Drawing.Size(281, 33);
-			txtMa.TabIndex = 124;
-			btnCreat.AutoSize = true;
-			btnCreat.BackColor = System.Drawing.Color.Green;
-			btnCreat.FlatAppearance.BorderSize = 0;
-			btnCreat.Font = new System.Drawing.Font("Segoe UI", 12f, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-			btnCreat.ForeColor = System.Drawing.Color.White;
-			btnCreat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			btnCreat.Location = new System.Drawing.Point(152, 202);
-			btnCreat.Name = "btnCreat";
-			btnCreat.Size = new System.Drawing.Size(281, 35);
-			btnCreat.TabIndex = 123;
-			btnCreat.Text = "Tạo người dùng ldap";
-			btnCreat.UseVisualStyleBackColor = false;
-			btnCreat.Click += new System.EventHandler(BtnCreat_Click);
-			btnSearch.AutoSize = true;
-			btnSearch.BackColor = System.Drawing.Color.FromArgb(52, 152, 216);
-			btnSearch.FlatAppearance.BorderSize = 0;
-			btnSearch.Font = new System.Drawing.Font("Segoe UI", 12f, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-			btnSearch.ForeColor = System.Drawing.Color.White;
-			btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			btnSearch.Location = new System.Drawing.Point(571, 164);
-			btnSearch.Name = "btnSearch";
-			btnSearch.Size = new System.Drawing.Size(114, 38);
-			btnSearch.TabIndex = 122;
-			btnSearch.Text = "Tìm kiếm";
-			btnSearch.UseVisualStyleBackColor = false;
-			btnSearch.Click += new System.EventHandler(BtnSearch_Click);
-			pb_TaiChinh.Image = TNUE_Patron_Excel.Properties.Resources.library_logo;
-			pb_TaiChinh.Location = new System.Drawing.Point(818, 21);
-			pb_TaiChinh.Name = "pb_TaiChinh";
-			pb_TaiChinh.Size = new System.Drawing.Size(160, 151);
-			pb_TaiChinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			pb_TaiChinh.TabIndex = 20;
-			pb_TaiChinh.TabStop = false;
-			btnThoat.AutoSize = true;
-			btnThoat.BackColor = System.Drawing.Color.FromArgb(231, 76, 60);
-			btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			btnThoat.FlatAppearance.BorderSize = 0;
-			btnThoat.Font = new System.Drawing.Font("Segoe UI", 12f, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-			btnThoat.ForeColor = System.Drawing.Color.White;
-			btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			btnThoat.Location = new System.Drawing.Point(869, 196);
-			btnThoat.Name = "btnThoat";
-			btnThoat.Size = new System.Drawing.Size(109, 38);
-			btnThoat.TabIndex = 14;
-			btnThoat.Text = "Thoát";
-			btnThoat.UseVisualStyleBackColor = false;
-			btnThoat.Click += new System.EventHandler(btnThoat_Click);
-			groupBox2.Controls.Add(dgvLdap);
-			groupBox2.Font = new System.Drawing.Font("Segoe UI", 8.25f, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-			groupBox2.Location = new System.Drawing.Point(508, 249);
-			groupBox2.Name = "groupBox2";
-			groupBox2.Size = new System.Drawing.Size(486, 277);
-			groupBox2.TabIndex = 30;
-			groupBox2.TabStop = false;
-			groupBox2.Text = "DANH SÁCH LDAP";
-			dgvLdap.AllowUserToAddRows = false;
-			dgvLdap.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			dgvLdap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-			dgvLdap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-			dgvLdap.Dock = System.Windows.Forms.DockStyle.Fill;
-			dgvLdap.Location = new System.Drawing.Point(3, 18);
-			dgvLdap.Name = "dgvLdap";
-			dgvLdap.ReadOnly = true;
-			dgvLdap.RowHeadersWidth = 20;
-			dgvLdap.Size = new System.Drawing.Size(480, 256);
-			dgvLdap.TabIndex = 19;
-			lbCountListExcel.AutoSize = true;
-			lbCountListExcel.Font = new System.Drawing.Font("Segoe UI", 12f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			lbCountListExcel.Location = new System.Drawing.Point(9, 526);
-			lbCountListExcel.Name = "lbCountListExcel";
-			lbCountListExcel.Size = new System.Drawing.Size(76, 21);
-			lbCountListExcel.TabIndex = 31;
-			lbCountListExcel.Text = "Số lượng:";
-			lbCountHad.AutoSize = true;
-			lbCountHad.Font = new System.Drawing.Font("Segoe UI", 12f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			lbCountHad.Location = new System.Drawing.Point(507, 526);
-			lbCountHad.Name = "lbCountHad";
-			lbCountHad.Size = new System.Drawing.Size(76, 21);
-			lbCountHad.TabIndex = 32;
-			lbCountHad.Text = "Số lượng:";
-			panel1.Controls.Add(groupBox1);
-			panel1.Controls.Add(lbCountListExcel);
-			panel1.Controls.Add(lbCountHad);
-			panel1.Controls.Add(groupBox3);
-			panel1.Controls.Add(groupBox2);
-			panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			panel1.Location = new System.Drawing.Point(0, 0);
-			panel1.Name = "panel1";
-			panel1.Size = new System.Drawing.Size(1000, 565);
-			panel1.TabIndex = 135;
-			panel1.Visible = false;
-			base.AutoScaleDimensions = new System.Drawing.SizeF(8f, 16f);
-			base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			base.Controls.Add(panel1);
-			Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			base.Margin = new System.Windows.Forms.Padding(4);
-			base.Name = "UCInsertUserLdap";
-			base.Size = new System.Drawing.Size(1000, 565);
-			base.Load += new System.EventHandler(UCInsertUserLdap_Load);
-			groupBox3.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)dgvAleph).EndInit();
-			groupBox1.ResumeLayout(false);
-			groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)pb_TaiChinh).EndInit();
-			groupBox2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)dgvLdap).EndInit();
-			panel1.ResumeLayout(false);
-			panel1.PerformLayout();
-			ResumeLayout(false);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvAleph = new System.Windows.Forms.DataGridView();
+            this.pationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnUnSearch = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMa = new System.Windows.Forms.TextBox();
+            this.btnCreat = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.pb_TaiChinh = new System.Windows.Forms.PictureBox();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvLdap = new System.Windows.Forms.DataGridView();
+            this.lbCountListExcel = new System.Windows.Forms.Label();
+            this.lbCountHad = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAleph)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLdap)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dgvAleph);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(4, 246);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(498, 277);
+            this.groupBox3.TabIndex = 29;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "DANH SÁCH BẠN ĐỌC CHƯA CÓ TÀI KHOẢN LDAP";
+            // 
+            // dgvAleph
+            // 
+            this.dgvAleph.AllowUserToAddRows = false;
+            this.dgvAleph.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAleph.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAleph.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvAleph.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pationID,
+            this.Ma,
+            this.HoTen});
+            this.dgvAleph.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAleph.Location = new System.Drawing.Point(3, 18);
+            this.dgvAleph.Name = "dgvAleph";
+            this.dgvAleph.ReadOnly = true;
+            this.dgvAleph.RowHeadersWidth = 20;
+            this.dgvAleph.Size = new System.Drawing.Size(492, 256);
+            this.dgvAleph.TabIndex = 18;
+            this.dgvAleph.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAleph_CellClick);
+            // 
+            // pationID
+            // 
+            this.pationID.DataPropertyName = "PatronId";
+            this.pationID.HeaderText = "Patron ID";
+            this.pationID.Name = "pationID";
+            this.pationID.ReadOnly = true;
+            this.pationID.Width = 81;
+            // 
+            // Ma
+            // 
+            this.Ma.DataPropertyName = "Ma";
+            this.Ma.HeaderText = "Mã";
+            this.Ma.Name = "Ma";
+            this.Ma.ReadOnly = true;
+            this.Ma.Width = 49;
+            // 
+            // HoTen
+            // 
+            this.HoTen.DataPropertyName = "HoTen";
+            this.HoTen.HeaderText = "Họ tên";
+            this.HoTen.Name = "HoTen";
+            this.HoTen.ReadOnly = true;
+            this.HoTen.Width = 67;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnUnSearch);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtSearch);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtPassword);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtPhone);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtEmail);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtMa);
+            this.groupBox1.Controls.Add(this.btnCreat);
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.pb_TaiChinh);
+            this.groupBox1.Controls.Add(this.btnThoat);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Location = new System.Drawing.Point(4, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(984, 240);
+            this.groupBox1.TabIndex = 28;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thêm bạn đọc ldap";
+            // 
+            // btnUnSearch
+            // 
+            this.btnUnSearch.AutoSize = true;
+            this.btnUnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btnUnSearch.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnUnSearch.FlatAppearance.BorderSize = 0;
+            this.btnUnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnUnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUnSearch.Location = new System.Drawing.Point(688, 164);
+            this.btnUnSearch.Name = "btnUnSearch";
+            this.btnUnSearch.Size = new System.Drawing.Size(103, 38);
+            this.btnUnSearch.TabIndex = 134;
+            this.btnUnSearch.Text = "Bỏ tìm";
+            this.btnUnSearch.UseVisualStyleBackColor = false;
+            this.btnUnSearch.Click += new System.EventHandler(this.BtnUnSearch_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(615, 93);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(125, 25);
+            this.label5.TabIndex = 133;
+            this.label5.Text = "Tìm kiếm mã";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(571, 121);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(220, 33);
+            this.txtSearch.TabIndex = 132;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 169);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 25);
+            this.label4.TabIndex = 131;
+            this.label4.Text = "Mật khẩu";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(152, 166);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(281, 33);
+            this.txtPassword.TabIndex = 130;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 130);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 25);
+            this.label3.TabIndex = 129;
+            this.label3.Text = "Phone";
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(152, 127);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(281, 33);
+            this.txtPhone.TabIndex = 128;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 25);
+            this.label2.TabIndex = 127;
+            this.label2.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(152, 88);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(281, 33);
+            this.txtEmail.TabIndex = 126;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 25);
+            this.label1.TabIndex = 125;
+            this.label1.Text = "Mã SV/CB";
+            // 
+            // txtMa
+            // 
+            this.txtMa.Enabled = false;
+            this.txtMa.Location = new System.Drawing.Point(152, 49);
+            this.txtMa.Name = "txtMa";
+            this.txtMa.Size = new System.Drawing.Size(281, 33);
+            this.txtMa.TabIndex = 124;
+            // 
+            // btnCreat
+            // 
+            this.btnCreat.AutoSize = true;
+            this.btnCreat.BackColor = System.Drawing.Color.Green;
+            this.btnCreat.FlatAppearance.BorderSize = 0;
+            this.btnCreat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreat.ForeColor = System.Drawing.Color.White;
+            this.btnCreat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreat.Location = new System.Drawing.Point(152, 202);
+            this.btnCreat.Name = "btnCreat";
+            this.btnCreat.Size = new System.Drawing.Size(281, 35);
+            this.btnCreat.TabIndex = 123;
+            this.btnCreat.Text = "Tạo người dùng ldap";
+            this.btnCreat.UseVisualStyleBackColor = false;
+            this.btnCreat.Click += new System.EventHandler(this.BtnCreat_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.AutoSize = true;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(216)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(571, 164);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(114, 38);
+            this.btnSearch.TabIndex = 122;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
+            // pb_TaiChinh
+            // 
+            this.pb_TaiChinh.Image = global::TNUE_Patron_Excel.Properties.Resources.library_logo;
+            this.pb_TaiChinh.Location = new System.Drawing.Point(818, 21);
+            this.pb_TaiChinh.Name = "pb_TaiChinh";
+            this.pb_TaiChinh.Size = new System.Drawing.Size(160, 151);
+            this.pb_TaiChinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_TaiChinh.TabIndex = 20;
+            this.pb_TaiChinh.TabStop = false;
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.AutoSize = true;
+            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.ForeColor = System.Drawing.Color.White;
+            this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThoat.Location = new System.Drawing.Point(869, 196);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(109, 38);
+            this.btnThoat.TabIndex = 14;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvLdap);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(508, 249);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(486, 277);
+            this.groupBox2.TabIndex = 30;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "DANH SÁCH LDAP";
+            // 
+            // dgvLdap
+            // 
+            this.dgvLdap.AllowUserToAddRows = false;
+            this.dgvLdap.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLdap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvLdap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLdap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLdap.Location = new System.Drawing.Point(3, 18);
+            this.dgvLdap.Name = "dgvLdap";
+            this.dgvLdap.ReadOnly = true;
+            this.dgvLdap.RowHeadersWidth = 20;
+            this.dgvLdap.Size = new System.Drawing.Size(480, 256);
+            this.dgvLdap.TabIndex = 19;
+            // 
+            // lbCountListExcel
+            // 
+            this.lbCountListExcel.AutoSize = true;
+            this.lbCountListExcel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCountListExcel.Location = new System.Drawing.Point(9, 526);
+            this.lbCountListExcel.Name = "lbCountListExcel";
+            this.lbCountListExcel.Size = new System.Drawing.Size(76, 21);
+            this.lbCountListExcel.TabIndex = 31;
+            this.lbCountListExcel.Text = "Số lượng:";
+            // 
+            // lbCountHad
+            // 
+            this.lbCountHad.AutoSize = true;
+            this.lbCountHad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCountHad.Location = new System.Drawing.Point(507, 526);
+            this.lbCountHad.Name = "lbCountHad";
+            this.lbCountHad.Size = new System.Drawing.Size(76, 21);
+            this.lbCountHad.TabIndex = 32;
+            this.lbCountHad.Text = "Số lượng:";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.lbCountListExcel);
+            this.panel1.Controls.Add(this.lbCountHad);
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1000, 565);
+            this.panel1.TabIndex = 135;
+            this.panel1.Visible = false;
+            // 
+            // UCInsertUserLdap
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "UCInsertUserLdap";
+            this.Size = new System.Drawing.Size(1000, 565);
+            this.Load += new System.EventHandler(this.UCInsertUserLdap_Load);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAleph)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLdap)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.ResumeLayout(false);
+
 		}
 	}
 }

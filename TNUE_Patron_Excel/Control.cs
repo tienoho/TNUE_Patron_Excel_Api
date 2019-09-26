@@ -412,7 +412,7 @@ namespace TNUE_Patron_Excel
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(125, 57);
             this.btnXoa.TabIndex = 54;
-            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Text = "Block - xóa";
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.BtnXoa_Click);

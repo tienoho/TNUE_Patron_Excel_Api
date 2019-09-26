@@ -188,5 +188,16 @@ namespace TNUE_Patron_Excel.Tool
             str = DateTime.ParseExact(str, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("ddMMyyyy");
             return str;
         }
+        public string WriteStringCheckNull(string str, string field)
+        {
+            if (str != null && str != "" && !str.Equals(""))
+            {
+                return "<" + field + ">" + str + "</" + field + ">";
+            }
+            else
+            {
+                return "";
+            }
+        }
     }
 }

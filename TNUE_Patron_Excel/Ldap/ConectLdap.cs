@@ -11,7 +11,7 @@ namespace TNUE_Patron_Excel.Ldap
 
 		private LdapField ldap = null;
 
-		private string ldapfilter = "(&(objectclass=person)(cn={0}))";
+		//private string ldapfilter = "(&(objectclass=person)(cn={0}))";
 
 		public DirectoryEntry entry = null;
 

@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using TNUE_Patron_Excel.Tool;
 
 namespace TNUE_Patron_Excel.Z303
 {
@@ -27,7 +28,10 @@ namespace TNUE_Patron_Excel.Z303
 			stringBuilder.Append("<z303-user-library></z303-user-library>");
 			stringBuilder.Append("<z303-open-date>" + p.Day + "</z303-open-date>");
 			stringBuilder.Append("<z303-update-date>" + p.Day + "</z303-update-date>");
-			stringBuilder.Append("<z303-con-lng>" + ngonNgu(p.QuocTich) + "</z303-con-lng>");
+
+            stringBuilder.Append(new ToolP().WriteStringCheckNull(ngonNgu(p.QuocTich), "z303-con-lng"));
+            //stringBuilder.Append("<z303-con-lng>" + ngonNgu(p.QuocTich) + "</z303-con-lng>");
+
 			stringBuilder.Append("<z303-alpha>L</z303-alpha>");
 			stringBuilder.Append("<z303-name>" + hoTen + "</z303-name>");
 			stringBuilder.Append("<z303-title>" + z303_title(p.chucVu, p.GT) + "</z303-title>");
@@ -47,9 +51,14 @@ namespace TNUE_Patron_Excel.Z303
 			stringBuilder.Append("<z303-profile-id>TNUE-LSP</z303-profile-id>");
 			stringBuilder.Append("<z303-ill-library></z303-ill-library>");
 			stringBuilder.Append("<z303-home-library></z303-home-library>");
-			stringBuilder.Append("<z303-field-1>" + Z303_field_1(p.chucDanh, p.lopHoc) + "</z303-field-1>");
-			stringBuilder.Append("<z303-field-2>" + p.khoaHoc + "</z303-field-2>");
-			stringBuilder.Append("<z303-field-3>" + p.Khoa + "</z303-field-3>");
+
+            stringBuilder.Append(new ToolP().WriteStringCheckNull(Z303_field_1(p.chucDanh, p.lopHoc), "z303-field-1"));
+            stringBuilder.Append(new ToolP().WriteStringCheckNull(p.khoaHoc, "z303-field-2"));
+            stringBuilder.Append(new ToolP().WriteStringCheckNull(p.Khoa, "z303-field-3"));
+   //         stringBuilder.Append("<z303-field-1>" + Z303_field_1(p.chucDanh, p.lopHoc) + "</z303-field-1>");
+			//stringBuilder.Append("<z303-field-2>" + p.khoaHoc + "</z303-field-2>");
+			//stringBuilder.Append("<z303-field-3>" + p.Khoa + "</z303-field-3>");
+
 			stringBuilder.Append("<z303-note-1></z303-note-1>");
 			stringBuilder.Append("<z303-note-2></z303-note-2>");
 			stringBuilder.Append("<z303-salutation></z303-salutation>");
@@ -138,7 +147,6 @@ namespace TNUE_Patron_Excel.Z303
 
 		private string Z303_field_1(string chucDanh, string lop)
 		{
-			string text = "";
 			if (chucDanh == "" || chucDanh == null)
 			{
 				return lop;
