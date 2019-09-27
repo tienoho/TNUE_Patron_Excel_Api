@@ -502,33 +502,49 @@ namespace TNUE_Patron_Excel.ControlMember
 
         private void ComboxLoaiBanDoc()
         {
+            cbLoaiBanDoc.Items.Clear();
             ComboboxItem comboboxItem = new ComboboxItem();
-            comboboxItem.Text = "Cán Bộ";
-            comboboxItem.Value = "01";
-            cbLoaiBanDoc.Items.Add(comboboxItem);
             comboboxItem.Text = "Sinh Viên";
             comboboxItem.Value = "02";
             cbLoaiBanDoc.Items.Add(comboboxItem);
+
             comboboxItem = new ComboboxItem();
             comboboxItem.Text = "Cao Học";
             comboboxItem.Value = "03";
             cbLoaiBanDoc.Items.Add(comboboxItem);
-            comboboxItem = new ComboboxItem();
-            comboboxItem.Text = "Giảng Viên";
-            comboboxItem.Value = "04";
-            cbLoaiBanDoc.Items.Add(comboboxItem);
-            comboboxItem = new ComboboxItem();
-            comboboxItem.Text = "Thư Viện Viên";
-            comboboxItem.Value = "06";
+
+
             cbLoaiBanDoc.Items.Add(comboboxItem);
             comboboxItem = new ComboboxItem();
             comboboxItem.Text = "Nghiên Cứu sinh";
             comboboxItem.Value = "05";
             cbLoaiBanDoc.Items.Add(comboboxItem);
+
             comboboxItem = new ComboboxItem();
             comboboxItem.Text = "Loại Khác";
             comboboxItem.Value = "07";
             cbLoaiBanDoc.Items.Add(comboboxItem);
+
+            cbLoaiBanDoc.SelectedIndex = 0;
+        }
+        private void ComboxLoaiBanDocCaBo()
+        {
+            ComboboxItem comboboxItem = new ComboboxItem();
+            cbLoaiBanDoc.Items.Clear();
+            comboboxItem.Text = "Cán Bộ";
+            comboboxItem.Value = "01";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Giảng Viên";
+            comboboxItem.Value = "04";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Thư Viện Viên";
+            comboboxItem.Value = "06";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+
             cbLoaiBanDoc.SelectedIndex = 0;
         }
 
@@ -890,10 +906,19 @@ namespace TNUE_Patron_Excel.ControlMember
 
         private void RbSinhVien_CheckedChanged(object sender, EventArgs e)
         {
+            Invoke((MethodInvoker)delegate
+            {
+                ShowStuden();
+            });
+            
         }
 
         private void RbCanBo_CheckedChanged(object sender, EventArgs e)
         {
+            Invoke((MethodInvoker)delegate
+            {
+                ShowStaff();
+            });            
         }
 
         private void Btnhien_Click(object sender, EventArgs e)
@@ -908,6 +933,16 @@ namespace TNUE_Patron_Excel.ControlMember
                 txtPassword.UseSystemPasswordChar = true;
                 dem--;
             }
+        }
+        private void ShowStuden()
+        {
+            ComboxLoaiBanDoc();
+            txtLine.Text = "12";
+        }
+        private void ShowStaff()
+        {
+            ComboxLoaiBanDocCaBo();
+            txtLine.Text = "3";
         }
 
         protected override void Dispose(bool disposing)
