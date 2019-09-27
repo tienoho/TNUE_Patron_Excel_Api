@@ -402,22 +402,24 @@ namespace TNUE_Patron_Excel
                             patron.password = tool.formatDatePassword(Convert.ToString(array[j, 7]));
                             patron.GT = Unicode.compound2Unicode(tool.convertGender(Convert.ToString(array[j, 8])));
                             patron.phone = Convert.ToString(array[j, 9]);
-                            patron.email = Convert.ToString(array[j, 10]);
+                            patron.email = Convert.ToString(array[j, 10]);                            
                             patron.makh = "";
                             patron.DiaChi = "";
                             string str3 = Convert.ToString(array[j, 11]);
                             patron.lopHoc = Unicode.compound2Unicode(str3);
                             string str2 = Convert.ToString(array[j, 12]);
-                            patron.khoaHoc = Unicode.compound2Unicode(str2);
+                            patron.khoaHoc = Unicode.compound2Unicode(str2);                            
                             string str4 = Convert.ToString(array[j, 13]);
                             patron.Khoa = Unicode.compound2Unicode(str4);
                             string str5 = Convert.ToString(array[j, 14]);
-                            patron.QuocTich = Unicode.compound2Unicode(str5);
+                            patron.ChuyenNganh = Unicode.compound2Unicode(str5);
                             string str6 = Convert.ToString(array[j, 15]);
-                            patron.hocBong = Unicode.compound2Unicode(str6);
+                            patron.QuocTich = Unicode.compound2Unicode(str6);
                             string str7 = Convert.ToString(array[j, 16]);
-                            patron.qdCongNhan = Unicode.compound2Unicode(str7);
-                            string text5 = Convert.ToString(array[j, 17]);
+                            patron.hocBong = Unicode.compound2Unicode(str7);
+                            string str8 = Convert.ToString(array[j, 17]);
+                            patron.qdCongNhan = Unicode.compound2Unicode(str8);
+                            string text5 = Convert.ToString(array[j, 18]);
                             patron.ngayHetHan = tool.getNgayHetHan(text5);
                             listPatron.Add(patron);
                             num++;
@@ -585,33 +587,14 @@ namespace TNUE_Patron_Excel
                 DataDBLocal.listZ308 = new QueryDB().listZ308TED();
                 listZ308 = DataDBLocal.listZ308;
                 Loading_FS.CloseSplash();
-                MessageBox.Show("Đã thêm thành công " + listSb.Count + " bạn đọc!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                Loading_FS.text = "\tĐang cập nhập lại dữ liệu ...";
-                Loading_FS.ShowSplash();
-                ResetFormData();
-                Loading_FS.CloseSplash();
-
+                MessageBox.Show("Thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
                 MessageBox.Show("Chưa chọn đường dẫn lưu !", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
-        private void ResetFormData()
-        {
-            DataDBLocal.listZ308 = new QueryDB().listZ308TED();
-            listZ308 = DataDBLocal.listZ308.CloneObject();
-            txtLine.Text = "12";
-            countP = new QueryDB().CountPatron();
-            txtPatronId.Text = $"{countP + 1:000000000000}";
-            dgvPatron.DataSource = null;
-            dgvHad.DataSource = null;
-            textBox1.Clear();
-            textBox2.Clear();
-            btnConvert.Enabled = false;
-            btnPush.Enabled = false;
-        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && components != null)

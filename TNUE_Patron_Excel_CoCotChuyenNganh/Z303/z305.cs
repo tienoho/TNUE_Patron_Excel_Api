@@ -58,7 +58,7 @@ namespace TNUE_Patron_Excel.Z303
             //stringBuilder.Append("<z305-field-3>" + p.ChuyenNganh + "</z305-field-3>");
             stringBuilder.Append(new ToolP().WriteStringCheckNull(p.hocBong, "z305-field-1"));
             stringBuilder.Append(new ToolP().WriteStringCheckNull(p.qdCongNhan, "z305-field-2"));
-            stringBuilder.Append("<z305-field-3></z305-field-3>");
+            stringBuilder.Append(new ToolP().WriteStringCheckNull(p.ChuyenNganh, "z305-field-3"));
 
             stringBuilder.Append("<z305-hold-on-shelf>Y</z305-hold-on-shelf>");
             stringBuilder.Append("<z305-end-block-date>00000000</z305-end-block-date>");
@@ -114,7 +114,7 @@ namespace TNUE_Patron_Excel.Z303
 
             stringBuilder.Append(new ToolP().WriteStringCheckNull(p.hocBong, "z305-field-1"));
             stringBuilder.Append(new ToolP().WriteStringCheckNull(p.qdCongNhan, "z305-field-2"));
-            stringBuilder.Append("<z305-field-3></z305-field-3>");
+            stringBuilder.Append(new ToolP().WriteStringCheckNull(p.ChuyenNganh, "z305-field-3"));
 
             stringBuilder.Append("<z305-hold-on-shelf>Y</z305-hold-on-shelf>");
             stringBuilder.Append("<z305-end-block-date>00000000</z305-end-block-date>");
@@ -167,7 +167,7 @@ namespace TNUE_Patron_Excel.Z303
 
             stringBuilder.Append(new ToolP().WriteStringCheckNull(p.hocBong, "z305-field-1"));
             stringBuilder.Append(new ToolP().WriteStringCheckNull(p.qdCongNhan, "z305-field-2"));
-            stringBuilder.Append("<z305-field-3></z305-field-3>");
+            stringBuilder.Append(new ToolP().WriteStringCheckNull(p.ChuyenNganh, "z305-field-3"));
 
             //stringBuilder.Append("<z305-field-1>" + p.hocBong + "</z305-field-1>");
             //stringBuilder.Append("<z305-field-2>" + p.qdCongNhan + "</z305-field-2>");

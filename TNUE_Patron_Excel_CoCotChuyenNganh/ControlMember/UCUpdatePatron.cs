@@ -265,8 +265,6 @@ namespace TNUE_Patron_Excel.ControlMember
 
         private void UCUpdatePatron_Load(object sender, EventArgs e)
         {
-            ComboxBlock();
-            ComboxLoaiBanDoc();
             try
             {
                 if (rbLdap.Checked)
@@ -416,7 +414,6 @@ namespace TNUE_Patron_Excel.ControlMember
                     UpdatePatron();
                     Loading_FS.CloseSplash();
                     MessageBox.Show("Đã cập nhập thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    LoadUserCase();
                 }
             }
             catch (Exception ex)
@@ -585,14 +582,15 @@ namespace TNUE_Patron_Excel.ControlMember
                             patron.khoaHoc = Unicode.compound2Unicode(str2);
                             string str4 = Convert.ToString(array[j, 13]);
                             patron.Khoa = Unicode.compound2Unicode(str4);
-
-                            string str5 = Convert.ToString(array[j, 14]);
+                            string str8 = Convert.ToString(array[j, 14]);
+                            patron.ChuyenNganh = Unicode.compound2Unicode(str8);
+                            string str5 = Convert.ToString(array[j, 15]);
                             patron.QuocTich = Unicode.compound2Unicode(str5);
-                            string str6 = Convert.ToString(array[j, 15]);
+                            string str6 = Convert.ToString(array[j, 16]);
                             patron.hocBong = Unicode.compound2Unicode(str6);
-                            string str7 = Convert.ToString(array[j, 16]);
+                            string str7 = Convert.ToString(array[j, 17]);
                             patron.qdCongNhan = Unicode.compound2Unicode(str7);
-                            string text5 = Convert.ToString(array[j, 17]);
+                            string text5 = Convert.ToString(array[j, 18]);
                             patron.ngayHetHan = tool.getNgayHetHan(text5);
 
                             listPatron.Add(patron);
@@ -606,6 +604,7 @@ namespace TNUE_Patron_Excel.ControlMember
             {
                 MessageBox.Show("Lỗi: " + arg);
             }
+
             finally
             {
                 if (worksheet != null)
@@ -818,11 +817,10 @@ namespace TNUE_Patron_Excel.ControlMember
             Loading_FS.text = "\tĐang cập nhập dữ liệu ...";
             Loading_FS.ShowSplash();
             groupBox4.Enabled = false;
-            DataDBLocal.listZ308 = new QueryDB().listZ308TED();
-            listZ308 = DataDBLocal.listZ308.CloneObject();
+            listZ308 = DataDBLocal.listZ308;
+            ComboxBlock();
+            ComboxLoaiBanDoc();
             txtLine.Text = "12";
-            btnConvert.Enabled = false;
-            btnPush.Enabled = false;
             CreateFolder(directoryPath);
             superGird1._pageSize = 100;
             IEnumerable<User> allListUser = new ModelLdap().GetAllListUser();

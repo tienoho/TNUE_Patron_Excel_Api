@@ -566,7 +566,12 @@ namespace TNUE_Patron_Excel
                 DataDBLocal.listZ308 = new QueryDB().listZ308TED();
                 listZ308 = DataDBLocal.listZ308;
                 Loading_FS.CloseSplash();
-                MessageBox.Show("Thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Đã thêm thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                Loading_FS.text = "\tĐang cập nhập lại dữ liệu ...";
+                Loading_FS.ShowSplash();
+                ResetFormData();
+                Loading_FS.CloseSplash();
             }
             else
             {
@@ -582,6 +587,20 @@ namespace TNUE_Patron_Excel
                 new ModelLdap().SetAdInfo(item.userLogin, ModelLdap.Property.telephoneNumber, item.telephoneNumber);
             }
             MessageBox.Show("Thành công!", "Thông báo!");
+        }
+        private void ResetFormData()
+        {
+            DataDBLocal.listZ308 = new QueryDB().listZ308TED();
+            listZ308 = DataDBLocal.listZ308.CloneObject();
+            txtLine.Text = "12";
+            countP = new QueryDB().CountPatron();
+            txtPatronId.Text = $"{countP + 1:000000000000}";
+            dgvPatron.DataSource = null;
+            dgvHad.DataSource = null;
+            textBox1.Clear();
+            textBox2.Clear();
+            btnConvert.Enabled = false;
+            btnPush.Enabled = false;
         }
 
         protected override void Dispose(bool disposing)

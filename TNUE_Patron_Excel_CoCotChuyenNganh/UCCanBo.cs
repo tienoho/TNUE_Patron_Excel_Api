@@ -16,7 +16,7 @@ using TNUE_Patron_Excel.Z303;
 
 namespace TNUE_Patron_Excel
 {
-    public class UCSinhVien : UserControl
+    public class UCCanBo : UserControl
     {
         private List<Z308> listZ308 = null;
 
@@ -45,8 +45,6 @@ namespace TNUE_Patron_Excel
         private IContainer components = null;
 
         private GroupBox groupBox3;
-
-        private DataGridView dgvPatron;
 
         private GroupBox groupBox1;
 
@@ -104,47 +102,9 @@ namespace TNUE_Patron_Excel
 
         private ComboBox cbLoaiBanDoc;
 
+        private DataGridView dgvPatron;
+
         private DataGridView dgvHad;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
 
         private DataGridViewTextBoxColumn pationID;
 
@@ -186,21 +146,71 @@ namespace TNUE_Patron_Excel
 
         private DataGridViewTextBoxColumn Day;
 
-        public UCSinhVien()
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+
+        private Button btnUpdateLdap;
+
+        public UCCanBo()
         {
             InitializeComponent();
         }
 
-        private void UCNhanVien_Load(object sender, EventArgs e)
+        private void UCCanBo_Load(object sender, EventArgs e)
         {
             listZ308 = DataDBLocal.listZ308;
             ComboxBlock();
             ComboxLoaiBanDoc();
             txtPatronId.Text = "1";
-            txtLine.Text = "12";
+            txtLine.Text = "3";
             countP = new QueryDB().CountPatron();
             txtPatronId.Text = $"{countP + 1:000000000000}";
             CreateFolder(directoryPath);
+        }
+
+        private void CreateFolder(string directoryPath)
+        {
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -262,6 +272,7 @@ namespace TNUE_Patron_Excel
                     btnXml.Enabled = true;
                     btn_ldap.Enabled = true;
                     btnPush.Enabled = true;
+                    btnUpdateLdap.Enabled = true;
                     btnConvert.Enabled = false;
                 }
                 MessageBox.Show("chuyển đổi dữ liệu thành công!", "Thông báo!");
@@ -273,7 +284,7 @@ namespace TNUE_Patron_Excel
             try
             {
                 ExportDanhSachTT();
-                File.WriteAllText(textBox2.Text + "/PatronTNUE-SinhVien-" + tool.getDate() + ".xml", sbPatronXml.ToString());
+                File.WriteAllText(textBox2.Text + "/PatronTNUE-CanBo-" + tool.getDate() + ".xml", sbPatronXml.ToString());
                 MessageBox.Show("Xuất file thành công!", "Thông báo!");
             }
             catch
@@ -314,14 +325,6 @@ namespace TNUE_Patron_Excel
             }
         }
 
-        private void CreateFolder(string directoryPath)
-        {
-            if (!Directory.Exists(directoryPath))
-            {
-                Directory.CreateDirectory(directoryPath);
-            }
-        }
-
         private void ComboxBlock()
         {
             ComboboxItem comboboxItem = new ComboboxItem();
@@ -338,20 +341,16 @@ namespace TNUE_Patron_Excel
         private void ComboxLoaiBanDoc()
         {
             ComboboxItem comboboxItem = new ComboboxItem();
-            comboboxItem.Text = "Sinh Viên";
-            comboboxItem.Value = "02";
+            comboboxItem.Text = "Cán Bộ";
+            comboboxItem.Value = "01";
             cbLoaiBanDoc.Items.Add(comboboxItem);
             comboboxItem = new ComboboxItem();
-            comboboxItem.Text = "Cao Học";
-            comboboxItem.Value = "03";
+            comboboxItem.Text = "Giảng Viên";
+            comboboxItem.Value = "04";
             cbLoaiBanDoc.Items.Add(comboboxItem);
             comboboxItem = new ComboboxItem();
-            comboboxItem.Text = "Nghiên Cứu sinh";
-            comboboxItem.Value = "05";
-            cbLoaiBanDoc.Items.Add(comboboxItem);
-            comboboxItem = new ComboboxItem();
-            comboboxItem.Text = "Loại Khác";
-            comboboxItem.Value = "07";
+            comboboxItem.Text = "Thư Viện Viên";
+            comboboxItem.Value = "06";
             cbLoaiBanDoc.Items.Add(comboboxItem);
             cbLoaiBanDoc.SelectedIndex = 0;
         }
@@ -372,7 +371,6 @@ namespace TNUE_Patron_Excel
                 workbook = fileEx.Workbooks.Open(fileName);
                 string dateTime = DateTime.Now.ToString("dd/MM/yyyy");
                 string dateTime2 = DateTime.Now.AddYears(4).ToString("dd/MM/yyyy");
-
                 listPatron = new List<Patron>();
                 sbList = new StringBuilder();
                 int count = fileEx.Worksheets.Count;
@@ -381,9 +379,8 @@ namespace TNUE_Patron_Excel
                 for (int i = 1; i < count + 1; i++)
                 {
                     worksheet = (Excel.Worksheet)(dynamic)fileEx.Sheets[i];
-
                     int count2 = worksheet.UsedRange.Rows.Count;
-                    Excel.Range range = ((Excel.Worksheet)worksheet).get_Range((object)("A" + str), (object)("R" + count2));
+                    Excel.Range range = ((Excel.Worksheet)worksheet).get_Range((object)("A" + str), (object)("K" + count2));
                     int count3 = range.Rows.Count;
                     int count4 = range.Columns.Count;
                     object[,] array = (object[,])(dynamic)range.Value2;
@@ -394,38 +391,30 @@ namespace TNUE_Patron_Excel
                         {
                             Patron patron = new Patron();
                             patron.pationID = $"{num:000000000000}";
-                            patron.MaSV_O = Unicode.compound2Unicode(Convert.ToString(array[j, 2]).Trim()).ToUpper().Trim();
-                            string text4 = patron.Day = tool.formatDate(dateTime.ToString());
-                            string text2 = Convert.ToString(array[j, 4]) + " " + Convert.ToString(array[j, 6]);
-                            patron.HoTen = Unicode.compound2Unicode(text2.Trim());
-                            patron.ngaySinh = tool.formatDate(Convert.ToString(array[j, 7]));
-                            patron.password = tool.formatDatePassword(Convert.ToString(array[j, 7]));
-                            patron.GT = Unicode.compound2Unicode(tool.convertGender(Convert.ToString(array[j, 8])));
-                            patron.phone = Convert.ToString(array[j, 9]);
-                            patron.email = Convert.ToString(array[j, 10]);
-                            patron.makh = "";
+                            patron.MaSV_O = Unicode.compound2Unicode(Convert.ToString(array[j, 2])).ToUpper().Trim();
+                            patron.GT = tool.convertGender(Convert.ToString(array[j, 6]));
+                            string text2 = Unicode.compound2Unicode(Convert.ToString(array[j, 3]) + " " + Convert.ToString(array[j, 4]));
+                            patron.HoTen = text2.Trim();
+                            patron.ngaySinh = tool.formatDate(Convert.ToString(array[j, 5]));
+                            patron.password = tool.formatDatePassword(Convert.ToString(array[j, 5]));
+                            patron.phone = Convert.ToString(array[j, 7]);
+                            patron.email = Convert.ToString(array[j, 8]);
+                            patron.makh = Convert.ToString(array[j, 9]);
+                            string text3 = Unicode.compound2Unicode(Convert.ToString(array[j, 10]));
+                            patron.chucVu = text3.Trim();
+                            string text4 = Convert.ToString(array[j, 11]);
+                            patron.chucDanh = Unicode.compound2Unicode(text4.Trim());
+                            patron.ngayHetHan = tool.formatDate(dateTime2.ToString());
+                            string text6 = patron.Day = tool.formatDate(dateTime.ToString());
                             patron.DiaChi = "";
-                            string str3 = Convert.ToString(array[j, 11]);
-                            patron.lopHoc = Unicode.compound2Unicode(str3);
-                            string str2 = Convert.ToString(array[j, 12]);
-                            patron.khoaHoc = Unicode.compound2Unicode(str2);
-                            string str4 = Convert.ToString(array[j, 13]);
-                            patron.Khoa = Unicode.compound2Unicode(str4);
-                            string str5 = Convert.ToString(array[j, 14]);
-                            patron.QuocTich = Unicode.compound2Unicode(str5);
-                            string str6 = Convert.ToString(array[j, 15]);
-                            patron.hocBong = Unicode.compound2Unicode(str6);
-                            string str7 = Convert.ToString(array[j, 16]);
-                            patron.qdCongNhan = Unicode.compound2Unicode(str7);
-                            string text5 = Convert.ToString(array[j, 17]);
-                            patron.ngayHetHan = tool.getNgayHetHan(text5);
+                            patron.khoaHoc = "";
+                            patron.lopHoc = "";
                             listPatron.Add(patron);
                             num++;
                         }
                     }
                 }
                 listPatron.RemoveAll((Patron item) => item.MaSV_O == "");
-
             }
             catch (Exception arg)
             {
@@ -457,9 +446,9 @@ namespace TNUE_Patron_Excel
                 user.sn = item.MaSV_O.Trim();
                 user.userLogin = item.MaSV_O.Trim();
                 user.userMail = item.email;
-                user.telephoneNumber = item.phone.Trim();
                 user.userPassword = item.password;
                 user.objectClass = "OpenLDAPPerson";
+                user.telephoneNumber = item.phone;
                 ldapUser.Add(user);
             }
         }
@@ -473,12 +462,12 @@ namespace TNUE_Patron_Excel
             sbPatronXml.AppendLine("<p-file-20>");
             foreach (Patron item in listPatron)
             {
-                sbPatronXml.Append("<patron-record>");
+                sbPatronXml.AppendLine("<patron-record>");
                 sbPatronXml.Append(new z303().tab3(item));
                 sbPatronXml.Append(new z304().tab4(item));
                 sbPatronXml.Append(new z305().tab5(item, block, status));
                 sbPatronXml.Append(new z308().tab8(item));
-                sbPatronXml.Append("</patron-record>");
+                sbPatronXml.AppendLine("</patron-record>");
             }
             sbPatronXml.AppendLine("</p-file-20>");
         }
@@ -492,12 +481,15 @@ namespace TNUE_Patron_Excel
             foreach (Patron item in listPatron)
             {
                 stringBuilder = new StringBuilder();
-                stringBuilder.Append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><p-file-20><patron-record>");
+                stringBuilder.Append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+                stringBuilder.Append("<p-file-20>");
+                stringBuilder.Append("<patron-record>");
                 stringBuilder.Append(new z303().tab3(item));
                 stringBuilder.Append(new z304().tab4(item));
                 stringBuilder.Append(new z305().tab5(item, block, status));
                 stringBuilder.Append(new z308().tab8(item));
-                stringBuilder.Append("</patron-record></p-file-20>");
+                stringBuilder.Append("</patron-record>");
+                stringBuilder.Append("</p-file-20>");
                 listSb.Add(stringBuilder);
             }
             ExportDanhSachTT();
@@ -514,7 +506,7 @@ namespace TNUE_Patron_Excel
                     sbList.Append("\t");
                     sbList.AppendLine(item.MaSV_O);
                 }
-                File.WriteAllText(textBox2.Text + "/DanhSachTT-SinhVien-" + tool.getDate() + ".txt", sbList.ToString());
+                File.WriteAllText(textBox2.Text + "/DanhSachTT-CanBo-" + tool.getDate() + ".txt", sbList.ToString());
             }
         }
 
@@ -534,17 +526,6 @@ namespace TNUE_Patron_Excel
                     }
                 }
             }
-            RemovePatron();
-            int num = int.Parse(txtPatronId.Text);
-            foreach (Patron item3 in listPatron)
-            {
-                item3.pationID = $"{num:000000000000}";
-                num++;
-            }
-        }
-
-        private void RemovePatron()
-        {
             List<Patron> list = new List<Patron>();
             list = listPatron;
             foreach (Patron s in DSTonTai)
@@ -585,33 +566,24 @@ namespace TNUE_Patron_Excel
                 DataDBLocal.listZ308 = new QueryDB().listZ308TED();
                 listZ308 = DataDBLocal.listZ308;
                 Loading_FS.CloseSplash();
-                MessageBox.Show("Đã thêm thành công " + listSb.Count + " bạn đọc!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                Loading_FS.text = "\tĐang cập nhập lại dữ liệu ...";
-                Loading_FS.ShowSplash();
-                ResetFormData();
-                Loading_FS.CloseSplash();
-
+                MessageBox.Show("Thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
                 MessageBox.Show("Chưa chọn đường dẫn lưu !", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
-        private void ResetFormData()
+
+        private void btnUpdateLdap_Click(object sender, EventArgs e)
         {
-            DataDBLocal.listZ308 = new QueryDB().listZ308TED();
-            listZ308 = DataDBLocal.listZ308.CloneObject();
-            txtLine.Text = "12";
-            countP = new QueryDB().CountPatron();
-            txtPatronId.Text = $"{countP + 1:000000000000}";
-            dgvPatron.DataSource = null;
-            dgvHad.DataSource = null;
-            textBox1.Clear();
-            textBox2.Clear();
-            btnConvert.Enabled = false;
-            btnPush.Enabled = false;
+            foreach (User item in ldapUser)
+            {
+                new ModelLdap().SetAdInfo(item.userLogin, ModelLdap.Property.mail, item.userMail);
+                new ModelLdap().SetAdInfo(item.userLogin, ModelLdap.Property.telephoneNumber, item.telephoneNumber);
+            }
+            MessageBox.Show("Thành công!", "Thông báo!");
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && components != null)
@@ -623,9 +595,8 @@ namespace TNUE_Patron_Excel
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvPatron = new System.Windows.Forms.DataGridView();
             this.pationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -649,9 +620,9 @@ namespace TNUE_Patron_Excel
             this.ngayHetHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnUpdateLdap = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.cbLoaiBanDoc = new System.Windows.Forms.ComboBox();
-            this.pb_TaiChinh = new System.Windows.Forms.PictureBox();
             this.btnPush = new System.Windows.Forms.Button();
             this.btnConvert = new System.Windows.Forms.Button();
             this.btnXml = new System.Windows.Forms.Button();
@@ -697,21 +668,22 @@ namespace TNUE_Patron_Excel
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbCountListExcel = new System.Windows.Forms.Label();
             this.lbCountHad = new System.Windows.Forms.Label();
+            this.pb_TaiChinh = new System.Windows.Forms.PictureBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatron)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dgvPatron);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(3, 246);
+            this.groupBox3.Location = new System.Drawing.Point(3, 244);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(620, 297);
+            this.groupBox3.Size = new System.Drawing.Size(620, 302);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "DANH SÁCH";
@@ -720,8 +692,8 @@ namespace TNUE_Patron_Excel
             // 
             this.dgvPatron.AllowUserToAddRows = false;
             this.dgvPatron.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvPatron.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPatron.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPatron.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPatron.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pationID,
@@ -749,8 +721,8 @@ namespace TNUE_Patron_Excel
             this.dgvPatron.Name = "dgvPatron";
             this.dgvPatron.ReadOnly = true;
             this.dgvPatron.RowHeadersWidth = 20;
-            this.dgvPatron.Size = new System.Drawing.Size(614, 276);
-            this.dgvPatron.TabIndex = 18;
+            this.dgvPatron.Size = new System.Drawing.Size(614, 281);
+            this.dgvPatron.TabIndex = 19;
             // 
             // pationID
             // 
@@ -763,10 +735,10 @@ namespace TNUE_Patron_Excel
             // MaSV_O
             // 
             this.MaSV_O.DataPropertyName = "MaSV_O";
-            this.MaSV_O.HeaderText = "Mã Sinh Viên";
+            this.MaSV_O.HeaderText = "Mã Cán Bộ";
             this.MaSV_O.Name = "MaSV_O";
             this.MaSV_O.ReadOnly = true;
-            this.MaSV_O.Width = 101;
+            this.MaSV_O.Width = 89;
             // 
             // HoTen
             // 
@@ -787,9 +759,6 @@ namespace TNUE_Patron_Excel
             // ngaySinh
             // 
             this.ngaySinh.DataPropertyName = "ngaySinh";
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.ngaySinh.DefaultCellStyle = dataGridViewCellStyle5;
             this.ngaySinh.HeaderText = "Ngày Sinh";
             this.ngaySinh.Name = "ngaySinh";
             this.ngaySinh.ReadOnly = true;
@@ -833,7 +802,8 @@ namespace TNUE_Patron_Excel
             this.khoaHoc.HeaderText = "Khoa";
             this.khoaHoc.Name = "khoaHoc";
             this.khoaHoc.ReadOnly = true;
-            this.khoaHoc.Width = 59;
+            this.khoaHoc.Visible = false;
+            this.khoaHoc.Width = 57;
             // 
             // khoa
             // 
@@ -841,7 +811,8 @@ namespace TNUE_Patron_Excel
             this.khoa.HeaderText = "Khóa";
             this.khoa.Name = "khoa";
             this.khoa.ReadOnly = true;
-            this.khoa.Width = 59;
+            this.khoa.Visible = false;
+            this.khoa.Width = 57;
             // 
             // lopHoc
             // 
@@ -849,16 +820,16 @@ namespace TNUE_Patron_Excel
             this.lopHoc.HeaderText = "Lớp Học";
             this.lopHoc.Name = "lopHoc";
             this.lopHoc.ReadOnly = true;
-            this.lopHoc.Width = 75;
+            this.lopHoc.Visible = false;
+            this.lopHoc.Width = 73;
             // 
             // makh
             // 
             this.makh.DataPropertyName = "makh";
-            this.makh.HeaderText = "makh";
+            this.makh.HeaderText = "Phòng";
             this.makh.Name = "makh";
             this.makh.ReadOnly = true;
-            this.makh.Visible = false;
-            this.makh.Width = 58;
+            this.makh.Width = 67;
             // 
             // chucVu
             // 
@@ -866,8 +837,7 @@ namespace TNUE_Patron_Excel
             this.chucVu.HeaderText = "Chức Vụ";
             this.chucVu.Name = "chucVu";
             this.chucVu.ReadOnly = true;
-            this.chucVu.Visible = false;
-            this.chucVu.Width = 73;
+            this.chucVu.Width = 75;
             // 
             // chucDanh
             // 
@@ -875,8 +845,7 @@ namespace TNUE_Patron_Excel
             this.chucDanh.HeaderText = "Chức Danh";
             this.chucDanh.Name = "chucDanh";
             this.chucDanh.ReadOnly = true;
-            this.chucDanh.Visible = false;
-            this.chucDanh.Width = 86;
+            this.chucDanh.Width = 89;
             // 
             // QuocTich
             // 
@@ -892,7 +861,8 @@ namespace TNUE_Patron_Excel
             this.hocBong.HeaderText = "Học Bổng";
             this.hocBong.Name = "hocBong";
             this.hocBong.ReadOnly = true;
-            this.hocBong.Width = 83;
+            this.hocBong.Visible = false;
+            this.hocBong.Width = 80;
             // 
             // qdCongNhan
             // 
@@ -900,7 +870,8 @@ namespace TNUE_Patron_Excel
             this.qdCongNhan.HeaderText = "QĐ Công Nhận";
             this.qdCongNhan.Name = "qdCongNhan";
             this.qdCongNhan.ReadOnly = true;
-            this.qdCongNhan.Width = 111;
+            this.qdCongNhan.Visible = false;
+            this.qdCongNhan.Width = 105;
             // 
             // ngayHetHan
             // 
@@ -920,9 +891,10 @@ namespace TNUE_Patron_Excel
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnUpdateLdap);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.cbLoaiBanDoc);
             this.groupBox1.Controls.Add(this.pb_TaiChinh);
+            this.groupBox1.Controls.Add(this.cbLoaiBanDoc);
             this.groupBox1.Controls.Add(this.btnPush);
             this.groupBox1.Controls.Add(this.btnConvert);
             this.groupBox1.Controls.Add(this.btnXml);
@@ -949,36 +921,39 @@ namespace TNUE_Patron_Excel
             this.groupBox1.Size = new System.Drawing.Size(993, 240);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sinh vien";
+            this.groupBox1.Text = "Cán bộ";
+            // 
+            // btnUpdateLdap
+            // 
+            this.btnUpdateLdap.Enabled = false;
+            this.btnUpdateLdap.Location = new System.Drawing.Point(628, 154);
+            this.btnUpdateLdap.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdateLdap.Name = "btnUpdateLdap";
+            this.btnUpdateLdap.Size = new System.Drawing.Size(135, 35);
+            this.btnUpdateLdap.TabIndex = 112;
+            this.btnUpdateLdap.Text = "Update Ldap";
+            this.btnUpdateLdap.UseVisualStyleBackColor = true;
+            this.btnUpdateLdap.Visible = false;
+            this.btnUpdateLdap.Click += new System.EventHandler(this.btnUpdateLdap_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 199);
+            this.label7.Location = new System.Drawing.Point(11, 198);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 25);
-            this.label7.TabIndex = 109;
+            this.label7.TabIndex = 111;
             this.label7.Text = "Loại Bạn Đọc";
             // 
             // cbLoaiBanDoc
             // 
             this.cbLoaiBanDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLoaiBanDoc.FormattingEnabled = true;
-            this.cbLoaiBanDoc.Location = new System.Drawing.Point(144, 196);
+            this.cbLoaiBanDoc.Location = new System.Drawing.Point(144, 195);
             this.cbLoaiBanDoc.Name = "cbLoaiBanDoc";
             this.cbLoaiBanDoc.Size = new System.Drawing.Size(316, 33);
-            this.cbLoaiBanDoc.TabIndex = 108;
-            // 
-            // pb_TaiChinh
-            // 
-            this.pb_TaiChinh.Image = global::TNUE_Patron_Excel.Properties.Resources.library_logo;
-            this.pb_TaiChinh.Location = new System.Drawing.Point(795, 20);
-            this.pb_TaiChinh.Name = "pb_TaiChinh";
-            this.pb_TaiChinh.Size = new System.Drawing.Size(160, 151);
-            this.pb_TaiChinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_TaiChinh.TabIndex = 20;
-            this.pb_TaiChinh.TabStop = false;
+            this.cbLoaiBanDoc.TabIndex = 110;
             // 
             // btnPush
             // 
@@ -989,7 +964,7 @@ namespace TNUE_Patron_Excel
             this.btnPush.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPush.ForeColor = System.Drawing.Color.White;
             this.btnPush.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPush.Location = new System.Drawing.Point(464, 193);
+            this.btnPush.Location = new System.Drawing.Point(464, 194);
             this.btnPush.Name = "btnPush";
             this.btnPush.Size = new System.Drawing.Size(159, 38);
             this.btnPush.TabIndex = 107;
@@ -1005,9 +980,9 @@ namespace TNUE_Patron_Excel
             this.btnConvert.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvert.ForeColor = System.Drawing.Color.White;
             this.btnConvert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvert.Location = new System.Drawing.Point(463, 153);
+            this.btnConvert.Location = new System.Drawing.Point(464, 151);
             this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Size = new System.Drawing.Size(159, 37);
+            this.btnConvert.Size = new System.Drawing.Size(159, 38);
             this.btnConvert.TabIndex = 106;
             this.btnConvert.Text = "Chuyển dữ liệu";
             this.btnConvert.UseVisualStyleBackColor = false;
@@ -1021,7 +996,7 @@ namespace TNUE_Patron_Excel
             this.btnXml.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXml.ForeColor = System.Drawing.Color.White;
             this.btnXml.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXml.Location = new System.Drawing.Point(628, 151);
+            this.btnXml.Location = new System.Drawing.Point(628, 113);
             this.btnXml.Name = "btnXml";
             this.btnXml.Size = new System.Drawing.Size(120, 38);
             this.btnXml.TabIndex = 105;
@@ -1033,7 +1008,7 @@ namespace TNUE_Patron_Excel
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(403, 39);
+            this.label6.Location = new System.Drawing.Point(358, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 25);
             this.label6.TabIndex = 104;
@@ -1042,10 +1017,10 @@ namespace TNUE_Patron_Excel
             // btn_ldap
             // 
             this.btn_ldap.Enabled = false;
-            this.btn_ldap.Location = new System.Drawing.Point(629, 194);
+            this.btn_ldap.Location = new System.Drawing.Point(628, 195);
             this.btn_ldap.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ldap.Name = "btn_ldap";
-            this.btn_ldap.Size = new System.Drawing.Size(119, 35);
+            this.btn_ldap.Size = new System.Drawing.Size(120, 35);
             this.btn_ldap.TabIndex = 102;
             this.btn_ldap.Text = "Ldap";
             this.btn_ldap.UseVisualStyleBackColor = true;
@@ -1055,7 +1030,7 @@ namespace TNUE_Patron_Excel
             // btn_api
             // 
             this.btn_api.Enabled = false;
-            this.btn_api.Location = new System.Drawing.Point(752, 194);
+            this.btn_api.Location = new System.Drawing.Point(752, 195);
             this.btn_api.Margin = new System.Windows.Forms.Padding(2);
             this.btn_api.Name = "btn_api";
             this.btn_api.Size = new System.Drawing.Size(121, 35);
@@ -1068,17 +1043,17 @@ namespace TNUE_Patron_Excel
             // txtPatronId
             // 
             this.txtPatronId.Enabled = false;
-            this.txtPatronId.Location = new System.Drawing.Point(144, 36);
+            this.txtPatronId.Location = new System.Drawing.Point(144, 31);
             this.txtPatronId.Margin = new System.Windows.Forms.Padding(2);
             this.txtPatronId.Name = "txtPatronId";
-            this.txtPatronId.Size = new System.Drawing.Size(252, 33);
+            this.txtPatronId.Size = new System.Drawing.Size(209, 33);
             this.txtPatronId.TabIndex = 99;
             this.txtPatronId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPatronId_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 36);
+            this.label4.Location = new System.Drawing.Point(21, 36);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 25);
@@ -1087,7 +1062,7 @@ namespace TNUE_Patron_Excel
             // 
             // txtLine
             // 
-            this.txtLine.Location = new System.Drawing.Point(544, 33);
+            this.txtLine.Location = new System.Drawing.Point(499, 30);
             this.txtLine.Name = "txtLine";
             this.txtLine.Size = new System.Drawing.Size(76, 33);
             this.txtLine.TabIndex = 103;
@@ -1096,7 +1071,7 @@ namespace TNUE_Patron_Excel
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 158);
+            this.label5.Location = new System.Drawing.Point(15, 154);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 25);
@@ -1115,7 +1090,7 @@ namespace TNUE_Patron_Excel
             // textBox3
             // 
             this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(721, 33);
+            this.textBox3.Location = new System.Drawing.Point(676, 30);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(45, 33);
             this.textBox3.TabIndex = 96;
@@ -1123,21 +1098,23 @@ namespace TNUE_Patron_Excel
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(144, 116);
+            this.textBox2.Location = new System.Drawing.Point(144, 115);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(316, 33);
             this.textBox2.TabIndex = 93;
+            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 116);
+            this.label2.Location = new System.Drawing.Point(14, 119);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 25);
             this.label2.TabIndex = 91;
             this.label2.Text = "Thư mục lưu";
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // btnBrowserFile
             // 
@@ -1183,7 +1160,7 @@ namespace TNUE_Patron_Excel
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(626, 36);
+            this.label3.Location = new System.Drawing.Point(581, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 25);
             this.label3.TabIndex = 97;
@@ -1200,7 +1177,7 @@ namespace TNUE_Patron_Excel
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThoat.Location = new System.Drawing.Point(878, 193);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(109, 38);
+            this.btnThoat.Size = new System.Drawing.Size(111, 38);
             this.btnThoat.TabIndex = 14;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
@@ -1210,9 +1187,9 @@ namespace TNUE_Patron_Excel
             // 
             this.groupBox2.Controls.Add(this.dgvHad);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(629, 246);
+            this.groupBox2.Location = new System.Drawing.Point(629, 245);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(364, 297);
+            this.groupBox2.Size = new System.Drawing.Size(364, 300);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "DANH SÁCH ĐÃ TỒN TẠI";
@@ -1221,8 +1198,8 @@ namespace TNUE_Patron_Excel
             // 
             this.dgvHad.AllowUserToAddRows = false;
             this.dgvHad.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHad.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvHad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1250,8 +1227,8 @@ namespace TNUE_Patron_Excel
             this.dgvHad.Name = "dgvHad";
             this.dgvHad.ReadOnly = true;
             this.dgvHad.RowHeadersWidth = 20;
-            this.dgvHad.Size = new System.Drawing.Size(358, 276);
-            this.dgvHad.TabIndex = 19;
+            this.dgvHad.Size = new System.Drawing.Size(358, 279);
+            this.dgvHad.TabIndex = 20;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1264,10 +1241,10 @@ namespace TNUE_Patron_Excel
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "MaSV_O";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mã Sinh Viên";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Mã Cán Bộ";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 101;
+            this.dataGridViewTextBoxColumn2.Width = 89;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1331,7 +1308,8 @@ namespace TNUE_Patron_Excel
             this.dataGridViewTextBoxColumn10.HeaderText = "Khoa";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 59;
+            this.dataGridViewTextBoxColumn10.Visible = false;
+            this.dataGridViewTextBoxColumn10.Width = 57;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -1339,7 +1317,8 @@ namespace TNUE_Patron_Excel
             this.dataGridViewTextBoxColumn11.HeaderText = "Khóa";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 59;
+            this.dataGridViewTextBoxColumn11.Visible = false;
+            this.dataGridViewTextBoxColumn11.Width = 57;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -1347,16 +1326,16 @@ namespace TNUE_Patron_Excel
             this.dataGridViewTextBoxColumn12.HeaderText = "Lớp Học";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 75;
+            this.dataGridViewTextBoxColumn12.Visible = false;
+            this.dataGridViewTextBoxColumn12.Width = 73;
             // 
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "makh";
-            this.dataGridViewTextBoxColumn13.HeaderText = "makh";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Phòng";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Visible = false;
-            this.dataGridViewTextBoxColumn13.Width = 58;
+            this.dataGridViewTextBoxColumn13.Width = 67;
             // 
             // dataGridViewTextBoxColumn14
             // 
@@ -1364,8 +1343,7 @@ namespace TNUE_Patron_Excel
             this.dataGridViewTextBoxColumn14.HeaderText = "Chức Vụ";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Visible = false;
-            this.dataGridViewTextBoxColumn14.Width = 73;
+            this.dataGridViewTextBoxColumn14.Width = 75;
             // 
             // dataGridViewTextBoxColumn15
             // 
@@ -1373,8 +1351,7 @@ namespace TNUE_Patron_Excel
             this.dataGridViewTextBoxColumn15.HeaderText = "Chức Danh";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Visible = false;
-            this.dataGridViewTextBoxColumn15.Width = 86;
+            this.dataGridViewTextBoxColumn15.Width = 89;
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -1390,7 +1367,8 @@ namespace TNUE_Patron_Excel
             this.dataGridViewTextBoxColumn17.HeaderText = "Học Bổng";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Width = 83;
+            this.dataGridViewTextBoxColumn17.Visible = false;
+            this.dataGridViewTextBoxColumn17.Width = 80;
             // 
             // dataGridViewTextBoxColumn18
             // 
@@ -1398,7 +1376,8 @@ namespace TNUE_Patron_Excel
             this.dataGridViewTextBoxColumn18.HeaderText = "QĐ Công Nhận";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Width = 111;
+            this.dataGridViewTextBoxColumn18.Visible = false;
+            this.dataGridViewTextBoxColumn18.Width = 105;
             // 
             // dataGridViewTextBoxColumn19
             // 
@@ -1420,7 +1399,7 @@ namespace TNUE_Patron_Excel
             // 
             this.lbCountListExcel.AutoSize = true;
             this.lbCountListExcel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCountListExcel.Location = new System.Drawing.Point(3, 542);
+            this.lbCountListExcel.Location = new System.Drawing.Point(3, 544);
             this.lbCountListExcel.Name = "lbCountListExcel";
             this.lbCountListExcel.Size = new System.Drawing.Size(76, 21);
             this.lbCountListExcel.TabIndex = 31;
@@ -1430,13 +1409,23 @@ namespace TNUE_Patron_Excel
             // 
             this.lbCountHad.AutoSize = true;
             this.lbCountHad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCountHad.Location = new System.Drawing.Point(628, 542);
+            this.lbCountHad.Location = new System.Drawing.Point(628, 544);
             this.lbCountHad.Name = "lbCountHad";
             this.lbCountHad.Size = new System.Drawing.Size(76, 21);
             this.lbCountHad.TabIndex = 32;
             this.lbCountHad.Text = "Số lượng:";
             // 
-            // UCSinhVien
+            // pb_TaiChinh
+            // 
+            this.pb_TaiChinh.Image = global::TNUE_Patron_Excel.Properties.Resources.library_logo;
+            this.pb_TaiChinh.Location = new System.Drawing.Point(796, 20);
+            this.pb_TaiChinh.Name = "pb_TaiChinh";
+            this.pb_TaiChinh.Size = new System.Drawing.Size(160, 151);
+            this.pb_TaiChinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_TaiChinh.TabIndex = 20;
+            this.pb_TaiChinh.TabStop = false;
+            // 
+            // UCCanBo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1447,18 +1436,28 @@ namespace TNUE_Patron_Excel
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "UCSinhVien";
+            this.Name = "UCCanBo";
             this.Size = new System.Drawing.Size(1000, 565);
-            this.Load += new System.EventHandler(this.UCNhanVien_Load);
+            this.Load += new System.EventHandler(this.UCCanBo_Load);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatron)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -73,6 +73,11 @@ namespace TNUE_Patron_Excel
 			get;
 			set;
 		}
+        public string ChuyenNganh
+        {
+            get;
+            set;
+        }
         public string makh
 		{
 			get;

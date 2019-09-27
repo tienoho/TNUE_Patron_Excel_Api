@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC180FBB-327A-49DA-A9A5-75ADE43D3692}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TNUE_Patron_Excel</RootNamespace>
+    <AssemblyName>TNUE_Patron_Excel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>library-logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastMember, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.5.0\lib\net461\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.3.1\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.DirectoryServices.AccountManagement">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.DirectoryServices.Protocols">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\Aleph.cs" />
+    <Compile Include="API\AlephAPI.cs" />
+    <Compile Include="ComboboxItem.cs" />
+    <Compile Include="Config\ConfigAleph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config\ConfigDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config\ConfigLdap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config\DTOlogin.cs" />
+    <Compile Include="Control.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlMember\AddEditMember.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlMember\ItemBlock.cs" />
+    <Compile Include="ControlMember\UCDeleteUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlMember\UCInsertUserLdap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlMember\UCUpdatePatron.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DBConnect\CheckUrl.cs" />
+    <Compile Include="DBConnect\DataDBLocal.cs" />
+    <Compile Include="DBConnect\DataOracle.cs" />
+    <Compile Include="DBConnect\DBConnecting.cs" />
+    <Compile Include="DBConnect\QueryDB.cs" />
+    <Compile Include="DBConnect\ReadWriterConfig.cs" />
+    <Compile Include="DTOPatron.cs" />
+    <Compile Include="ExTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormStartLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ldap\ConectLdap.cs" />
+    <Compile Include="Ldap\LdapField.cs" />
+    <Compile Include="Ldap\ModelLdap.cs" />
+    <Compile Include="Ldap\RemoveUser.cs" />
+    <Compile Include="Ldap\UpdateUser.cs" />
+    <Compile Include="Ldap\User.cs" />
+    <Compile Include="listID.cs" />
+    <Compile Include="Loading_FS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patron.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuperGird.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tool\Extensions.cs" />
+    <Compile Include="Tool\ToolP.cs" />
+    <Compile Include="Tool\Unicode.cs" />
+    <Compile Include="Tool\Z308.cs" />
+    <Compile Include="UCCanBo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCConvertPic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCDataPatronZ308.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCSinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Z303\z303.cs" />
+    <Compile Include="Z303\z303Block.cs" />
+    <Compile Include="Z303\z304.cs" />
+    <Compile Include="Z303\z304Update.cs" />
+    <Compile Include="Z303\z305.cs" />
+    <Compile Include="Z303\z305Block.cs" />
+    <Compile Include="Z303\z308.cs" />
+    <Compile Include="Z303\z308Update.cs" />
+    <EmbeddedResource Include="Config\ConfigAleph.resx">
+      <DependentUpon>ConfigAleph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ConfigDataBase.resx">
+      <DependentUpon>ConfigDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ConfigLdap.resx">
+      <DependentUpon>ConfigLdap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control.resx">
+      <DependentUpon>Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlMember\UCDeleteUser.resx">
+      <DependentUpon>UCDeleteUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlMember\UCInsertUserLdap.resx">
+      <DependentUpon>UCInsertUserLdap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlMember\UCUpdatePatron.resx">
+      <DependentUpon>UCUpdatePatron.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStartLoading.resx">
+      <DependentUpon>FormStartLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Result.resx">
+      <DependentUpon>Result.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCCanBo.resx">
+      <DependentUpon>UCCanBo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCConvertPic.resx">
+      <DependentUpon>UCConvertPic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCSinhVien.resx">
+      <DependentUpon>UCSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="library-logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
