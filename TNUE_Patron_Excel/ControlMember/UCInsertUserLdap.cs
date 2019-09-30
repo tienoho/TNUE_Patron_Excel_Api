@@ -239,7 +239,7 @@ namespace TNUE_Patron_Excel.ControlMember
             int rowIndex = e.RowIndex;
             try
             {
-                txtMa.Text = dgvAleph.Rows[rowIndex].Cells[0].Value.ToString();
+                txtMa.Text = dgvAleph.Rows[rowIndex].Cells[1].Value.ToString();
             }
             catch
             {

@@ -175,146 +175,190 @@ namespace TNUE_Patron_Excel.Config
 
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TNUE_Patron_Excel.Config.ConfigDataBase));
-			btnTest = new System.Windows.Forms.Button();
-			txtHost = new System.Windows.Forms.TextBox();
-			label4 = new System.Windows.Forms.Label();
-			txtSid = new System.Windows.Forms.TextBox();
-			label2 = new System.Windows.Forms.Label();
-			txtPort = new System.Windows.Forms.TextBox();
-			label1 = new System.Windows.Forms.Label();
-			txtUser = new System.Windows.Forms.TextBox();
-			label3 = new System.Windows.Forms.Label();
-			btnOk = new System.Windows.Forms.Button();
-			txtPassword = new System.Windows.Forms.TextBox();
-			label5 = new System.Windows.Forms.Label();
-			lbStatus = new System.Windows.Forms.Label();
-			SuspendLayout();
-			btnTest.AutoSize = true;
-			btnTest.BackColor = System.Drawing.Color.FromArgb(52, 152, 216);
-			btnTest.FlatAppearance.BorderSize = 0;
-			btnTest.Font = new System.Drawing.Font("Segoe UI", 12f, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-			btnTest.ForeColor = System.Drawing.Color.White;
-			btnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			btnTest.Location = new System.Drawing.Point(96, 357);
-			btnTest.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-			btnTest.Name = "btnTest";
-			btnTest.Size = new System.Drawing.Size(146, 45);
-			btnTest.TabIndex = 123;
-			btnTest.Text = "Test Connect";
-			btnTest.UseVisualStyleBackColor = false;
-			btnTest.Click += new System.EventHandler(btnTest_Click);
-			txtHost.Location = new System.Drawing.Point(116, 30);
-			txtHost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			txtHost.Name = "txtHost";
-			txtHost.Size = new System.Drawing.Size(358, 41);
-			txtHost.TabIndex = 120;
-			label4.AutoSize = true;
-			label4.Location = new System.Drawing.Point(18, 33);
-			label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			label4.Name = "label4";
-			label4.Size = new System.Drawing.Size(58, 33);
-			label4.TabIndex = 119;
-			label4.Text = "Host";
-			txtSid.Location = new System.Drawing.Point(116, 145);
-			txtSid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			txtSid.Name = "txtSid";
-			txtSid.Size = new System.Drawing.Size(358, 41);
-			txtSid.TabIndex = 116;
-			txtSid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(txtSid_KeyPress);
-			label2.AutoSize = true;
-			label2.Location = new System.Drawing.Point(10, 148);
-			label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			label2.Name = "label2";
-			label2.Size = new System.Drawing.Size(46, 33);
-			label2.TabIndex = 114;
-			label2.Text = "Sid";
-			txtPort.Location = new System.Drawing.Point(116, 87);
-			txtPort.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			txtPort.Name = "txtPort";
-			txtPort.Size = new System.Drawing.Size(358, 41);
-			txtPort.TabIndex = 112;
-			txtPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(txtPort_KeyPress);
-			label1.AutoSize = true;
-			label1.Location = new System.Drawing.Point(18, 90);
-			label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			label1.Name = "label1";
-			label1.Size = new System.Drawing.Size(58, 33);
-			label1.TabIndex = 111;
-			label1.Text = "Port";
-			txtUser.Location = new System.Drawing.Point(116, 196);
-			txtUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			txtUser.Name = "txtUser";
-			txtUser.Size = new System.Drawing.Size(358, 41);
-			txtUser.TabIndex = 125;
-			label3.AutoSize = true;
-			label3.Location = new System.Drawing.Point(10, 199);
-			label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			label3.Name = "label3";
-			label3.Size = new System.Drawing.Size(58, 33);
-			label3.TabIndex = 124;
-			label3.Text = "User";
-			btnOk.AutoSize = true;
-			btnOk.BackColor = System.Drawing.Color.FromArgb(52, 152, 216);
-			btnOk.FlatAppearance.BorderSize = 0;
-			btnOk.Font = new System.Drawing.Font("Segoe UI", 12f, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-			btnOk.ForeColor = System.Drawing.Color.White;
-			btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			btnOk.Location = new System.Drawing.Point(254, 357);
-			btnOk.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-			btnOk.Name = "btnOk";
-			btnOk.Size = new System.Drawing.Size(146, 45);
-			btnOk.TabIndex = 126;
-			btnOk.Text = "Ok";
-			btnOk.UseVisualStyleBackColor = false;
-			btnOk.Click += new System.EventHandler(btnOk_Click);
-			txtPassword.Location = new System.Drawing.Point(116, 247);
-			txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			txtPassword.Name = "txtPassword";
-			txtPassword.Size = new System.Drawing.Size(358, 41);
-			txtPassword.TabIndex = 128;
-			label5.AutoSize = true;
-			label5.Location = new System.Drawing.Point(10, 250);
-			label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			label5.Name = "label5";
-			label5.Size = new System.Drawing.Size(106, 33);
-			label5.TabIndex = 127;
-			label5.Text = "Password";
-			lbStatus.AutoSize = true;
-			lbStatus.Font = new System.Drawing.Font("Segoe Print", 14.25f, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-			lbStatus.ForeColor = System.Drawing.Color.LimeGreen;
-			lbStatus.Location = new System.Drawing.Point(140, 307);
-			lbStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			lbStatus.Name = "lbStatus";
-			lbStatus.Size = new System.Drawing.Size(222, 33);
-			lbStatus.TabIndex = 129;
-			lbStatus.Text = "Successful connection";
-			base.AutoScaleDimensions = new System.Drawing.SizeF(12f, 33f);
-			base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			base.ClientSize = new System.Drawing.Size(494, 416);
-			base.Controls.Add(lbStatus);
-			base.Controls.Add(txtPassword);
-			base.Controls.Add(label5);
-			base.Controls.Add(btnOk);
-			base.Controls.Add(txtUser);
-			base.Controls.Add(label3);
-			base.Controls.Add(btnTest);
-			base.Controls.Add(txtHost);
-			base.Controls.Add(label4);
-			base.Controls.Add(txtSid);
-			base.Controls.Add(label2);
-			base.Controls.Add(txtPort);
-			base.Controls.Add(label1);
-			Font = new System.Drawing.Font("Segoe Print", 14.25f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			base.Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-			base.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-			base.Name = "ConfigDataBase";
-			base.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			Text = "ConfigDataBase";
-			base.Load += new System.EventHandler(ConfigDataBase_Load);
-			ResumeLayout(false);
-			PerformLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigDataBase));
+            this.btnTest = new System.Windows.Forms.Button();
+            this.txtHost = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSid = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPort = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbStatus = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // btnTest
+            // 
+            this.btnTest.AutoSize = true;
+            this.btnTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(216)))));
+            this.btnTest.FlatAppearance.BorderSize = 0;
+            this.btnTest.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest.ForeColor = System.Drawing.Color.White;
+            this.btnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTest.Location = new System.Drawing.Point(96, 357);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(146, 45);
+            this.btnTest.TabIndex = 123;
+            this.btnTest.Text = "Test Connect";
+            this.btnTest.UseVisualStyleBackColor = false;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // txtHost
+            // 
+            this.txtHost.Location = new System.Drawing.Point(116, 30);
+            this.txtHost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtHost.Name = "txtHost";
+            this.txtHost.Size = new System.Drawing.Size(358, 41);
+            this.txtHost.TabIndex = 120;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 33);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 33);
+            this.label4.TabIndex = 119;
+            this.label4.Text = "Host";
+            // 
+            // txtSid
+            // 
+            this.txtSid.Location = new System.Drawing.Point(116, 145);
+            this.txtSid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSid.Name = "txtSid";
+            this.txtSid.Size = new System.Drawing.Size(358, 41);
+            this.txtSid.TabIndex = 116;
+            this.txtSid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSid_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 148);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 33);
+            this.label2.TabIndex = 114;
+            this.label2.Text = "Sid";
+            // 
+            // txtPort
+            // 
+            this.txtPort.Location = new System.Drawing.Point(116, 87);
+            this.txtPort.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(358, 41);
+            this.txtPort.TabIndex = 112;
+            this.txtPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 90);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 33);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "Port";
+            // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(116, 196);
+            this.txtUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(358, 41);
+            this.txtUser.TabIndex = 125;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 199);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 33);
+            this.label3.TabIndex = 124;
+            this.label3.Text = "User";
+            // 
+            // btnOk
+            // 
+            this.btnOk.AutoSize = true;
+            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(216)))));
+            this.btnOk.FlatAppearance.BorderSize = 0;
+            this.btnOk.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.ForeColor = System.Drawing.Color.White;
+            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOk.Location = new System.Drawing.Point(254, 357);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(146, 45);
+            this.btnOk.TabIndex = 126;
+            this.btnOk.Text = "Ok";
+            this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(116, 247);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(358, 41);
+            this.txtPassword.TabIndex = 128;
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 250);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 33);
+            this.label5.TabIndex = 127;
+            this.label5.Text = "Password";
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.AutoSize = true;
+            this.lbStatus.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatus.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lbStatus.Location = new System.Drawing.Point(140, 307);
+            this.lbStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(222, 33);
+            this.lbStatus.TabIndex = 129;
+            this.lbStatus.Text = "Successful connection";
+            // 
+            // ConfigDataBase
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 33F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(494, 416);
+            this.Controls.Add(this.lbStatus);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnOk);
+            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnTest);
+            this.Controls.Add(this.txtHost);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtSid);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtPort);
+            this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.Name = "ConfigDataBase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ConfigDataBase";
+            this.Load += new System.EventHandler(this.ConfigDataBase_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
 		}
 	}
 }

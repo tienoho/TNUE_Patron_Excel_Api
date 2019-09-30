@@ -79,7 +79,8 @@ namespace TNUE_Patron_Excel
 		private void btnConvert_Click(object sender, EventArgs e)
 		{
 			Loading_FS.text = "\tĐang đưa dữ liệu ...";
-			ChangeName();
+            Loading_FS.ShowSplash();
+            ChangeName();
 			Loading_FS.CloseSplash();
 			MessageBox.Show("Thành công!", "Thông báo!");
 		}

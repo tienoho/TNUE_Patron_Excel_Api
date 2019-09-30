@@ -294,8 +294,15 @@ namespace TNUE_Patron_Excel.ControlMember
                 lbCountDS.Text = dgvDeleteBlock.RowCount.ToString();
                 lbKhongTonTaiDS.Text = dgvKhongTonTai.RowCount.ToString();
                 Loading_FS.CloseSplash();
-                btnDeleteSeris.Enabled = true;
-                MessageBox.Show("Chuyển dữ liệu thành công!");
+                if (ListDS.Count > 0)
+                {
+                    btnDeleteSeris.Enabled = true;
+                    MessageBox.Show("Chuyển dữ liệu thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu!");
+                }
             }
             else
             {
@@ -634,14 +641,14 @@ namespace TNUE_Patron_Excel.ControlMember
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Location = new System.Drawing.Point(3, 163);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(973, 318);
+            this.panel1.Size = new System.Drawing.Size(973, 327);
             this.panel1.TabIndex = 108;
             // 
             // lbKhongTonTaiDS
             // 
             this.lbKhongTonTaiDS.AutoSize = true;
             this.lbKhongTonTaiDS.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbKhongTonTaiDS.Location = new System.Drawing.Point(575, 292);
+            this.lbKhongTonTaiDS.Location = new System.Drawing.Point(575, 302);
             this.lbKhongTonTaiDS.Name = "lbKhongTonTaiDS";
             this.lbKhongTonTaiDS.Size = new System.Drawing.Size(57, 21);
             this.lbKhongTonTaiDS.TabIndex = 112;
@@ -651,7 +658,7 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             this.lbCountDS.AutoSize = true;
             this.lbCountDS.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCountDS.Location = new System.Drawing.Point(9, 292);
+            this.lbCountDS.Location = new System.Drawing.Point(9, 302);
             this.lbCountDS.Name = "lbCountDS";
             this.lbCountDS.Size = new System.Drawing.Size(57, 21);
             this.lbCountDS.TabIndex = 111;
@@ -662,7 +669,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.groupBox3.Controls.Add(this.dgvDeleteBlock);
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(563, 288);
+            this.groupBox3.Size = new System.Drawing.Size(563, 296);
             this.groupBox3.TabIndex = 110;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách bạn đọc";
@@ -678,7 +685,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.dgvDeleteBlock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDeleteBlock.Location = new System.Drawing.Point(3, 29);
             this.dgvDeleteBlock.Name = "dgvDeleteBlock";
-            this.dgvDeleteBlock.Size = new System.Drawing.Size(557, 256);
+            this.dgvDeleteBlock.Size = new System.Drawing.Size(557, 264);
             this.dgvDeleteBlock.TabIndex = 57;
             // 
             // Ma
@@ -704,7 +711,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.groupBox2.Controls.Add(this.dgvKhongTonTai);
             this.groupBox2.Location = new System.Drawing.Point(569, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(401, 288);
+            this.groupBox2.Size = new System.Drawing.Size(401, 296);
             this.groupBox2.TabIndex = 109;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách không tồn tại";
@@ -720,7 +727,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.dgvKhongTonTai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKhongTonTai.Location = new System.Drawing.Point(3, 29);
             this.dgvKhongTonTai.Name = "dgvKhongTonTai";
-            this.dgvKhongTonTai.Size = new System.Drawing.Size(395, 256);
+            this.dgvKhongTonTai.Size = new System.Drawing.Size(395, 264);
             this.dgvKhongTonTai.TabIndex = 58;
             // 
             // MaDSKhongTonTai

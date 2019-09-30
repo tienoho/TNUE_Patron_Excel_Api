@@ -368,12 +368,16 @@ namespace TNUE_Patron_Excel.ControlMember
                 if (rbSinhVien.Checked)
                 {
                     readExcelSinhVien();
+
                 }
                 else if (rbCanBo.Checked)
                 {
                     readExcelCanBo();
                 }
-                btnConvert.Enabled = true;
+                if (listPatron.Count > 0)
+                {
+                    btnConvert.Enabled = true;
+                }               
                 MessageBox.Show("Chuyển dữ liệu thành công!");
             }
         }
@@ -400,6 +404,7 @@ namespace TNUE_Patron_Excel.ControlMember
                 }
                 catch (Exception ex)
                 {
+                    Loading_FS.CloseSplash();
                     MessageBox.Show(ex.Message, "Lỗi!");
                 }
             }

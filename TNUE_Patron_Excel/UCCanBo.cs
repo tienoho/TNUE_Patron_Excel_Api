@@ -241,8 +241,15 @@ namespace TNUE_Patron_Excel
             if (textBox1.Text != "")
             {
                 readExcel2();
-                btnConvert.Enabled = true;
-                MessageBox.Show("Chuyển dữ liệu thành công!");
+                if (listPatron.Count > 0)
+                {
+                    btnConvert.Enabled = true;
+                    MessageBox.Show("Chuyển dữ liệu thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu!");
+                }
             }
         }
 
@@ -641,6 +648,7 @@ namespace TNUE_Patron_Excel
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnUpdateLdap = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.pb_TaiChinh = new System.Windows.Forms.PictureBox();
             this.cbLoaiBanDoc = new System.Windows.Forms.ComboBox();
             this.btnPush = new System.Windows.Forms.Button();
             this.btnConvert = new System.Windows.Forms.Button();
@@ -687,13 +695,12 @@ namespace TNUE_Patron_Excel
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbCountListExcel = new System.Windows.Forms.Label();
             this.lbCountHad = new System.Windows.Forms.Label();
-            this.pb_TaiChinh = new System.Windows.Forms.PictureBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatron)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -965,6 +972,16 @@ namespace TNUE_Patron_Excel
             this.label7.TabIndex = 111;
             this.label7.Text = "Loại Bạn Đọc";
             // 
+            // pb_TaiChinh
+            // 
+            this.pb_TaiChinh.Image = global::TNUE_Patron_Excel.Properties.Resources.library_logo;
+            this.pb_TaiChinh.Location = new System.Drawing.Point(796, 20);
+            this.pb_TaiChinh.Name = "pb_TaiChinh";
+            this.pb_TaiChinh.Size = new System.Drawing.Size(160, 151);
+            this.pb_TaiChinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_TaiChinh.TabIndex = 20;
+            this.pb_TaiChinh.TabStop = false;
+            // 
             // cbLoaiBanDoc
             // 
             this.cbLoaiBanDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1113,6 +1130,7 @@ namespace TNUE_Patron_Excel
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(45, 33);
             this.textBox3.TabIndex = 96;
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox3_KeyPress);
             // 
             // textBox2
             // 
@@ -1434,16 +1452,6 @@ namespace TNUE_Patron_Excel
             this.lbCountHad.TabIndex = 32;
             this.lbCountHad.Text = "Số lượng:";
             // 
-            // pb_TaiChinh
-            // 
-            this.pb_TaiChinh.Image = global::TNUE_Patron_Excel.Properties.Resources.library_logo;
-            this.pb_TaiChinh.Location = new System.Drawing.Point(796, 20);
-            this.pb_TaiChinh.Name = "pb_TaiChinh";
-            this.pb_TaiChinh.Size = new System.Drawing.Size(160, 151);
-            this.pb_TaiChinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_TaiChinh.TabIndex = 20;
-            this.pb_TaiChinh.TabStop = false;
-            // 
             // UCCanBo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1462,9 +1470,9 @@ namespace TNUE_Patron_Excel
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatron)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1478,6 +1486,14 @@ namespace TNUE_Patron_Excel
         private void Label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void TextBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

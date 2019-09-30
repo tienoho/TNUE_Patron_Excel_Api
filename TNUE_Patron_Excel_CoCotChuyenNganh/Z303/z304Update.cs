@@ -10,7 +10,7 @@ namespace TNUE_Patron_Excel.Z303
 		public string tab4(string patronId, User user)
 		{
 			ToolP toolP = new ToolP();
-			string str = toolP.formatDate(DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy")).ToString());
+			string str = toolP.formatDate(DateTime.Now.ToString("dd/MM/yyyy"));
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.Append("<z304>");
 			stringBuilder.Append("<record-action>A</record-action>");

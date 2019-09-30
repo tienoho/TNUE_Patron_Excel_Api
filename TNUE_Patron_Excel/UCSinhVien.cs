@@ -231,8 +231,16 @@ namespace TNUE_Patron_Excel
             if (textBox1.Text != "")
             {
                 readExcel2();
-                btnConvert.Enabled = true;
-                MessageBox.Show("Chuyển dữ liệu thành công!");
+                if (listPatron.Count > 0)
+                {
+                    btnConvert.Enabled = true;
+                    MessageBox.Show("Chuyển dữ liệu thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu!");
+                }
+               
             }
         }
 
@@ -623,9 +631,9 @@ namespace TNUE_Patron_Excel
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvPatron = new System.Windows.Forms.DataGridView();
             this.pationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -720,8 +728,8 @@ namespace TNUE_Patron_Excel
             // 
             this.dgvPatron.AllowUserToAddRows = false;
             this.dgvPatron.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvPatron.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPatron.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPatron.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPatron.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pationID,
@@ -787,9 +795,9 @@ namespace TNUE_Patron_Excel
             // ngaySinh
             // 
             this.ngaySinh.DataPropertyName = "ngaySinh";
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.ngaySinh.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ngaySinh.DefaultCellStyle = dataGridViewCellStyle2;
             this.ngaySinh.HeaderText = "Ngày Sinh";
             this.ngaySinh.Name = "ngaySinh";
             this.ngaySinh.ReadOnly = true;
@@ -1119,6 +1127,7 @@ namespace TNUE_Patron_Excel
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(45, 33);
             this.textBox3.TabIndex = 96;
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox3_KeyPress);
             // 
             // textBox2
             // 
@@ -1221,8 +1230,8 @@ namespace TNUE_Patron_Excel
             // 
             this.dgvHad.AllowUserToAddRows = false;
             this.dgvHad.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHad.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvHad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1460,6 +1469,14 @@ namespace TNUE_Patron_Excel
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void TextBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

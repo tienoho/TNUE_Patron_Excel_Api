@@ -146,6 +146,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Tool\Extensions.cs" />
+    <Compile Include="Tool\FormProvider.cs" />
     <Compile Include="Tool\ToolP.cs" />
     <Compile Include="Tool\Unicode.cs" />
     <Compile Include="Tool\Z308.cs" />
@@ -180,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control.resx">
       <DependentUpon>Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlMember\AddEditMember.resx">
+      <DependentUpon>AddEditMember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlMember\UCDeleteUser.resx">
       <DependentUpon>UCDeleteUser.cs</DependentUpon>

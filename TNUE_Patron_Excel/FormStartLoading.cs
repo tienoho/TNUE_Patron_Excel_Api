@@ -3,7 +3,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using TNUE_Patron_Excel.Config;
 using TNUE_Patron_Excel.DBConnect;
+using TNUE_Patron_Excel.Tool;
 
 namespace TNUE_Patron_Excel
 {
@@ -16,6 +18,9 @@ namespace TNUE_Patron_Excel
         private Label labelError;
         private Button btnExit;
         private BackgroundWorker backgroundWorker1;
+        private Button btnDB;
+        private Button btnLdap;
+        private Button btnAleph;
         private Label lbLoad;
 
         public FormStartLoading()
@@ -41,6 +46,9 @@ namespace TNUE_Patron_Excel
                 {
                     pictureError.Visible = true;
                     labelError.Visible = true;
+                    btnAleph.Visible = true;
+                    btnDB.Visible = true;
+                    btnLdap.Visible = true;
                     Cursor = Cursors.Default;
                 });
 
@@ -49,7 +57,7 @@ namespace TNUE_Patron_Excel
             {
                 DataDBLocal.listZ308 = new QueryDB().listZ308TED();
                 Invoke((MethodInvoker)delegate
-                {                    
+                {
                     SetLoading(displayLoader: false);
                     Hide();
                     Control control = new Control();
@@ -106,7 +114,26 @@ namespace TNUE_Patron_Excel
             threadInput.Abort();
             Application.Exit();
         }
+        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            threadInput = new Thread(Startaaa);
+            threadInput.Start();
+        }
 
+        private void BtnDB_Click(object sender, EventArgs e)
+        {
+            FormProvider.sConfigDataBase.ShowDialog();
+        }
+
+        private void BtnLdap_Click(object sender, EventArgs e)
+        {
+            FormProvider.sConfigLdap.ShowDialog();
+        }
+
+        private void BtnAleph_Click(object sender, EventArgs e)
+        {
+            FormProvider.sConfigAleph.ShowDialog();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing && components != null)
@@ -125,6 +152,9 @@ namespace TNUE_Patron_Excel
             this.btnExit = new System.Windows.Forms.Button();
             this.lbLoad = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnDB = new System.Windows.Forms.Button();
+            this.btnLdap = new System.Windows.Forms.Button();
+            this.btnAleph = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLoader)).BeginInit();
             this.SuspendLayout();
@@ -185,7 +215,7 @@ namespace TNUE_Patron_Excel
             this.lbLoad.BackColor = System.Drawing.Color.Transparent;
             this.lbLoad.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLoad.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lbLoad.Location = new System.Drawing.Point(305, 374);
+            this.lbLoad.Location = new System.Drawing.Point(301, 374);
             this.lbLoad.Name = "lbLoad";
             this.lbLoad.Size = new System.Drawing.Size(200, 26);
             this.lbLoad.TabIndex = 13;
@@ -196,11 +226,56 @@ namespace TNUE_Patron_Excel
             this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker1_DoWork);
             // 
+            // btnDB
+            // 
+            this.btnDB.Image = global::TNUE_Patron_Excel.Properties.Resources.database;
+            this.btnDB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDB.Location = new System.Drawing.Point(650, 256);
+            this.btnDB.Name = "btnDB";
+            this.btnDB.Size = new System.Drawing.Size(150, 52);
+            this.btnDB.TabIndex = 14;
+            this.btnDB.Text = "Config  Database";
+            this.btnDB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDB.UseVisualStyleBackColor = true;
+            this.btnDB.Visible = false;
+            this.btnDB.Click += new System.EventHandler(this.BtnDB_Click);
+            // 
+            // btnLdap
+            // 
+            this.btnLdap.Image = global::TNUE_Patron_Excel.Properties.Resources.simpleid_icon_adapt;
+            this.btnLdap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLdap.Location = new System.Drawing.Point(650, 311);
+            this.btnLdap.Name = "btnLdap";
+            this.btnLdap.Size = new System.Drawing.Size(150, 51);
+            this.btnLdap.TabIndex = 15;
+            this.btnLdap.Text = "Config  Ldap";
+            this.btnLdap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLdap.UseVisualStyleBackColor = true;
+            this.btnLdap.Visible = false;
+            this.btnLdap.Click += new System.EventHandler(this.BtnLdap_Click);
+            // 
+            // btnAleph
+            // 
+            this.btnAleph.Image = global::TNUE_Patron_Excel.Properties.Resources.mindtouch;
+            this.btnAleph.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAleph.Location = new System.Drawing.Point(650, 365);
+            this.btnAleph.Name = "btnAleph";
+            this.btnAleph.Size = new System.Drawing.Size(150, 51);
+            this.btnAleph.TabIndex = 16;
+            this.btnAleph.Text = "Config  Aleph";
+            this.btnAleph.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAleph.UseVisualStyleBackColor = true;
+            this.btnAleph.Visible = false;
+            this.btnAleph.Click += new System.EventHandler(this.BtnAleph_Click);
+            // 
             // FormStartLoading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 418);
+            this.Controls.Add(this.btnAleph);
+            this.Controls.Add(this.btnLdap);
+            this.Controls.Add(this.btnDB);
             this.Controls.Add(this.lbLoad);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.labelError);
@@ -218,10 +293,6 @@ namespace TNUE_Patron_Excel
 
         }
 
-        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            threadInput = new Thread(Startaaa);
-            threadInput.Start();
-        }
+
     }
 }

@@ -7,324 +7,330 @@ using TNUE_Patron_Excel.Config;
 using TNUE_Patron_Excel.ControlMember;
 using TNUE_Patron_Excel.DBConnect;
 using TNUE_Patron_Excel.Properties;
+using TNUE_Patron_Excel.Tool;
 
 namespace TNUE_Patron_Excel
 {
-	public class Control : Form
-	{
-		public string errorText = "Không kết nối được đến server";
+    public class Control : Form
+    {
+        public string errorText = "Không kết nối được đến server";
 
-		private IContainer components = null;
+        private IContainer components = null;
 
-		private Label label7;
+        private Label label7;
 
-		private Panel _pnlLeft;
+        private Panel _pnlLeft;
 
-		private Label label5;
+        private Label label5;
 
-		private Label lblInformation;
+        private Label lblInformation;
 
-		private Panel _pnlRight;
+        private Panel _pnlRight;
 
-		private Button _btNhanVien;
+        private Button _btNhanVien;
 
-		private Button btnSinhVien;
+        private Button btnSinhVien;
 
-		private Label lbStatus;
+        private Label lbStatus;
 
-		private Label label1;
+        private Label label1;
 
-		private Button btnAddMember;
+        private Button btnAddMember;
 
-		private Button btnRest;
+        private Button btnRest;
 
-		private ToolStripMenuItem danhMucToolStripMenuItem;
+        private ToolStripMenuItem danhMucToolStripMenuItem;
 
-		private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem helpToolStripMenuItem;
 
-		private ToolStripMenuItem trơGiupToolStripMenuItem;
+        private ToolStripMenuItem trơGiupToolStripMenuItem;
 
-		private ToolStripMenuItem thôngTinPhiênBanToolStripMenuItem;
+        private ToolStripMenuItem thôngTinPhiênBanToolStripMenuItem;
 
-		private ToolStripMenuItem liênHêToolStripMenuItem;
+        private ToolStripMenuItem liênHêToolStripMenuItem;
 
-		private MenuStrip menuStrip1;
+        private MenuStrip menuStrip1;
 
-		private BackgroundWorker backgroundWorker1;
+        private BackgroundWorker backgroundWorker1;
 
-		private Button btnEditRemove;
+        private Button btnEditRemove;
 
-		private ToolStripMenuItem càiĐặtToolStripMenuItem;
+        private ToolStripMenuItem càiĐặtToolStripMenuItem;
 
-		private ToolStripMenuItem serverDatabaseToolStripMenuItem;
+        private ToolStripMenuItem serverDatabaseToolStripMenuItem;
 
-		private ToolStripMenuItem serverLdapToolStripMenuItem;
+        private ToolStripMenuItem serverLdapToolStripMenuItem;
 
-		private ToolStripMenuItem serverAlephToolStripMenuItem;
+        private ToolStripMenuItem serverAlephToolStripMenuItem;
 
-		private ToolStripMenuItem đăngNhậpToolStripMenuItem;
+        private ToolStripMenuItem LoginTSMI;
 
-		private ToolStripMenuItem homeToolStripMenuItem;
+        private ToolStripMenuItem homeToolStripMenuItem;
 
-		private ToolStripMenuItem ConvertPicToolStripMenuItem;
+        private ToolStripMenuItem ConvertPicToolStripMenuItem;
 
-		private ToolStripMenuItem dataPatronToolStripMenuItem;
+        private ToolStripMenuItem dataPatronToolStripMenuItem;
 
-		private Button btnXoa;
+        private Button btnXoa;
 
-		private ToolStripMenuItem addLdapToolStripMenuItem;
+        private ToolStripMenuItem addLdapToolStripMenuItem;
 
-		public Control()
-		{
-			InitializeComponent();
-		}
+        public Control()
+        {
+            InitializeComponent();
+        }
 
-		private void Control_Load(object sender, EventArgs e)
-		{
-		}
+        private void Control_Load(object sender, EventArgs e)
+        {
+        }
 
-		private void btnSinhVien_Click(object sender, EventArgs e)
-		{
-			_pnlRight.Controls.Clear();
-			UCSinhVien uCSinhVien = new UCSinhVien();
-			_pnlRight.Controls.Add(uCSinhVien);
-			uCSinhVien.Show();
-			lblInformation.Text = "Chức năng: Sinh viên";
-		}
+        private void btnSinhVien_Click(object sender, EventArgs e)
+        {
+            _pnlRight.Controls.Clear();
+            UCSinhVien uCSinhVien = new UCSinhVien();
+            _pnlRight.Controls.Add(uCSinhVien);
+            uCSinhVien.Show();
+            lblInformation.Text = "Chức năng: Sinh viên";
+        }
 
-		private void _btNhanVien_Click(object sender, EventArgs e)
-		{
-			_pnlRight.Controls.Clear();
-			UCCanBo uCCanBo = new UCCanBo();
-			_pnlRight.Controls.Add(uCCanBo);
-			uCCanBo.Show();
-			lblInformation.Text = "Chức năng: Cán bộ";
-		}
+        private void _btNhanVien_Click(object sender, EventArgs e)
+        {
+            _pnlRight.Controls.Clear();
+            UCCanBo uCCanBo = new UCCanBo();
+            _pnlRight.Controls.Add(uCCanBo);
+            uCCanBo.Show();
+            lblInformation.Text = "Chức năng: Cán bộ";
+        }
 
-		private void btnData_Click(object sender, EventArgs e)
-		{
-			_pnlRight.Controls.Clear();
-			AddEditMember addEditMember = new AddEditMember();
-			_pnlRight.Controls.Add(addEditMember);
-			addEditMember.Show();
-			lblInformation.Text = "Chức năng: Thêm bạn đọc";
-		}
+        private void btnData_Click(object sender, EventArgs e)
+        {
+            _pnlRight.Controls.Clear();
+            AddEditMember addEditMember = new AddEditMember();
+            _pnlRight.Controls.Add(addEditMember);
+            addEditMember.Show();
+            lblInformation.Text = "Chức năng: Thêm bạn đọc";
+        }
 
-		private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-		{
-			Invoke((MethodInvoker)delegate
-			{
-				lblInformation.Text = "Đang cập nhập lại dữ liệu từ server....";
-				EnabledPanl(bl: false);
-			});
-			DataDBLocal.listZ308 = new QueryDB().listZ308TED();
-			Invoke((MethodInvoker)delegate
-			{
-				EnabledPanl(bl: true);
-				lblInformation.Text = "Cập nhập thành công!";
-				LoadForm();
-			});
-		}
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Invoke((MethodInvoker)delegate
+            {
+                lblInformation.Text = "Đang cập nhập lại dữ liệu từ server....";
+                EnabledPanl(bl: false);
+            });
+            DataDBLocal.listZ308 = new QueryDB().listZ308TED();
+            Invoke((MethodInvoker)delegate
+            {
+                EnabledPanl(bl: true);
+                lblInformation.Text = "Cập nhập thành công!";
+                LoadForm();
+            });
+        }
 
-		private void btnRest_Click(object sender, EventArgs e)
-		{
-			restConTrol();
-		}
+        private void btnRest_Click(object sender, EventArgs e)
+        {
+            restConTrol();
+        }
 
-		private void btnPic_Click(object sender, EventArgs e)
-		{
-			_pnlRight.Controls.Clear();
-			UCUpdatePatron uCUpdatePatron = new UCUpdatePatron();
-			_pnlRight.Controls.Add(uCUpdatePatron);
-			uCUpdatePatron.Show();
-			lblInformation.Text = "Chức năng: Cập nhập bạn đọc";
-		}
-		private void ConvertPicToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			_pnlRight.Controls.Clear();
-			UCConvertPic uCConvertPic = new UCConvertPic();
-			_pnlRight.Enabled = true;
-			_pnlRight.Controls.Add(uCConvertPic);
-			uCConvertPic.Show();
-			lblInformation.Text = "Chức năng: Chuyển đổi tên ảnh";
-		}
+        private void btnPic_Click(object sender, EventArgs e)
+        {
+            _pnlRight.Controls.Clear();
+            UCUpdatePatron uCUpdatePatron = new UCUpdatePatron();
+            _pnlRight.Controls.Add(uCUpdatePatron);
+            uCUpdatePatron.Show();
+            lblInformation.Text = "Chức năng: Cập nhập bạn đọc";
+        }
+        private void ConvertPicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _pnlRight.Controls.Clear();
+            UCConvertPic uCConvertPic = new UCConvertPic();
+            _pnlRight.Enabled = true;
+            _pnlRight.Controls.Add(uCConvertPic);
+            uCConvertPic.Show();
+            lblInformation.Text = "Chức năng: Chuyển đổi tên ảnh";
+        }
 
-		private void DataPatronToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			_pnlRight.Controls.Clear();
-			UCDataPatronZ308 uCDataPatronZ = new UCDataPatronZ308();
-			_pnlRight.Controls.Add(uCDataPatronZ);
-			uCDataPatronZ.Show();
-			lblInformation.Text = "Chức năng: Dữ liệu Z308";
-		}
+        private void DataPatronToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _pnlRight.Controls.Clear();
+            UCDataPatronZ308 uCDataPatronZ = new UCDataPatronZ308();
+            _pnlRight.Controls.Add(uCDataPatronZ);
+            uCDataPatronZ.Show();
+            lblInformation.Text = "Chức năng: Dữ liệu Z308";
+        }
 
-		private bool TestConnecting()
-		{
-			bool result = false;
-			try
-			{
-				DataOracle oracle = new ReadWriterConfig().ReadConfigDataBase();
-				DBConnecting.conn = DBConnecting.GetDBConnection(oracle);
-				DBConnecting.conn.Open();
-				lbStatus.Text = "Kết nối thành công";
-				result = true;
-				DBConnecting.conn.Close();
-			}
-			catch (Exception ex)
-			{
-				DBConnecting.conn.Close();
-				lbStatus.Text = "Kết nối không thành công";
-				MessageBox.Show("Lỗi: " + ex.Message, "Thông báo!");
-			}
-			return result;
-		}
+        private bool TestConnecting()
+        {
+            bool result = false;
+            try
+            {
+                DataOracle oracle = new ReadWriterConfig().ReadConfigDataBase();
+                DBConnecting.conn = DBConnecting.GetDBConnection(oracle);
+                DBConnecting.conn.Open();
+                lbStatus.Text = "Kết nối thành công";
+                result = true;
+                DBConnecting.conn.Close();
+            }
+            catch (Exception ex)
+            {
+                DBConnecting.conn.Close();
+                lbStatus.Text = "Kết nối không thành công";
+                MessageBox.Show("Lỗi: " + ex.Message, "Thông báo!");
+            }
+            return result;
+        }
 
-		public void EnabledPanl(bool bl)
-		{
-			_pnlLeft.Enabled = bl;
-			_pnlRight.Enabled = bl;
-			addLdapToolStripMenuItem.Enabled = bl;
-			homeToolStripMenuItem.Enabled = bl;
-			dataPatronToolStripMenuItem.Enabled = bl;
-		}
+        public void EnabledPanl(bool bl)
+        {
+            _pnlLeft.Enabled = bl;
+            _pnlRight.Enabled = bl;
+            addLdapToolStripMenuItem.Enabled = bl;
+            homeToolStripMenuItem.Enabled = bl;
+            dataPatronToolStripMenuItem.Enabled = bl;
+        }
 
-		public void LoadForm()
-		{
-			_pnlRight.Controls.Clear();
-			UCCanBo uCCanBo = new UCCanBo();
-			_pnlRight.Controls.Add(uCCanBo);
-			uCCanBo.Show();
-			lblInformation.Text = "Chức năng: Cán bộ";
-		}
+        public void LoadForm()
+        {
+            _pnlRight.Controls.Clear();
+            UCCanBo uCCanBo = new UCCanBo();
+            _pnlRight.Controls.Add(uCCanBo);
+            uCCanBo.Show();
+            lblInformation.Text = "Chức năng: Cán bộ";
+        }
 
-		public void restConTrol()
-		{
-			Process.Start(Application.ExecutablePath);
-			Close();
-		}
+        public void restConTrol()
+        {
+            Process.Start(Application.ExecutablePath);
+            Close();
+        }
 
-		private void _btNhanVien_MouseLeave(object sender, EventArgs e)
-		{
-			_btNhanVien.BackColor = SystemColors.Control;
-			_btNhanVien.BackgroundImage = null;
-		}
+        private void _btNhanVien_MouseLeave(object sender, EventArgs e)
+        {
+            _btNhanVien.BackColor = SystemColors.Control;
+            _btNhanVien.BackgroundImage = null;
+        }
 
-		private void _btNhanVien_MouseMove(object sender, MouseEventArgs e)
-		{
-			_btNhanVien.BackgroundImage = Resources.background;
-		}
+        private void _btNhanVien_MouseMove(object sender, MouseEventArgs e)
+        {
+            _btNhanVien.BackgroundImage = Resources.background;
+        }
 
-		private void btnSinhVien_MouseLeave(object sender, EventArgs e)
-		{
-			btnSinhVien.BackColor = SystemColors.Control;
-			btnSinhVien.BackgroundImage = null;
-		}
+        private void btnSinhVien_MouseLeave(object sender, EventArgs e)
+        {
+            btnSinhVien.BackColor = SystemColors.Control;
+            btnSinhVien.BackgroundImage = null;
+        }
 
-		private void btnSinhVien_MouseMove(object sender, MouseEventArgs e)
-		{
-			btnSinhVien.BackgroundImage = Resources.background;
-		}
+        private void btnSinhVien_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnSinhVien.BackgroundImage = Resources.background;
+        }
 
-		private void btnData_MouseLeave(object sender, EventArgs e)
-		{
-			btnAddMember.BackColor = SystemColors.Control;
-			btnAddMember.BackgroundImage = null;
-		}
+        private void btnData_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddMember.BackColor = SystemColors.Control;
+            btnAddMember.BackgroundImage = null;
+        }
 
-		private void btnData_MouseMove(object sender, MouseEventArgs e)
-		{
-			btnAddMember.BackgroundImage = Resources.background;
-		}
+        private void btnData_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnAddMember.BackgroundImage = Resources.background;
+        }
 
-		private void btnRest_MouseLeave(object sender, EventArgs e)
-		{
-			btnRest.BackColor = SystemColors.Control;
-			btnRest.BackgroundImage = null;
-		}
+        private void btnRest_MouseLeave(object sender, EventArgs e)
+        {
+            btnRest.BackColor = SystemColors.Control;
+            btnRest.BackgroundImage = null;
+        }
 
-		private void btnRest_MouseMove(object sender, MouseEventArgs e)
-		{
-			btnRest.BackgroundImage = Resources.background;
-		}
+        private void btnRest_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnRest.BackgroundImage = Resources.background;
+        }
 
-		private void serverDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			ConfigDataBase configDataBase = new ConfigDataBase();
-			configDataBase.ShowDialog();
-		}
+        private void serverDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ConfigDataBase configDataBase = new ConfigDataBase();
+            //configDataBase.ShowDialog();
 
-		private void serverLdapToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			ConfigLdap configLdap = new ConfigLdap();
-			configLdap.ShowDialog();
-		}
+            FormProvider.sConfigDataBase.ShowDialog();
+        }
 
-		private void serverAlephToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			ConfigAleph configAleph = new ConfigAleph();
-			configAleph.ShowDialog();
-		}
+        private void serverLdapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ConfigLdap configLdap = new ConfigLdap();
+            //configLdap.ShowDialog();
+            FormProvider.sConfigLdap.ShowDialog();
+        }
 
-		private void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-		}
+        private void serverAlephToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ConfigAleph configAleph = new ConfigAleph();
+            //configAleph.ShowDialog();
+            FormProvider.sConfigAleph.ShowDialog();
+        }
 
-		public void checkMenu()
-		{
-			if (DTOlogin.isLogin == 0)
-			{
-				serverDatabaseToolStripMenuItem.Enabled = false;
-				serverLdapToolStripMenuItem.Enabled = false;
-				serverAlephToolStripMenuItem.Enabled = false;
-				đăngNhậpToolStripMenuItem.Enabled = true;
-			}
-			else
-			{
-				serverDatabaseToolStripMenuItem.Enabled = true;
-				serverLdapToolStripMenuItem.Enabled = true;
-				serverAlephToolStripMenuItem.Enabled = true;
-				đăngNhậpToolStripMenuItem.Enabled = false;
-			}
-		}
+        private void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
-		private void Control_FormClosed(object sender, FormClosedEventArgs e)
-		{
-			Application.Exit();
-		}
+        }
 
-		private void BtnXoa_Click(object sender, EventArgs e)
-		{
-			_pnlRight.Controls.Clear();
-			UCDeleteUser uCDeleteUser = new UCDeleteUser();
-			_pnlRight.Controls.Add(uCDeleteUser);
-			uCDeleteUser.Show();
-			lblInformation.Text = "Chức năng: Xóa bạn đọc";
-		}
+        public void checkMenu()
+        {
+            if (DTOlogin.isLogin == 0)
+            {
+                serverDatabaseToolStripMenuItem.Enabled = false;
+                serverLdapToolStripMenuItem.Enabled = false;
+                serverAlephToolStripMenuItem.Enabled = false;
+                LoginTSMI.Enabled = true;
+            }
+            else
+            {
+                serverDatabaseToolStripMenuItem.Enabled = true;
+                serverLdapToolStripMenuItem.Enabled = true;
+                serverAlephToolStripMenuItem.Enabled = true;
+                LoginTSMI.Enabled = false;
+            }
+        }
 
-		private void AddLdapToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			_pnlRight.Controls.Clear();
-			UCInsertUserLdap uCInsertUserLdap = new UCInsertUserLdap();
-			_pnlRight.Controls.Add(uCInsertUserLdap);
-			uCInsertUserLdap.Show();
-			lblInformation.Text = "Chức năng: Thêm bạn đọc ldap";
-		}
+        private void Control_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
 
-		private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-		}
+        private void BtnXoa_Click(object sender, EventArgs e)
+        {
+            _pnlRight.Controls.Clear();
+            UCDeleteUser uCDeleteUser = new UCDeleteUser();
+            _pnlRight.Controls.Add(uCDeleteUser);
+            uCDeleteUser.Show();
+            lblInformation.Text = "Chức năng: Xóa bạn đọc";
+        }
 
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && components != null)
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        private void AddLdapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _pnlRight.Controls.Clear();
+            UCInsertUserLdap uCInsertUserLdap = new UCInsertUserLdap();
+            _pnlRight.Controls.Add(uCInsertUserLdap);
+            uCInsertUserLdap.Show();
+            lblInformation.Text = "Chức năng: Thêm bạn đọc ldap";
+        }
 
-		private void InitializeComponent()
-		{
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && components != null)
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Control));
             this.label7 = new System.Windows.Forms.Label();
             this._pnlLeft = new System.Windows.Forms.Panel();
@@ -340,7 +346,7 @@ namespace TNUE_Patron_Excel
             this.lblInformation = new System.Windows.Forms.Label();
             this._pnlRight = new System.Windows.Forms.Panel();
             this.danhMucToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngNhậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LoginTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ConvertPicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataPatronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -542,7 +548,7 @@ namespace TNUE_Patron_Excel
             // danhMucToolStripMenuItem
             // 
             this.danhMucToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.đăngNhậpToolStripMenuItem,
+            this.LoginTSMI,
             this.homeToolStripMenuItem,
             this.ConvertPicToolStripMenuItem,
             this.dataPatronToolStripMenuItem});
@@ -550,13 +556,13 @@ namespace TNUE_Patron_Excel
             this.danhMucToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.danhMucToolStripMenuItem.Text = "Danh Mục";
             // 
-            // đăngNhậpToolStripMenuItem
+            // LoginTSMI
             // 
-            this.đăngNhậpToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.login_icon50x50;
-            this.đăngNhậpToolStripMenuItem.Name = "đăngNhậpToolStripMenuItem";
-            this.đăngNhậpToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.đăngNhậpToolStripMenuItem.Text = "Đăng nhập";
-            this.đăngNhậpToolStripMenuItem.Click += new System.EventHandler(this.đăngNhậpToolStripMenuItem_Click);
+            this.LoginTSMI.Image = global::TNUE_Patron_Excel.Properties.Resources.login_icon50x50;
+            this.LoginTSMI.Name = "LoginTSMI";
+            this.LoginTSMI.Size = new System.Drawing.Size(223, 22);
+            this.LoginTSMI.Text = "Đăng nhập";
+            this.LoginTSMI.Click += new System.EventHandler(this.đăngNhậpToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
@@ -644,7 +650,7 @@ namespace TNUE_Patron_Excel
             // 
             this.serverDatabaseToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.database;
             this.serverDatabaseToolStripMenuItem.Name = "serverDatabaseToolStripMenuItem";
-            this.serverDatabaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.serverDatabaseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.serverDatabaseToolStripMenuItem.Text = "Server Database";
             this.serverDatabaseToolStripMenuItem.Click += new System.EventHandler(this.serverDatabaseToolStripMenuItem_Click);
             // 
@@ -652,7 +658,7 @@ namespace TNUE_Patron_Excel
             // 
             this.serverLdapToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.simpleid_icon_adapt;
             this.serverLdapToolStripMenuItem.Name = "serverLdapToolStripMenuItem";
-            this.serverLdapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.serverLdapToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.serverLdapToolStripMenuItem.Text = "Server Ldap";
             this.serverLdapToolStripMenuItem.Click += new System.EventHandler(this.serverLdapToolStripMenuItem_Click);
             // 
@@ -660,7 +666,7 @@ namespace TNUE_Patron_Excel
             // 
             this.serverAlephToolStripMenuItem.Image = global::TNUE_Patron_Excel.Properties.Resources.mindtouch;
             this.serverAlephToolStripMenuItem.Name = "serverAlephToolStripMenuItem";
-            this.serverAlephToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.serverAlephToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.serverAlephToolStripMenuItem.Text = "Server Aleph";
             this.serverAlephToolStripMenuItem.Click += new System.EventHandler(this.serverAlephToolStripMenuItem_Click);
             // 
@@ -693,6 +699,6 @@ namespace TNUE_Patron_Excel
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
-	}
+        }
+    }
 }
