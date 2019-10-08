@@ -82,7 +82,8 @@ namespace TNUE_Patron_Excel.Config
 				lbStatus.Text = "Successful connection";
 				result = true;
 				DBConnecting.conn.Close();
-			}
+                MessageBox.Show("Successful connection", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 			catch (Exception ex)
 			{
 				DBConnecting.conn.Close();

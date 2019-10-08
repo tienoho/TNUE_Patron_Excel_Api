@@ -204,7 +204,10 @@ namespace TNUE_Patron_Excel
             txtPatronId.Text = $"{countP + 1:000000000000}";
             CreateFolder(directoryPath);
         }
-
+        /// <summary>
+        /// /tạo thự mục mới
+        /// </summary>
+        /// <param name="directoryPath"></param>
         private void CreateFolder(string directoryPath)
         {
             if (!Directory.Exists(directoryPath))
@@ -217,7 +220,11 @@ namespace TNUE_Patron_Excel
         {
             System.Windows.Forms.Application.Exit();
         }
-
+        /// <summary>
+        /// chỉ cho phép nhập ký tự số
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLine_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -225,7 +232,11 @@ namespace TNUE_Patron_Excel
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Chọn File Excel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBrowserFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -252,7 +263,11 @@ namespace TNUE_Patron_Excel
                 }
             }
         }
-
+        /// <summary>
+        /// Chọn thự mục lưu file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGetData_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
@@ -260,7 +275,11 @@ namespace TNUE_Patron_Excel
                 textBox2.Text = folderBrowserDialog1.SelectedPath;
             }
         }
-
+        /// <summary>
+        /// Chuyển đổi dữ liệu từ Excel qua API Aleph
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvert_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
@@ -331,7 +350,9 @@ namespace TNUE_Patron_Excel
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         private void ComboxBlock()
         {
             ComboboxItem comboboxItem = new ComboboxItem();
@@ -361,7 +382,10 @@ namespace TNUE_Patron_Excel
             cbLoaiBanDoc.Items.Add(comboboxItem);
             cbLoaiBanDoc.SelectedIndex = 0;
         }
-
+        /// <summary>
+        /// Hàm đọc dữ liệu từ Excel
+        /// và ghi vào "listPatron"
+        /// </summary>
         private void readExcel2()
         {
             fileName = textBox1.Text;
@@ -421,6 +445,7 @@ namespace TNUE_Patron_Excel
                         }
                     }
                 }
+                //Xóa các item có mã sinh viên trống
                 listPatron.RemoveAll((Patron item) => item.MaSV_O == "");
             }
             catch (Exception arg)
@@ -442,7 +467,9 @@ namespace TNUE_Patron_Excel
                 Marshal.ReleaseComObject(fileEx);
             }
         }
-
+        /// <summary>
+        ///Hàm load dữ liệu từ "listPatron" vào list "ldapUser"
+        /// </summary>
         private void WriterUserLdap()
         {
             ldapUser = new List<User>();
@@ -479,6 +506,10 @@ namespace TNUE_Patron_Excel
             sbPatronXml.AppendLine("</p-file-20>");
         }
 
+        /// <summary>
+        /// Hàm chuyển đổi dữ liệu từ "listPatron" thành list có định dạng xml
+        /// Để đưa lên API
+        /// </summary>
         private void WriteXmlApi()
         {
             listSb = new List<StringBuilder>();
@@ -501,7 +532,9 @@ namespace TNUE_Patron_Excel
             }
             ExportDanhSachTT();
         }
-
+        /// <summary>
+        /// Hàm lưu patronid và Barcode để đổi tên ảnh
+        /// </summary>
         private void ExportDanhSachTT()
         {
             if (listPatron.Count > 0)
@@ -516,9 +549,15 @@ namespace TNUE_Patron_Excel
                 File.WriteAllText(textBox2.Text + "/DanhSachTT-CanBo-" + tool.getDate() + ".txt", sbList.ToString());
             }
         }
-
+        /// <summary>
+        /// hàm check dữ liệu xem người dùng đã tồn tại trên Database Aleph chưa.
+        /// Và xóa người dùng đã tồn tại ra khỏi List
+        /// 
+        /// </summary>
         private void compreRemovePatron()
         {
+            //Lọc ra các người dùng đã tồn tại trong Aleph
+            //ghi vào danh sách ("DSTonTai")
             DSTonTai = new List<Patron>();
             foreach (Z308 item in listZ308)
             {
@@ -533,8 +572,9 @@ namespace TNUE_Patron_Excel
                     }
                 }
             }
+            //Xóa các người dùng đã tồn tại trong danh sách ("listPatron")
             List<Patron> list = new List<Patron>();
-            list = listPatron;
+            list = listPatron.CloneObject();
             foreach (Patron s in DSTonTai)
             {
                 int index = list.FindIndex((Patron dsd) => dsd.MaSV_O.Equals(s.MaSV_O));
@@ -549,7 +589,11 @@ namespace TNUE_Patron_Excel
                 lb.Text = "Số lượng: " + gdv.RowCount.ToString();
             }
         }
-
+        /// <summary>
+        /// đưa dữ liệu đã chuyển đổi lên Aleph và Ldap
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPush_Click(object sender, EventArgs e)
         {
             if (textBox2.Text != "")
@@ -592,9 +636,14 @@ namespace TNUE_Patron_Excel
             {
                 new ModelLdap().SetAdInfo(item.userLogin, ModelLdap.Property.mail, item.userMail);
                 new ModelLdap().SetAdInfo(item.userLogin, ModelLdap.Property.telephoneNumber, item.telephoneNumber);
+                new ModelLdap().SetAdInfo(item.userLogin, ModelLdap.Property.userPassword, item.userPassword);
             }
             MessageBox.Show("Thành công!", "Thông báo!");
         }
+
+        /// <summary>
+        /// hàm làm mới dữ liệu
+        /// </summary>
         private void ResetFormData()
         {
             DataDBLocal.listZ308 = new QueryDB().listZ308TED();

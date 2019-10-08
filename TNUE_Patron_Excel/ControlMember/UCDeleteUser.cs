@@ -648,7 +648,7 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             this.lbKhongTonTaiDS.AutoSize = true;
             this.lbKhongTonTaiDS.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbKhongTonTaiDS.Location = new System.Drawing.Point(575, 302);
+            this.lbKhongTonTaiDS.Location = new System.Drawing.Point(575, 301);
             this.lbKhongTonTaiDS.Name = "lbKhongTonTaiDS";
             this.lbKhongTonTaiDS.Size = new System.Drawing.Size(57, 21);
             this.lbKhongTonTaiDS.TabIndex = 112;
@@ -1026,7 +1026,6 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";

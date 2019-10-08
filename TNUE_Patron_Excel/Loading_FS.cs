@@ -52,7 +52,8 @@ namespace TNUE_Patron_Excel
 				_splashForm.StartPosition = FormStartPosition.CenterScreen;
 				_splashForm.TopMost = true;
 			}
-			Application.Run(_splashForm);
+            Thread.Sleep(500);
+            Application.Run(_splashForm);
 		}
 
 		public static void CloseSplash()
@@ -70,7 +71,6 @@ namespace TNUE_Patron_Excel
 		private void Loading_FS_Load(object sender, EventArgs e)
 		{
 		}
-
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && components != null)

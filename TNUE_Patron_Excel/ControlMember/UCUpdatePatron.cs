@@ -280,19 +280,6 @@ namespace TNUE_Patron_Excel.ControlMember
             {
             }
         }
-
-        private void btn_ldap_Click(object sender, EventArgs e)
-        {
-            using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Ldap-Log-" + tool.getDate() + ".txt"))
-            {
-                foreach (User item in ldapUser)
-                {
-                    streamWriter.WriteLine(item.userLogin + "\t" + new ModelLdap().CreateUser(item));
-                }
-            }
-            MessageBox.Show("Thành công!", "Thông báo!");
-        }
-
         private void BtnSua_Click(object sender, EventArgs e)
         {
             if (txtMa.Text == "")
@@ -552,7 +539,9 @@ namespace TNUE_Patron_Excel.ControlMember
 
             cbLoaiBanDoc.SelectedIndex = 0;
         }
-
+        /// <summary>
+        /// Hàm đọc file Excel mẫu sinh viên
+        /// </summary>
         private void readExcelSinhVien()
         {
             fileName = textBox1.Text;
@@ -642,7 +631,9 @@ namespace TNUE_Patron_Excel.ControlMember
                 Marshal.ReleaseComObject(fileEx);
             }
         }
-
+        /// <summary>
+        /// Hàm đọc file Excel mẫu cán bộ
+        /// </summary>
         private void readExcelCanBo()
         {
             fileName = textBox1.Text;

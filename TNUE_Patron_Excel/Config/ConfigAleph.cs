@@ -52,7 +52,8 @@ namespace TNUE_Patron_Excel.Config
 			{
 				lbStatus.ForeColor = Color.LimeGreen;
 				lbStatus.Text = "Successful connection";
-			}
+                MessageBox.Show("Successful connection", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 			else
 			{
 				lbStatus.ForeColor = Color.Red;
@@ -76,6 +77,7 @@ namespace TNUE_Patron_Excel.Config
 				aleph.Library = txtLibrary.Text;
 				aleph.UpdateFlag = txtFlag.Text;
 				result = new CheckUrl().CheckUrlExist(aleph.UrlAleph);
+
 			}
 			catch (Exception ex)
 			{
