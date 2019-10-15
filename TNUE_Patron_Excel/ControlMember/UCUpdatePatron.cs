@@ -284,9 +284,10 @@ namespace TNUE_Patron_Excel.ControlMember
         {
             if (txtMa.Text == "")
             {
-                MessageBox.Show("Email không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Mã không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
             }
-            else if (MessageBox.Show("Bạn có chắc chắn muốn sửa?", "Xác nhân", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc chắn muốn sửa?", "Xác nhân", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 EditLdap();
                 using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Api-Patron-Update-Log-" + tool.getDate() + ".txt"))
@@ -311,9 +312,9 @@ namespace TNUE_Patron_Excel.ControlMember
                     superGird1.Columns.Clear();
                     superGird1.DataSource = dataSource;
                 }
-                catch
+                catch (Exception ex)
                 {
-
+                    MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -364,7 +365,7 @@ namespace TNUE_Patron_Excel.ControlMember
                 if (listPatron.Count > 0)
                 {
                     btnConvert.Enabled = true;
-                }               
+                }
                 MessageBox.Show("Chuyển dữ liệu thành công!");
             }
         }
@@ -858,11 +859,6 @@ namespace TNUE_Patron_Excel.ControlMember
         private void EditLdap()
         {
             string objectFilter = txtMa.Text.Trim();
-            if (txtEmail.Text == "")
-            {
-                MessageBox.Show("Email không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                return;
-            }
             new ModelLdap().SetAdInfo(objectFilter, ModelLdap.Property.mail, txtEmail.Text);
             new ModelLdap().SetAdInfo(objectFilter, ModelLdap.Property.telephoneNumber, txtPhone.Text);
             if (txtPassword.Text != "")
@@ -906,7 +902,7 @@ namespace TNUE_Patron_Excel.ControlMember
             {
                 ShowStuden();
             });
-            
+
         }
 
         private void RbCanBo_CheckedChanged(object sender, EventArgs e)
@@ -914,7 +910,7 @@ namespace TNUE_Patron_Excel.ControlMember
             Invoke((MethodInvoker)delegate
             {
                 ShowStaff();
-            });            
+            });
         }
 
         private void Btnhien_Click(object sender, EventArgs e)
@@ -2057,6 +2053,7 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";

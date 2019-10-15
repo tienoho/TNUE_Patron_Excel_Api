@@ -252,20 +252,20 @@ namespace TNUE_Patron_Excel.ControlMember
 
 		private void WriterUserLdapPatron()
 		{
-			string text = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
-			string text2 = (cbLoaiBanDoc.SelectedItem as ComboboxItem).Value.ToString();
+            string dateNow = DateTime.Now.ToString("yyyyMMdd");
 			string genDer = (cbGioiTinh.SelectedItem as ComboboxItem).Value.ToString();
 			p = new Patron();
 			p.pationID = $"{countP + 1:000000000000}";
 			p.MaSV_O = txtMa.Text.Trim();
 			p.HoTen = txtHoTen.Text.Trim();
 			p.password = txtPassword.Text.Trim();
-			p.ngaySinh = dtpNgaySinh.Text.Trim();
-			p.ngayHetHan = dateHetHan.Text.Trim();
-			p.GT = new ToolP().convertGender(genDer);
+            p.ngaySinh = dtpNgaySinh.Value.Date.ToString("yyyyMMdd");
+			p.ngayHetHan = dateHetHan.Value.Date.ToString("yyyyMMdd");
+            p.GT = new ToolP().convertGender(genDer);
 			p.phone = txtPhone.Text.Trim();
 			p.email = txtEmail.Text.Trim();
 			p.DiaChi = txtAddress.Text.Trim();
+            p.Day = dateNow;
 			p.makh = "";
 			if (rbSinhVien.Checked)
 			{
