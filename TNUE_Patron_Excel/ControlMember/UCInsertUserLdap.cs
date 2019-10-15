@@ -144,12 +144,12 @@ namespace TNUE_Patron_Excel.ControlMember
 
         private void WriterUserLdap()
         {
-            if (txtMa.Text == "" && txtMa.Text == null)
+            if (txtMa.Text == "")
             {
                 MessageBox.Show("Không thể để trống mã!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
             }
-            if (txtPassword.Text == "" && txtPassword.Text == null)
+            if (string.IsNullOrWhiteSpace(txtPassword.Text.Trim()))
             {
                 MessageBox.Show("Không thể để trống mật khẩu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
@@ -172,11 +172,12 @@ namespace TNUE_Patron_Excel.ControlMember
                 Loading_FS.ShowSplash();
                 LoadData();
                 Loading_FS.CloseSplash();
+                MessageBox.Show("Thành công!", "Thông báo!");
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show("Lỗi !" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            MessageBox.Show("Thành công!", "Thông báo!");
         }
 
         private void compreRemovePatron()
