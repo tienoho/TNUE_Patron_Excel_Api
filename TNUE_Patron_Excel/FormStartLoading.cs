@@ -285,7 +285,7 @@ namespace TNUE_Patron_Excel
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormStartLoading";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormStartLoading";
+            this.Text = "Start Loading Upload Patron";
             ((System.ComponentModel.ISupportInitialize)(this.pictureError)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLoader)).EndInit();
             this.ResumeLayout(false);

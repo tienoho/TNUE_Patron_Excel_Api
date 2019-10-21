@@ -24,9 +24,9 @@ namespace TNUE_Patron_Excel
 
 		private int key = 0;
 
-		private string directoryPath = Application.StartupPath + "\\log";
+		private string directoryPath = DataDBLocal.pathUserLog;
 
-		private IContainer components = null;
+        private IContainer components = null;
 
 		private GroupBox groupBox3;
 

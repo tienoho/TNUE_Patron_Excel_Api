@@ -120,6 +120,10 @@
     <Compile Include="DBConnect\QueryDB.cs" />
     <Compile Include="DBConnect\ReadWriterConfig.cs" />
     <Compile Include="DTOPatron.cs" />
+    <Compile Include="EntityLdapPatron\LdapPatron.cs" />
+    <Compile Include="EntityLdapPatron\z303LdapPatron.cs" />
+    <Compile Include="EntityLdapPatron\z304LdapPatron.cs" />
+    <Compile Include="EntityLdapPatron\z305LdapPatron.cs" />
     <Compile Include="ExTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -132,6 +136,7 @@
     <Compile Include="Ldap\RemoveUser.cs" />
     <Compile Include="Ldap\UpdateUser.cs" />
     <Compile Include="Ldap\User.cs" />
+    <Compile Include="EntityLdapPatron\Z303Entity.cs" />
     <Compile Include="listID.cs" />
     <Compile Include="Loading_FS.cs">
       <SubType>Form</SubType>
@@ -162,6 +167,7 @@
     <Compile Include="UCSinhVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Z303\z303Update.cs" />
     <Compile Include="Z303\z303.cs" />
     <Compile Include="Z303\z303Block.cs" />
     <Compile Include="Z303\z304.cs" />

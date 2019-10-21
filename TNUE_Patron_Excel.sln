@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNUE_Patron_Excel_1.0.2", "TNUE_Patron_Excel\TNUE_Patron_Excel_1.0.2.csproj", "{CC180FBB-327A-49DA-A9A5-75ADE43D3692}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNUE_Patron_Excel_1.0.3", "TNUE_Patron_Excel\TNUE_Patron_Excel_1.0.3.csproj", "{CC180FBB-327A-49DA-A9A5-75ADE43D3692}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup Upload Patron TNUE", "Setup Upload Patron TNUE\Setup Upload Patron TNUE.vdproj", "{ED84A913-734C-40DC-B134-31C8789704C0}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup Upload Patron TNUE 1.0.3", "Setup Upload Patron TNUE\Setup Upload Patron TNUE.vdproj", "{ED84A913-734C-40DC-B134-31C8789704C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

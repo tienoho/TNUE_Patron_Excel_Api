@@ -1,7 +1,10 @@
+﻿using System.ComponentModel;
+
 namespace TNUE_Patron_Excel.Ldap
 {
 	internal class User
 	{
+        [DisplayName("Tài khoản")]
 		public string userLogin
 		{
 			get;
@@ -13,8 +16,8 @@ namespace TNUE_Patron_Excel.Ldap
 			get;
 			set;
 		}
-
-		public string userMail
+        [DisplayName("Email")]
+        public string userMail
 		{
 			get;
 			set;
@@ -25,8 +28,8 @@ namespace TNUE_Patron_Excel.Ldap
 			get;
 			set;
 		}
-
-		public string telephoneNumber
+        [DisplayName("Số điện thoại")]
+        public string telephoneNumber
 		{
 			get;
 			set;

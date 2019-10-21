@@ -234,6 +234,7 @@ namespace TNUE_Patron_Excel.Config
             this.txtSid.Name = "txtSid";
             this.txtSid.Size = new System.Drawing.Size(358, 41);
             this.txtSid.TabIndex = 116;
+            this.txtSid.UseSystemPasswordChar = true;
             this.txtSid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSid_KeyPress);
             // 
             // label2
@@ -272,6 +273,7 @@ namespace TNUE_Patron_Excel.Config
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(358, 41);
             this.txtUser.TabIndex = 125;
+            this.txtUser.UseSystemPasswordChar = true;
             // 
             // label3
             // 

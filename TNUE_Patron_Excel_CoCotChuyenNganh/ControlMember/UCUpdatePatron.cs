@@ -40,7 +40,7 @@ namespace TNUE_Patron_Excel.ControlMember
 
         private string fileName = "";
 
-        private string directoryPath = System.Windows.Forms.Application.StartupPath + "\\log";
+        private string directoryPath = DataDBLocal.pathUserLog;
 
         private DataTable table = null;
 

@@ -1,6 +1,8 @@
+using FastMember;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -23,7 +25,7 @@ namespace TNUE_Patron_Excel.ControlMember
 
         private List<string> PatronLdap = null;
 
-        private string directoryPath = Application.StartupPath + "\\log";
+        private string directoryPath = DataDBLocal.pathUserLog;
 
         private IContainer components = null;
 
@@ -122,7 +124,16 @@ namespace TNUE_Patron_Excel.ControlMember
             ldapUser = new ModelLdap().GetAllListUser();
             compreRemovePatron();
             dgvAleph.DataSource = ListPatronNoLdap;
-            dgvLdap.DataSource = ldapUser;
+
+            //IEnumerable<User> allListLdapPatron = ldapUser.CloneObject();
+
+            //DataTable table = new DataTable();
+            //using (ObjectReader reader = ObjectReader.Create(allListLdapPatron, "userLogin", "userMail", "telephoneNumber"))
+            //{
+            //    table.Load(reader);
+            //}
+            List<User> ldapUserClone = ldapUser.CloneObject();
+            dgvLdap.DataSource = ldapUserClone.Select(l => new User() { userLogin = l.userLogin, userMail = l.userMail, telephoneNumber = l.telephoneNumber }).ToList();
         }
 
         private void CloneList()
@@ -328,7 +339,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.dgvAleph.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvAleph.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAleph.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAleph.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAleph.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pationID,
             this.Ma,
@@ -348,6 +359,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.pationID.HeaderText = "Patron ID";
             this.pationID.Name = "pationID";
             this.pationID.ReadOnly = true;
+            this.pationID.Width = 81;
             // 
             // Ma
             // 
@@ -355,6 +367,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.Ma.HeaderText = "Mã";
             this.Ma.Name = "Ma";
             this.Ma.ReadOnly = true;
+            this.Ma.Width = 49;
             // 
             // HoTen
             // 
@@ -362,6 +375,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.HoTen.HeaderText = "Họ tên";
             this.HoTen.Name = "HoTen";
             this.HoTen.ReadOnly = true;
+            this.HoTen.Width = 67;
             // 
             // groupBox1
             // 
@@ -562,7 +576,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.dgvLdap.AllowUserToDeleteRows = false;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvLdap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvLdap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLdap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLdap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLdap.Location = new System.Drawing.Point(3, 18);
             this.dgvLdap.Name = "dgvLdap";

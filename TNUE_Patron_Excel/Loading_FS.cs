@@ -51,8 +51,7 @@ namespace TNUE_Patron_Excel
 				_splashForm = new Loading_FS();
 				_splashForm.StartPosition = FormStartPosition.CenterScreen;
 				_splashForm.TopMost = true;
-			}
-            Thread.Sleep(500);
+			}            
             Application.Run(_splashForm);
 		}
 

@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using TNUE_Patron_Excel.DBConnect;
 using TNUE_Patron_Excel.Properties;
 
 namespace TNUE_Patron_Excel
@@ -24,9 +25,9 @@ namespace TNUE_Patron_Excel
 
 		private int key = 0;
 
-		private string directoryPath = Application.StartupPath + "\\log";
+		private string directoryPath = DataDBLocal.pathUserLog;
 
-		private IContainer components = null;
+        private IContainer components = null;
 
 		private GroupBox groupBox3;
 

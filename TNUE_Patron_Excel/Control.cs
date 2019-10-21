@@ -86,6 +86,13 @@ namespace TNUE_Patron_Excel
 
         private void btnSinhVien_Click(object sender, EventArgs e)
         {
+            ButtonFontBold(btnSinhVien, FontStyle.Bold, Color.Green);
+            ButtonFontBold(btnAddMember, FontStyle.Regular, Color.Black);
+            ButtonFontBold(_btNhanVien, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnEditRemove, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnRest, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnXoa, FontStyle.Regular, Color.Black);
+
             _pnlRight.Controls.Clear();
             UCSinhVien uCSinhVien = new UCSinhVien();
             _pnlRight.Controls.Add(uCSinhVien);
@@ -95,6 +102,15 @@ namespace TNUE_Patron_Excel
 
         private void _btNhanVien_Click(object sender, EventArgs e)
         {
+
+            ButtonFontBold(_btNhanVien, FontStyle.Bold, Color.Green);
+            ButtonFontBold(btnAddMember, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnSinhVien, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnEditRemove, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnRest, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnXoa, FontStyle.Regular, Color.Black);
+
+
             _pnlRight.Controls.Clear();
             UCCanBo uCCanBo = new UCCanBo();
             _pnlRight.Controls.Add(uCCanBo);
@@ -104,6 +120,13 @@ namespace TNUE_Patron_Excel
 
         private void btnData_Click(object sender, EventArgs e)
         {
+            ButtonFontBold(btnAddMember, FontStyle.Bold, Color.Green);
+            ButtonFontBold(btnSinhVien, FontStyle.Regular, Color.Black);
+            ButtonFontBold(_btNhanVien, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnEditRemove, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnRest, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnXoa, FontStyle.Regular, Color.Black);
+
             _pnlRight.Controls.Clear();
             AddEditMember addEditMember = new AddEditMember();
             _pnlRight.Controls.Add(addEditMember);
@@ -134,6 +157,13 @@ namespace TNUE_Patron_Excel
 
         private void btnPic_Click(object sender, EventArgs e)
         {
+            ButtonFontBold(btnEditRemove, FontStyle.Bold, Color.Green);
+            ButtonFontBold(btnSinhVien, FontStyle.Regular, Color.Black);
+            ButtonFontBold(_btNhanVien, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnAddMember, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnRest, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnXoa, FontStyle.Regular, Color.Black);
+
             _pnlRight.Controls.Clear();
             UCUpdatePatron uCUpdatePatron = new UCUpdatePatron();
             _pnlRight.Controls.Add(uCUpdatePatron);
@@ -191,6 +221,13 @@ namespace TNUE_Patron_Excel
 
         public void LoadForm()
         {
+            ButtonFontBold(_btNhanVien, FontStyle.Bold, Color.Green);
+            ButtonFontBold(btnAddMember, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnSinhVien, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnEditRemove, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnRest, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnXoa, FontStyle.Regular, Color.Black);
+
             _pnlRight.Controls.Clear();
             UCCanBo uCCanBo = new UCCanBo();
             _pnlRight.Controls.Add(uCCanBo);
@@ -206,43 +243,57 @@ namespace TNUE_Patron_Excel
 
         private void _btNhanVien_MouseLeave(object sender, EventArgs e)
         {
-            _btNhanVien.BackColor = SystemColors.Control;
-            _btNhanVien.BackgroundImage = null;
+            MouseChangeColorBackgroundImage(_btNhanVien, SystemColors.Control);
         }
 
         private void _btNhanVien_MouseMove(object sender, MouseEventArgs e)
         {
-            _btNhanVien.BackgroundImage = Resources.background;
+            MouseChangeColorBackgroundImage(_btNhanVien, SystemColors.Control, Resources.background);
         }
 
         private void btnSinhVien_MouseLeave(object sender, EventArgs e)
         {
-            btnSinhVien.BackColor = SystemColors.Control;
-            btnSinhVien.BackgroundImage = null;
+           MouseChangeColorBackgroundImage(btnSinhVien, SystemColors.Control);
         }
 
         private void btnSinhVien_MouseMove(object sender, MouseEventArgs e)
         {
-            btnSinhVien.BackgroundImage = Resources.background;
+            MouseChangeColorBackgroundImage(btnSinhVien, SystemColors.Control, Resources.background);
         }
 
         private void btnData_MouseLeave(object sender, EventArgs e)
         {
-            btnAddMember.BackColor = SystemColors.Control;
-            btnAddMember.BackgroundImage = null;
+            MouseChangeColorBackgroundImage(btnAddMember, SystemColors.Control);
         }
 
         private void btnData_MouseMove(object sender, MouseEventArgs e)
         {
-            btnAddMember.BackgroundImage = Resources.background;
+            MouseChangeColorBackgroundImage(btnAddMember, SystemColors.Control, Resources.background);
         }
 
         private void btnRest_MouseLeave(object sender, EventArgs e)
         {
-            btnRest.BackColor = SystemColors.Control;
-            btnRest.BackgroundImage = null;
+            MouseChangeColorBackgroundImage(btnRest, SystemColors.Control);
+        }
+        private void BtnEditRemove_MouseLeave(object sender, EventArgs e)
+        {
+            MouseChangeColorBackgroundImage(btnEditRemove, SystemColors.Control);
         }
 
+        private void BtnEditRemove_MouseMove(object sender, MouseEventArgs e)
+        {
+            MouseChangeColorBackgroundImage(btnEditRemove, SystemColors.Control, Resources.background);
+        }
+
+        private void BtnXoa_MouseLeave(object sender, EventArgs e)
+        {
+            MouseChangeColorBackgroundImage(btnXoa, SystemColors.Control);
+        }
+
+        private void BtnXoa_MouseMove(object sender, MouseEventArgs e)
+        {
+            MouseChangeColorBackgroundImage(btnXoa, SystemColors.Control, Resources.background);
+        }
         private void btnRest_MouseMove(object sender, MouseEventArgs e)
         {
             btnRest.BackgroundImage = Resources.background;
@@ -300,6 +351,14 @@ namespace TNUE_Patron_Excel
 
         private void BtnXoa_Click(object sender, EventArgs e)
         {
+            ButtonFontBold(btnXoa, FontStyle.Bold, Color.Green);
+            ButtonFontBold(btnSinhVien, FontStyle.Regular, Color.Black);
+            ButtonFontBold(_btNhanVien, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnAddMember, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnRest, FontStyle.Regular, Color.Black);
+            ButtonFontBold(btnEditRemove, FontStyle.Regular, Color.Black);
+
+
             _pnlRight.Controls.Clear();
             UCDeleteUser uCDeleteUser = new UCDeleteUser();
             _pnlRight.Controls.Add(uCDeleteUser);
@@ -408,6 +467,8 @@ namespace TNUE_Patron_Excel
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.BtnXoa_Click);
+            this.btnXoa.MouseLeave += new System.EventHandler(this.BtnXoa_MouseLeave);
+            this.btnXoa.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BtnXoa_MouseMove);
             // 
             // btnEditRemove
             // 
@@ -423,6 +484,8 @@ namespace TNUE_Patron_Excel
             this.btnEditRemove.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEditRemove.UseVisualStyleBackColor = true;
             this.btnEditRemove.Click += new System.EventHandler(this.btnPic_Click);
+            this.btnEditRemove.MouseLeave += new System.EventHandler(this.BtnEditRemove_MouseLeave);
+            this.btnEditRemove.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BtnEditRemove_MouseMove);
             // 
             // btnRest
             // 
@@ -689,7 +752,7 @@ namespace TNUE_Patron_Excel
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Control";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TNUE Patron";
+            this.Text = "Upload TNUE Patron v1.0.3";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Control_FormClosed);
             this.Load += new System.EventHandler(this.Control_Load);
             this._pnlLeft.ResumeLayout(false);
@@ -698,6 +761,20 @@ namespace TNUE_Patron_Excel
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
+        }
+
+        
+
+        private void MouseChangeColorBackgroundImage(Button btn, Color color, Image image = null)
+        {
+            btn.BackColor = color;
+            btn.BackgroundImage = image;
+        }
+        private void ButtonFontBold(Button btn, FontStyle fontStyle, Color color)
+        {
+            btn.ForeColor = color;
+            btn.Font = new Font(btn.Font.Name, btn.Font.Size, fontStyle);
 
         }
     }

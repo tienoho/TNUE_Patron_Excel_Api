@@ -23,8 +23,7 @@ namespace TNUE_Patron_Excel.ControlMember
 
         private List<string> PatronLdap = null;
 
-        private string directoryPath = Application.StartupPath + "\\log";
-
+        private string directoryPath = DataDBLocal.pathUserLog;
         private IContainer components = null;
 
         private GroupBox groupBox3;

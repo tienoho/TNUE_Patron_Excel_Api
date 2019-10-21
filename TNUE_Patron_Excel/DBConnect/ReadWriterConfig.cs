@@ -14,13 +14,13 @@ namespace TNUE_Patron_Excel.DBConnect
 
 		public string ReadConfig()
 		{
-			string[] array = File.ReadAllLines("ConfigConnect");
+			string[] array = File.ReadAllLines("tedtien");
 			return array[0].Trim();
 		}
 
 		public DataOracle ReadConfigDataBase()
 		{
-			using (StreamReader streamReader = new StreamReader("ConfigConnect"))
+			using (StreamReader streamReader = new StreamReader("tedtien"))
 			{
 				oracle = new DataOracle();
 				string text;
@@ -55,7 +55,7 @@ namespace TNUE_Patron_Excel.DBConnect
 
 		public Aleph ReadConfigAleph()
 		{
-			using (StreamReader streamReader = new StreamReader("ConfigConnect"))
+			using (StreamReader streamReader = new StreamReader("tedtien"))
 			{
 				aleph = new Aleph();
 				string text;
@@ -84,7 +84,7 @@ namespace TNUE_Patron_Excel.DBConnect
 
 		public LdapField ReadConfigLdap()
 		{
-			using (StreamReader streamReader = new StreamReader("ConfigConnect"))
+			using (StreamReader streamReader = new StreamReader("tedtien"))
 			{
 				ldap = new LdapField();
 				string text;
@@ -116,9 +116,9 @@ namespace TNUE_Patron_Excel.DBConnect
 
 		public ReadWriterConfig()
 		{
-			if (!File.Exists("ConfigConnect"))
+			if (!File.Exists("tedtien"))
 			{
-				using (StreamWriter streamWriter = new StreamWriter("ConfigConnect"))
+				using (StreamWriter streamWriter = new StreamWriter("tedtien"))
 				{
 					streamWriter.WriteLine("#DataBase");
 					streamWriter.WriteLine("host=10.2.201.15");

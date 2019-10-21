@@ -227,6 +227,7 @@ namespace TNUE_Patron_Excel.Config
             this.txtBindDn.Name = "txtBindDn";
             this.txtBindDn.Size = new System.Drawing.Size(329, 41);
             this.txtBindDn.TabIndex = 116;
+            this.txtBindDn.UseSystemPasswordChar = true;
             this.txtBindDn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSid_KeyPress);
             // 
             // label2
@@ -246,6 +247,7 @@ namespace TNUE_Patron_Excel.Config
             this.txtBindLdap.Name = "txtBindLdap";
             this.txtBindLdap.Size = new System.Drawing.Size(329, 41);
             this.txtBindLdap.TabIndex = 112;
+            this.txtBindLdap.UseSystemPasswordChar = true;
             this.txtBindLdap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort_KeyPress);
             // 
             // btnOk

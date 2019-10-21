@@ -33,9 +33,9 @@ namespace TNUE_Patron_Excel.ControlMember
 
 		private int countP = 1;
 
-		private string directoryPath = Application.StartupPath + "\\log";
+        private string directoryPath = DataDBLocal.pathUserLog;
 
-		private IContainer components = null;
+        private IContainer components = null;
 
 		private GroupBox groupBox1;
 
