@@ -67,7 +67,7 @@ namespace TNUE_Patron_Excel.Config
 			UpdateConfigDatabase();
 		}
 
-		private bool TestConnecting()
+		public bool TestConnecting()
 		{
 			bool result = false;
 			try

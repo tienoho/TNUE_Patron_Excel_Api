@@ -3,8 +3,10 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using TNUE_Patron_Excel.API;
 using TNUE_Patron_Excel.Config;
 using TNUE_Patron_Excel.DBConnect;
+using TNUE_Patron_Excel.Ldap;
 using TNUE_Patron_Excel.Tool;
 
 namespace TNUE_Patron_Excel
@@ -22,7 +24,11 @@ namespace TNUE_Patron_Excel
         private Button btnLdap;
         private Button btnAleph;
         private Label lbLoad;
-
+        Aleph aleph = null;
+        LdapField ldapField = null;
+        bool validateDatabase = false;
+        bool validateUrlAleph = false;
+        bool validateLdap = false;
         public FormStartLoading()
         {
             InitializeComponent();
@@ -40,8 +46,9 @@ namespace TNUE_Patron_Excel
 
         public void Startaaa()
         {
-            if (!TestConnecting())
+            if (!TestConnecting() || !ValidateExistUrl() || !ValidatePingHostLdap())
             {
+                
                 Invoke((MethodInvoker)delegate
                 {
                     pictureError.Visible = true;
@@ -50,6 +57,19 @@ namespace TNUE_Patron_Excel
                     btnDB.Visible = true;
                     btnLdap.Visible = true;
                     Cursor = Cursors.Default;
+
+                    if (!validateDatabase)
+                    {
+                        MessageBox.Show("Lỗi: Không kết nối được đến Database Oracle", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (!validateUrlAleph)
+                    {
+                        MessageBox.Show("Lỗi: Không kết nối được đến địa chỉ: " + aleph.UrlAleph, "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (!validateLdap)
+                    {
+                        MessageBox.Show("Lỗi: Không kết nối được đến server Ldap: " + ldapField.UrlLdap, "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 });
 
             }
@@ -102,13 +122,26 @@ namespace TNUE_Patron_Excel
                 result = true;
                 DBConnecting.conn.Close();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Lỗi: " + ex.Message, "Thông báo!");
-            }
-            return result;
-        }
 
+            }
+            return validateDatabase = result;
+        }
+        private bool ValidateExistUrl()
+        {
+            aleph = new ReadWriterConfig().ReadConfigAleph();
+            return validateUrlAleph = new CheckUrl().CheckUrlExist(aleph.UrlAleph);
+        }
+        private bool ValidatePingHostLdap()
+        {
+            ldapField = new ReadWriterConfig().ReadConfigLdap();
+            int numberStart = ldapField.UrlLdap.IndexOf("LDAP://") + 7;
+            int numberEnd = ldapField.UrlLdap.LastIndexOf(":");
+            string hostUri = ldapField.UrlLdap.Substring(numberStart, numberEnd - numberStart);
+            int portNumber = int.Parse(ldapField.UrlLdap.Substring(numberEnd + 1));
+            return validateLdap = new CheckUrl().PingHost(hostUri, portNumber);
+        }
         private void BtnExit_Click(object sender, EventArgs e)
         {
             threadInput.Abort();

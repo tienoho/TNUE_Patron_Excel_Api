@@ -15,392 +15,415 @@ using TNUE_Patron_Excel.Z303;
 
 namespace TNUE_Patron_Excel.ControlMember
 {
-	public class AddEditMember : UserControl
-	{
-		private List<Z308> listZ308 = null;
+    public class AddEditMember : UserControl
+    {
+        private List<Z308> listZ308 = null;
 
-		private ToolP tool = new ToolP();
+        private ToolP tool = new ToolP();
 
-		private StringBuilder sbList = null;
+        private StringBuilder sbList = null;
 
-		private StringBuilder sbPatronXml;
+        private StringBuilder sbPatronXml;
 
-		private StringBuilder sb = null;
+        private StringBuilder sb = null;
 
-		private Patron p = null;
+        private Patron p = null;
 
-		private User u = null;
+        private User u = null;
 
-		private int countP = 1;
+        private int countP = 1;
 
         private string directoryPath = DataDBLocal.pathUserLog;
 
         private IContainer components = null;
 
-		private GroupBox groupBox1;
+        private GroupBox groupBox1;
 
-		private Button btnThoat;
+        private Button btnThoat;
 
-		private TextBox txtPatronId;
+        private TextBox txtPatronId;
 
-		private Label label4;
+        private Label label4;
 
-		private Label label5;
+        private Label label5;
 
-		private ComboBox comboBox1;
+        private ComboBox comboBox1;
 
-		private Button btnConvert;
+        private Button btnConvert;
 
-		private FolderBrowserDialog folderBrowserDialog1;
+        private FolderBrowserDialog folderBrowserDialog1;
 
-		private Button btnPush;
+        private Button btnPush;
 
-		private PictureBox pb_TaiChinh;
+        private PictureBox pb_TaiChinh;
 
-		private Label label7;
+        private Label label7;
 
-		private ComboBox cbLoaiBanDoc;
+        private ComboBox cbLoaiBanDoc;
 
-		private TextBox txtPassword;
+        private TextBox txtPassword;
 
-		private Label label2;
+        private Label label2;
 
-		private TextBox txtMa;
+        private TextBox txtMa;
 
-		private Label label1;
+        private Label label1;
 
-		private Label label3;
+        private Label label3;
 
-		private ComboBox cbGioiTinh;
+        private ComboBox cbGioiTinh;
 
-		private Label label6;
+        private Label label6;
 
-		private DateTimePicker dtpNgaySinh;
+        private DateTimePicker dtpNgaySinh;
 
-		private DateTimePicker dateHetHan;
+        private DateTimePicker dateHetHan;
 
-		private Label label9;
+        private Label label9;
 
-		private TextBox txtPhone;
+        private TextBox txtPhone;
 
-		private Label label8;
+        private Label label8;
 
-		private TextBox txtAddress;
+        private TextBox txtAddress;
 
-		private Label label10;
+        private Label label10;
 
-		private Panel panel1;
+        private Panel panel1;
 
-		private GroupBox groupBox2;
+        private GroupBox groupBox2;
 
-		private RadioButton rbSinhVien;
+        private RadioButton rbSinhVien;
 
-		private RadioButton rbCanBo;
+        private RadioButton rbCanBo;
 
-		private Panel panelSinhVien;
+        private Panel panelSinhVien;
 
-		private TextBox txtEmail;
+        private TextBox txtEmail;
 
-		private Label label11;
+        private Label label11;
 
-		private Label label13;
+        private Label label13;
 
-		private TextBox txtLop;
+        private TextBox txtLop;
 
-		private Label label12;
+        private Label label12;
 
-		private TextBox txtKhoa;
+        private TextBox txtKhoa;
 
-		private Label label14;
+        private Label label14;
 
-		private TextBox txtKhoaHoc;
+        private TextBox txtKhoaHoc;
 
-		private Panel panelCanBo;
+        private Panel panelCanBo;
 
-		private Label label15;
+        private Label label15;
 
-		private TextBox txtChucDanh;
+        private TextBox txtChucDanh;
 
-		private Label label16;
+        private Label label16;
 
-		private TextBox txtChucVu;
+        private TextBox txtChucVu;
 
-		private Label label17;
+        private Label label17;
 
-		private TextBox txtDonVi;
+        private TextBox txtDonVi;
 
-		private Label lbErrorBarcode;
+        private Label lbErrorBarcode;
 
-		private Label label18;
+        private Label label18;
 
-		private TextBox txtHoTen;
+        private TextBox txtHoTen;
 
-		public AddEditMember()
-		{
-			InitializeComponent();
-		}
+        public AddEditMember()
+        {
+            InitializeComponent();
+        }
 
-		private void UCCanBo_Load(object sender, EventArgs e)
-		{
-			listZ308 = DataDBLocal.listZ308;
-			ComboxBlock();
-			ComboxLoaiBanDoc();
-			ComboxGioiTinh();
-			txtPatronId.Text = "1";
-			countP = new QueryDB().CountPatron();
-			txtPatronId.Text = (countP + 1).ToString();
-			CreateFolder(directoryPath);
-		}
+        private void UCCanBo_Load(object sender, EventArgs e)
+        {
+            listZ308 = DataDBLocal.listZ308;
+            ComboxBlock();
+            ComboxLoaiBanDoc();
+            ComboxGioiTinh();
+            txtPatronId.Text = "1";
+            countP = new QueryDB().CountPatron();
+            txtPatronId.Text = (countP + 1).ToString();
+            CreateFolder(directoryPath);
+            if (rbSinhVien.Checked)
+            {
+                panelCanBo.Visible = false;
+                panelSinhVien.Visible = true;
+            }
+        }
 
-		private void CreateFolder(string directoryPath)
-		{
-			if (!Directory.Exists(directoryPath))
-			{
-				Directory.CreateDirectory(directoryPath);
-			}
-		}
+        private void CreateFolder(string directoryPath)
+        {
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+        }
 
-		private void btnThoat_Click(object sender, EventArgs e)
-		{
-			Application.Exit();
-		}
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
-		private void btnConvert_Click(object sender, EventArgs e)
-		{
-			if (!new QueryDB().CheckBarcode(txtMa.Text.Trim()))
-			{
-				if (txtMa.Text != "")
-				{
-					WriterUserLdapPatron();
-					WriteXML();
-					WriteXmlApi();
-					btnPush.Enabled = true;
-					MessageBox.Show("chuyển đổi dữ liệu thành công!", "Thông báo!");
-				}
-			}
-			else
-			{
-				MessageBox.Show("Mã này đã tồn tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-			}
-		}
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            if (!new QueryDB().CheckBarcode(txtMa.Text.Trim()))
+            {
+                if (txtMa.Text != "")
+                {
+                    WriterUserLdapPatron();
+                    WriteXML();
+                    WriteXmlApi();
+                    btnPush.Enabled = true;
+                    btnConvert.Enabled = false;
+                    MessageBox.Show("chuyển đổi dữ liệu thành công!", "Thông báo!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Mã này đã tồn tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
 
-		private void txtPatronId_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-			{
-				e.Handled = true;
-			}
-		}
+        private void txtPatronId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
-		private void ComboxBlock()
-		{
-			ComboboxItem comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Mở";
-			comboboxItem.Value = "00";
-			comboBox1.Items.Add(comboboxItem);
-			comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Khóa";
-			comboboxItem.Value = "05";
-			comboBox1.Items.Add(comboboxItem);
-			comboBox1.SelectedIndex = 0;
-		}
+        private void ComboxBlock()
+        {
+            ComboboxItem comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Mở";
+            comboboxItem.Value = "00";
+            comboBox1.Items.Add(comboboxItem);
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Khóa";
+            comboboxItem.Value = "05";
+            comboBox1.Items.Add(comboboxItem);
+            comboBox1.SelectedIndex = 0;
+        }
 
-		private void ComboxGioiTinh()
-		{
-			ComboboxItem comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Nam";
-			comboboxItem.Value = "Nam";
-			cbGioiTinh.Items.Add(comboboxItem);
-			comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Nữ";
-			comboboxItem.Value = "Nữ";
-			cbGioiTinh.Items.Add(comboboxItem);
-			cbGioiTinh.SelectedIndex = 0;
-		}
+        private void ComboxGioiTinh()
+        {
+            ComboboxItem comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Nam";
+            comboboxItem.Value = "Nam";
+            cbGioiTinh.Items.Add(comboboxItem);
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Nữ";
+            comboboxItem.Value = "Nữ";
+            cbGioiTinh.Items.Add(comboboxItem);
+            cbGioiTinh.SelectedIndex = 0;
+        }
 
-		private void ComboxLoaiBanDoc()
-		{
-			ComboboxItem comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Cán Bộ";
-			comboboxItem.Value = "01";
-			cbLoaiBanDoc.Items.Add(comboboxItem);
-			comboboxItem.Text = "Sinh Viên";
-			comboboxItem.Value = "02";
-			cbLoaiBanDoc.Items.Add(comboboxItem);
-			comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Cao Học";
-			comboboxItem.Value = "03";
-			cbLoaiBanDoc.Items.Add(comboboxItem);
-			comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Giảng Viên";
-			comboboxItem.Value = "04";
-			cbLoaiBanDoc.Items.Add(comboboxItem);
-			comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Thư Viện Viên";
-			comboboxItem.Value = "06";
-			cbLoaiBanDoc.Items.Add(comboboxItem);
-			comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Nghiên Cứu sinh";
-			comboboxItem.Value = "05";
-			cbLoaiBanDoc.Items.Add(comboboxItem);
-			comboboxItem = new ComboboxItem();
-			comboboxItem.Text = "Loại Khác";
-			comboboxItem.Value = "07";
-			cbLoaiBanDoc.Items.Add(comboboxItem);
-			cbLoaiBanDoc.SelectedIndex = 0;
-		}
-
-		private void WriterUserLdapPatron()
-		{
+        private void ComboxLoaiBanDoc()
+        {
+            ComboboxItem comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Cán Bộ";
+            comboboxItem.Value = "01";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+            comboboxItem.Text = "Sinh Viên";
+            comboboxItem.Value = "02";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Cao Học";
+            comboboxItem.Value = "03";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Giảng Viên";
+            comboboxItem.Value = "04";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Thư Viện Viên";
+            comboboxItem.Value = "06";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Nghiên Cứu sinh";
+            comboboxItem.Value = "05";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+            comboboxItem = new ComboboxItem();
+            comboboxItem.Text = "Loại Khác";
+            comboboxItem.Value = "07";
+            cbLoaiBanDoc.Items.Add(comboboxItem);
+            cbLoaiBanDoc.SelectedIndex = 0;
+        }
+        private void ClearForm()
+        {
+            countP = new QueryDB().CountPatron();
+            txtPatronId.Text = (countP + 1).ToString();
+            txtMa.Clear(); txtPassword.Clear(); txtPhone.Clear(); txtEmail.Clear();
+            txtAddress.Clear(); txtKhoa.Clear(); txtLop.Clear(); txtKhoaHoc.Clear();
+            txtChucVu.Clear(); txtKhoa.Clear(); txtChucDanh.Clear();
+        }
+        private void WriterUserLdapPatron()
+        {
             string dateNow = DateTime.Now.ToString("yyyyMMdd");
-			string genDer = (cbGioiTinh.SelectedItem as ComboboxItem).Value.ToString();
-			p = new Patron();
-			p.pationID = $"{countP + 1:000000000000}";
-			p.MaSV_O = txtMa.Text.Trim();
-			p.HoTen = txtHoTen.Text.Trim();
-			p.password = txtPassword.Text.Trim();
+            string genDer = (cbGioiTinh.SelectedItem as ComboboxItem).Value.ToString();
+            p = new Patron();
+            p.pationID = $"{countP + 1:000000000000}";
+            p.MaSV_O = txtMa.Text.Trim();
+            p.HoTen = txtHoTen.Text.Trim();
+            p.password = txtPassword.Text.Trim();
             p.ngaySinh = dtpNgaySinh.Value.Date.ToString("yyyyMMdd");
-			p.ngayHetHan = dateHetHan.Value.Date.ToString("yyyyMMdd");
+            p.ngayHetHan = dateHetHan.Value.Date.ToString("yyyyMMdd");
             p.GT = new ToolP().convertGender(genDer);
-			p.phone = txtPhone.Text.Trim();
-			p.email = txtEmail.Text.Trim();
-			p.DiaChi = txtAddress.Text.Trim();
+            p.phone = txtPhone.Text.Trim();
+            p.email = txtEmail.Text.Trim();
+            p.DiaChi = txtAddress.Text.Trim();
             p.Day = dateNow;
-			p.makh = "";
-			if (rbSinhVien.Checked)
-			{
-				p.Khoa = txtKhoa.Text.Trim();
-				p.lopHoc = txtLop.Text.Trim();
-				p.khoaHoc = txtKhoaHoc.Text.Trim();
-			}
-			if (rbCanBo.Checked)
-			{
-				p.chucVu = txtChucVu.Text.Trim();
-				p.Khoa = txtKhoa.Text.Trim();
-				p.chucDanh = txtChucDanh.Text.Trim();
-			}
-			u = new User();
-			u.cn = p.MaSV_O.Trim();
-			u.sn = p.MaSV_O.Trim();
-			u.userLogin = p.MaSV_O.Trim();
-			u.userMail = p.email;
-			u.userPassword = p.password;
-			u.objectClass = "OpenLDAPPerson";
-			u.telephoneNumber = p.phone;
-		}
+            p.makh = "";
+            if (rbSinhVien.Checked)
+            {
+                p.Khoa = txtKhoa.Text.Trim();
+                p.lopHoc = txtLop.Text.Trim();
+                p.khoaHoc = txtKhoaHoc.Text.Trim();
+            }
+            if (rbCanBo.Checked)
+            {
+                p.chucVu = txtChucVu.Text.Trim();
+                p.Khoa = txtKhoa.Text.Trim();
+                p.chucDanh = txtChucDanh.Text.Trim();
+            }
+            u = new User();
+            u.cn = p.MaSV_O.Trim();
+            u.sn = p.MaSV_O.Trim();
+            u.userLogin = p.MaSV_O.Trim();
+            u.userMail = p.email;
+            u.userPassword = p.password;
+            u.objectClass = "OpenLDAPPerson";
+            u.telephoneNumber = p.phone;
+        }
 
-		private void WriteXML()
-		{
-			string block = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
-			string status = (cbLoaiBanDoc.SelectedItem as ComboboxItem).Value.ToString();
-			string text = (cbGioiTinh.SelectedItem as ComboboxItem).Value.ToString();
-			sbPatronXml = new StringBuilder();
-			sbPatronXml.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-			sbPatronXml.AppendLine("<p-file-20>");
-			sbPatronXml.AppendLine("<patron-record>");
-			sbPatronXml.Append(new z303().tab3(p));
-			sbPatronXml.Append(new z304().tab4(p));
-			sbPatronXml.Append(new z305().tab5(p, block, status));
-			sbPatronXml.Append(new z308().tab8(p));
-			sbPatronXml.AppendLine("</patron-record>");
-			sbPatronXml.AppendLine("</p-file-20>");
-		}
+        private void WriteXML()
+        {
+            string block = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
+            string status = (cbLoaiBanDoc.SelectedItem as ComboboxItem).Value.ToString();
+            string text = (cbGioiTinh.SelectedItem as ComboboxItem).Value.ToString();
+            sbPatronXml = new StringBuilder();
+            sbPatronXml.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            sbPatronXml.AppendLine("<p-file-20>");
+            sbPatronXml.AppendLine("<patron-record>");
+            sbPatronXml.Append(new z303().tab3(p));
+            sbPatronXml.Append(new z304().tab4(p));
+            sbPatronXml.Append(new z305().tab5(p, block, status));
+            sbPatronXml.Append(new z308().tab8(p));
+            sbPatronXml.AppendLine("</patron-record>");
+            sbPatronXml.AppendLine("</p-file-20>");
+        }
 
-		private void WriteXmlApi()
-		{
-			string block = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
-			string status = (cbLoaiBanDoc.SelectedItem as ComboboxItem).Value.ToString();
-			sb = new StringBuilder();
-			sb.Append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-			sb.Append("<p-file-20>");
-			sb.Append("<patron-record>");
-			sb.Append(new z303().tab3(p));
-			sb.Append(new z304().tab4(p));
-			sb.Append(new z305().tab5(p, block, status));
-			sb.Append(new z308().tab8(p));
-			sb.Append("</patron-record>");
-			sb.Append("</p-file-20>");
-		}
+        private void WriteXmlApi()
+        {
+            string block = (comboBox1.SelectedItem as ComboboxItem).Value.ToString();
+            string status = (cbLoaiBanDoc.SelectedItem as ComboboxItem).Value.ToString();
+            sb = new StringBuilder();
+            sb.Append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            sb.Append("<p-file-20>");
+            sb.Append("<patron-record>");
+            sb.Append(new z303().tab3(p));
+            sb.Append(new z304().tab4(p));
+            sb.Append(new z305().tab5(p, block, status));
+            sb.Append(new z308().tab8(p));
+            sb.Append("</patron-record>");
+            sb.Append("</p-file-20>");
+        }
 
-		private void ExportDanhSachTT()
-		{
-			sbList = new StringBuilder();
-			sbList.Append(p.pationID);
-			sbList.Append("\t");
-			sbList.AppendLine(p.MaSV_O);
-			File.WriteAllText(txtPassword.Text + "/DanhSachTT-CanBo-" + tool.getDate() + ".txt", sbList.ToString());
-		}
+        private void ExportDanhSachTT()
+        {
+            sbList = new StringBuilder();
+            sbList.Append(p.pationID);
+            sbList.Append("\t");
+            sbList.AppendLine(p.MaSV_O);
+            File.WriteAllText(txtPassword.Text + "/DanhSachTT-CanBo-" + tool.getDate() + ".txt", sbList.ToString());
+        }
 
-		private void CheckDataGridView(DataGridView gdv, Label lb)
-		{
-			if (gdv.ColumnCount > 0)
-			{
-				lb.Text = "Số lượng: " + gdv.RowCount.ToString();
-			}
-		}
+        private void CheckDataGridView(DataGridView gdv, Label lb)
+        {
+            if (gdv.ColumnCount > 0)
+            {
+                lb.Text = "Số lượng: " + gdv.RowCount.ToString();
+            }
+        }
 
-		private void CreatePatron()
-		{
-			Loading_FS.text = "\tĐang đưa dữ liệu ...";
-			Loading_FS.ShowSplash();
-			using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Api-Patron-Log-" + tool.getDate() + ".txt"))
-			{
-				streamWriter.WriteLine(new AlephAPI().Url(sb.ToString()));
-			}
-			using (StreamWriter streamWriter2 = new StreamWriter(directoryPath + "/Ldap-Log-" + tool.getDate() + ".txt"))
-			{
-				streamWriter2.WriteLine(u.userLogin + "\t" + new ModelLdap().CreateUser(u));
-			}
-			Loading_FS.CloseSplash();
-			MessageBox.Show("Thành công!", "Thông báo!");
-		}
+        private void CreatePatron()
+        {
+            Loading_FS.text = "\tĐang đưa dữ liệu ...";
+            Loading_FS.ShowSplash();
+            using (StreamWriter streamWriter = new StreamWriter(directoryPath + "/Api-Patron-Log-" + tool.getDate() + ".txt"))
+            {
+                streamWriter.WriteLine(new AlephAPI().Url(sb.ToString()));
+            }
+            using (StreamWriter streamWriter2 = new StreamWriter(directoryPath + "/Ldap-Log-" + tool.getDate() + ".txt"))
+            {
+                streamWriter2.WriteLine(u.userLogin + "\t" + new ModelLdap().CreateUser(u));
+            }
+            Loading_FS.CloseSplash();
+            MessageBox.Show("Đã thêm " + txtMa.Text + " thành công!", "Thông báo!");
+            ClearForm();
+            btnPush.Enabled = false;
+            btnConvert.Enabled = true;
+        }
 
-		private void btnPush_Click(object sender, EventArgs e)
-		{
-			CreatePatron();
-		}
+        private void btnPush_Click(object sender, EventArgs e)
+        {
+            CreatePatron();
+        }
 
-		private async void TxtMa_TextChanged(object sender, EventArgs e)
-		{
-			await Task.Delay(300);
-			if (new QueryDB().CheckBarcode(txtMa.Text.Trim()))
-			{
-				lbErrorBarcode.Visible = true;
-			}
-			else
-			{
-				lbErrorBarcode.Visible = false;
-			}
-		}
+        private async void TxtMa_TextChanged(object sender, EventArgs e)
+        {
+            await Task.Delay(300);
+            if (new QueryDB().CheckBarcode(txtMa.Text.Trim()))
+            {
+                lbErrorBarcode.Visible = true;
+            }
+            else
+            {
+                lbErrorBarcode.Visible = false;
+            }
+        }
 
-		private void RbCanBo_CheckedChanged(object sender, EventArgs e)
-		{
-			panelCanBo.Visible = true;
-			panelSinhVien.Visible = false;
-		}
+        private void RbCanBo_CheckedChanged(object sender, EventArgs e)
+        {
+            panelCanBo.Visible = true;
+            panelSinhVien.Visible = false;
+        }
 
-		private void RbSinhVien_CheckedChanged(object sender, EventArgs e)
-		{
-			panelCanBo.Visible = false;
-			panelSinhVien.Visible = true;
-		}
+        private void RbSinhVien_CheckedChanged(object sender, EventArgs e)
+        {
+            panelCanBo.Visible = false;
+            panelSinhVien.Visible = true;
+        }
 
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && components != null)
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && components != null)
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		private void InitializeComponent()
-		{
+        private void InitializeComponent()
+        {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.lbErrorBarcode = new System.Windows.Forms.Label();
+            this.panelCanBo = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtChucDanh = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtChucVu = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtDonVi = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -410,13 +433,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.label14 = new System.Windows.Forms.Label();
             this.txtKhoaHoc = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.panelCanBo = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtChucDanh = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtChucVu = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtDonVi = new System.Windows.Forms.TextBox();
             this.txtLop = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtKhoa = new System.Windows.Forms.TextBox();
@@ -447,9 +463,9 @@ namespace TNUE_Patron_Excel.ControlMember
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelCanBo.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panelSinhVien.SuspendLayout();
-            this.panelCanBo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -533,6 +549,73 @@ namespace TNUE_Patron_Excel.ControlMember
             this.lbErrorBarcode.TabIndex = 134;
             this.lbErrorBarcode.Text = "Mã SV/CB đã tồn tại";
             this.lbErrorBarcode.Visible = false;
+            // 
+            // panelCanBo
+            // 
+            this.panelCanBo.Controls.Add(this.label15);
+            this.panelCanBo.Controls.Add(this.txtChucDanh);
+            this.panelCanBo.Controls.Add(this.label16);
+            this.panelCanBo.Controls.Add(this.txtChucVu);
+            this.panelCanBo.Controls.Add(this.label17);
+            this.panelCanBo.Controls.Add(this.txtDonVi);
+            this.panelCanBo.Location = new System.Drawing.Point(12, 403);
+            this.panelCanBo.Name = "panelCanBo";
+            this.panelCanBo.Size = new System.Drawing.Size(444, 122);
+            this.panelCanBo.TabIndex = 129;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 91);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(107, 25);
+            this.label15.TabIndex = 120;
+            this.label15.Text = "Chức danh";
+            // 
+            // txtChucDanh
+            // 
+            this.txtChucDanh.Location = new System.Drawing.Point(125, 86);
+            this.txtChucDanh.Margin = new System.Windows.Forms.Padding(2);
+            this.txtChucDanh.Name = "txtChucDanh";
+            this.txtChucDanh.Size = new System.Drawing.Size(316, 33);
+            this.txtChucDanh.TabIndex = 121;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 54);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(84, 25);
+            this.label16.TabIndex = 118;
+            this.label16.Text = "Chức vụ";
+            // 
+            // txtChucVu
+            // 
+            this.txtChucVu.Location = new System.Drawing.Point(125, 49);
+            this.txtChucVu.Margin = new System.Windows.Forms.Padding(2);
+            this.txtChucVu.Name = "txtChucVu";
+            this.txtChucVu.Size = new System.Drawing.Size(316, 33);
+            this.txtChucVu.TabIndex = 119;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 14);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(70, 25);
+            this.label17.TabIndex = 116;
+            this.label17.Text = "Đơn vị";
+            // 
+            // txtDonVi
+            // 
+            this.txtDonVi.Location = new System.Drawing.Point(126, 9);
+            this.txtDonVi.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDonVi.Name = "txtDonVi";
+            this.txtDonVi.Size = new System.Drawing.Size(316, 33);
+            this.txtDonVi.TabIndex = 117;
             // 
             // txtEmail
             // 
@@ -627,73 +710,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.label13.TabIndex = 118;
             this.label13.Text = "Lớp";
             // 
-            // panelCanBo
-            // 
-            this.panelCanBo.Controls.Add(this.label15);
-            this.panelCanBo.Controls.Add(this.txtChucDanh);
-            this.panelCanBo.Controls.Add(this.label16);
-            this.panelCanBo.Controls.Add(this.txtChucVu);
-            this.panelCanBo.Controls.Add(this.label17);
-            this.panelCanBo.Controls.Add(this.txtDonVi);
-            this.panelCanBo.Location = new System.Drawing.Point(12, 403);
-            this.panelCanBo.Name = "panelCanBo";
-            this.panelCanBo.Size = new System.Drawing.Size(444, 122);
-            this.panelCanBo.TabIndex = 129;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 91);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(107, 25);
-            this.label15.TabIndex = 120;
-            this.label15.Text = "Chức danh";
-            // 
-            // txtChucDanh
-            // 
-            this.txtChucDanh.Location = new System.Drawing.Point(125, 86);
-            this.txtChucDanh.Margin = new System.Windows.Forms.Padding(2);
-            this.txtChucDanh.Name = "txtChucDanh";
-            this.txtChucDanh.Size = new System.Drawing.Size(316, 33);
-            this.txtChucDanh.TabIndex = 121;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 54);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(84, 25);
-            this.label16.TabIndex = 118;
-            this.label16.Text = "Chức vụ";
-            // 
-            // txtChucVu
-            // 
-            this.txtChucVu.Location = new System.Drawing.Point(125, 49);
-            this.txtChucVu.Margin = new System.Windows.Forms.Padding(2);
-            this.txtChucVu.Name = "txtChucVu";
-            this.txtChucVu.Size = new System.Drawing.Size(316, 33);
-            this.txtChucVu.TabIndex = 119;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 14);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(70, 25);
-            this.label17.TabIndex = 116;
-            this.label17.Text = "Đơn vị";
-            // 
-            // txtDonVi
-            // 
-            this.txtDonVi.Location = new System.Drawing.Point(126, 9);
-            this.txtDonVi.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDonVi.Name = "txtDonVi";
-            this.txtDonVi.Size = new System.Drawing.Size(316, 33);
-            this.txtDonVi.TabIndex = 117;
-            // 
             // txtLop
             // 
             this.txtLop.Location = new System.Drawing.Point(125, 49);
@@ -787,7 +803,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(159, 38);
             this.btnThoat.TabIndex = 14;
-            this.btnThoat.Text = "Trở về";
+            this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
@@ -982,15 +998,15 @@ namespace TNUE_Patron_Excel.ControlMember
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelCanBo.ResumeLayout(false);
+            this.panelCanBo.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panelSinhVien.ResumeLayout(false);
             this.panelSinhVien.PerformLayout();
-            this.panelCanBo.ResumeLayout(false);
-            this.panelCanBo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).EndInit();
             this.ResumeLayout(false);
 
-		}
-	}
+        }
+    }
 }

@@ -251,14 +251,6 @@ namespace TNUE_Patron_Excel.ControlMember
         private Label label2;
 
         private Label label4;
-        private DataGridViewTextBoxColumn userLogin;
-        private DataGridViewTextBoxColumn userMail;
-        private DataGridViewTextBoxColumn telephoneNumber;
-        private DataGridViewTextBoxColumn HoTenp;
-        private DataGridViewTextBoxColumn NgaySinhp;
-        private DataGridViewTextBoxColumn Lopp;
-        private DataGridViewTextBoxColumn Khoanganh;
-        private DataGridViewTextBoxColumn Khoap;
         private Label label15;
         private TextBox txtKhoaHoc;
         private Label label12;
@@ -267,6 +259,14 @@ namespace TNUE_Patron_Excel.ControlMember
         private TextBox txtLop;
         private Label label14;
         private TextBox txtHoTen;
+        private DataGridViewTextBoxColumn userLogin;
+        private DataGridViewTextBoxColumn userMail;
+        private DataGridViewTextBoxColumn telephoneNumber;
+        private DataGridViewTextBoxColumn HoTenp;
+        private DataGridViewTextBoxColumn NgaySinhp;
+        private DataGridViewTextBoxColumn Lopp;
+        private DataGridViewTextBoxColumn Khoanganh;
+        private DataGridViewTextBoxColumn Khoap;
         private Button btnhien;
 
         public UCUpdatePatron()
@@ -328,15 +328,18 @@ namespace TNUE_Patron_Excel.ControlMember
                     superGird1.Columns.Clear();
                     superGird1.DataSource = dataSource;
                 }
-                catch (Exception ex)
+                catch
                 {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    superGird1.Columns.Clear();
+                    superGird1.DataSource = null;
                 }
             }
         }
 
         private void BtnUnSearch_Click(object sender, EventArgs e)
         {
+            txtSearch.Clear();
             superGird1.Columns.Clear();
             superGird1.SetPagedDataSource(table, bindingNavigator1);
         }
@@ -1016,15 +1019,54 @@ namespace TNUE_Patron_Excel.ControlMember
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCUpdatePatron));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.rbLdap = new System.Windows.Forms.RadioButton();
             this.rbAleph = new System.Windows.Forms.RadioButton();
+            this.panelLdap = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtKhoaHoc = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtKhoaNganh = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtLop = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtHoTen = new System.Windows.Forms.TextBox();
+            this.btnhien = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnUnSearch = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtMa = new System.Windows.Forms.TextBox();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.superGird1 = new TNUE_Patron_Excel.SuperGird();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelUpdateSeris = new System.Windows.Forms.Panel();
             this.lbCountHad = new System.Windows.Forms.Label();
             this.lbCountListExcel = new System.Windows.Forms.Label();
@@ -1091,45 +1133,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.panelLdap = new System.Windows.Forms.Panel();
-            this.btnhien = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnUnSearch = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtMa = new System.Windows.Forms.TextBox();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtKhoaNganh = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtLop = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtHoTen = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtKhoaHoc = new System.Windows.Forms.TextBox();
-            this.superGird1 = new TNUE_Patron_Excel.SuperGird();
             this.userLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telephoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1140,6 +1143,12 @@ namespace TNUE_Patron_Excel.ControlMember
             this.Khoap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panelLdap.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.superGird1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelUpdateSeris.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHad)).BeginInit();
@@ -1148,12 +1157,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).BeginInit();
-            this.panelLdap.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.superGird1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -1203,6 +1206,413 @@ namespace TNUE_Patron_Excel.ControlMember
             this.rbAleph.UseVisualStyleBackColor = true;
             this.rbAleph.CheckedChanged += new System.EventHandler(this.RbAleph_CheckedChanged);
             // 
+            // panelLdap
+            // 
+            this.panelLdap.Controls.Add(this.label15);
+            this.panelLdap.Controls.Add(this.txtKhoaHoc);
+            this.panelLdap.Controls.Add(this.label12);
+            this.panelLdap.Controls.Add(this.txtKhoaNganh);
+            this.panelLdap.Controls.Add(this.label13);
+            this.panelLdap.Controls.Add(this.txtLop);
+            this.panelLdap.Controls.Add(this.label14);
+            this.panelLdap.Controls.Add(this.txtHoTen);
+            this.panelLdap.Controls.Add(this.btnhien);
+            this.panelLdap.Controls.Add(this.label2);
+            this.panelLdap.Controls.Add(this.btnUnSearch);
+            this.panelLdap.Controls.Add(this.label4);
+            this.panelLdap.Controls.Add(this.txtSearch);
+            this.panelLdap.Controls.Add(this.label8);
+            this.panelLdap.Controls.Add(this.txtPassword);
+            this.panelLdap.Controls.Add(this.label9);
+            this.panelLdap.Controls.Add(this.txtPhone);
+            this.panelLdap.Controls.Add(this.label10);
+            this.panelLdap.Controls.Add(this.txtEmail);
+            this.panelLdap.Controls.Add(this.label11);
+            this.panelLdap.Controls.Add(this.txtMa);
+            this.panelLdap.Controls.Add(this.btnSua);
+            this.panelLdap.Controls.Add(this.panel2);
+            this.panelLdap.Controls.Add(this.btnSearch);
+            this.panelLdap.Controls.Add(this.pictureBox2);
+            this.panelLdap.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelLdap.Location = new System.Drawing.Point(3, 66);
+            this.panelLdap.Name = "panelLdap";
+            this.panelLdap.Size = new System.Drawing.Size(987, 490);
+            this.panelLdap.TabIndex = 127;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(329, 126);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(57, 25);
+            this.label15.TabIndex = 130;
+            this.label15.Text = "Khóa";
+            // 
+            // txtKhoaHoc
+            // 
+            this.txtKhoaHoc.Location = new System.Drawing.Point(407, 123);
+            this.txtKhoaHoc.Name = "txtKhoaHoc";
+            this.txtKhoaHoc.Size = new System.Drawing.Size(195, 33);
+            this.txtKhoaHoc.TabIndex = 129;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(329, 87);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(57, 25);
+            this.label12.TabIndex = 128;
+            this.label12.Text = "Khoa";
+            // 
+            // txtKhoaNganh
+            // 
+            this.txtKhoaNganh.Location = new System.Drawing.Point(407, 84);
+            this.txtKhoaNganh.Name = "txtKhoaNganh";
+            this.txtKhoaNganh.Size = new System.Drawing.Size(195, 33);
+            this.txtKhoaNganh.TabIndex = 127;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(329, 48);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(46, 25);
+            this.label13.TabIndex = 126;
+            this.label13.Text = "Lớp";
+            // 
+            // txtLop
+            // 
+            this.txtLop.Location = new System.Drawing.Point(407, 45);
+            this.txtLop.Name = "txtLop";
+            this.txtLop.Size = new System.Drawing.Size(195, 33);
+            this.txtLop.TabIndex = 125;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(328, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(73, 25);
+            this.label14.TabIndex = 124;
+            this.label14.Text = "Họ tên";
+            // 
+            // txtHoTen
+            // 
+            this.txtHoTen.Location = new System.Drawing.Point(407, 6);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(195, 33);
+            this.txtHoTen.TabIndex = 123;
+            // 
+            // btnhien
+            // 
+            this.btnhien.BackgroundImage = global::TNUE_Patron_Excel.Properties.Resources.Eye_icon;
+            this.btnhien.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnhien.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnhien.Location = new System.Drawing.Point(299, 143);
+            this.btnhien.Name = "btnhien";
+            this.btnhien.Size = new System.Drawing.Size(30, 27);
+            this.btnhien.TabIndex = 122;
+            this.btnhien.UseVisualStyleBackColor = true;
+            this.btnhien.Click += new System.EventHandler(this.Btnhien_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(101, 120);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(225, 17);
+            this.label2.TabIndex = 121;
+            this.label2.Text = "Để trống nếu không muốn thay đổi";
+            // 
+            // btnUnSearch
+            // 
+            this.btnUnSearch.AutoSize = true;
+            this.btnUnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btnUnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUnSearch.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnUnSearch.FlatAppearance.BorderSize = 0;
+            this.btnUnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnUnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUnSearch.Location = new System.Drawing.Point(718, 81);
+            this.btnUnSearch.Name = "btnUnSearch";
+            this.btnUnSearch.Size = new System.Drawing.Size(87, 38);
+            this.btnUnSearch.TabIndex = 120;
+            this.btnUnSearch.Text = "Bỏ tìm";
+            this.btnUnSearch.UseVisualStyleBackColor = false;
+            this.btnUnSearch.Click += new System.EventHandler(this.BtnUnSearch_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(650, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 25);
+            this.label4.TabIndex = 119;
+            this.label4.Text = "Tìm kiếm mã";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(621, 39);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(184, 33);
+            this.txtSearch.TabIndex = 118;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 144);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 25);
+            this.label8.TabIndex = 117;
+            this.label8.Text = "Mật khẩu";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(104, 140);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(195, 33);
+            this.txtPassword.TabIndex = 116;
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 87);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 25);
+            this.label9.TabIndex = 115;
+            this.label9.Text = "Phone";
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(104, 84);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(195, 33);
+            this.txtPhone.TabIndex = 114;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 48);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 25);
+            this.label10.TabIndex = 113;
+            this.label10.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(104, 45);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(195, 33);
+            this.txtEmail.TabIndex = 112;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(2, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(101, 25);
+            this.label11.TabIndex = 111;
+            this.label11.Text = "Mã SV/CB";
+            // 
+            // txtMa
+            // 
+            this.txtMa.Enabled = false;
+            this.txtMa.Location = new System.Drawing.Point(104, 6);
+            this.txtMa.Name = "txtMa";
+            this.txtMa.Size = new System.Drawing.Size(195, 33);
+            this.txtMa.TabIndex = 110;
+            // 
+            // btnSua
+            // 
+            this.btnSua.AutoSize = true;
+            this.btnSua.BackColor = System.Drawing.Color.Green;
+            this.btnSua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSua.FlatAppearance.BorderSize = 0;
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSua.Location = new System.Drawing.Point(664, 123);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(103, 35);
+            this.btnSua.TabIndex = 109;
+            this.btnSua.Text = "Cập nhập";
+            this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.BtnSua_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.bindingNavigator1);
+            this.panel2.Controls.Add(this.superGird1);
+            this.panel2.Location = new System.Drawing.Point(3, 206);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(981, 288);
+            this.panel2.TabIndex = 108;
+            // 
+            // bindingNavigator1
+            // 
+            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
+            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem});
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.bindingNavigator1.Name = "bindingNavigator1";
+            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
+            this.bindingNavigator1.Size = new System.Drawing.Size(981, 25);
+            this.bindingNavigator1.TabIndex = 31;
+            this.bindingNavigator1.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // superGird1
+            // 
+            this.superGird1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.superGird1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.superGird1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userLogin,
+            this.userMail,
+            this.telephoneNumber,
+            this.HoTenp,
+            this.NgaySinhp,
+            this.Lopp,
+            this.Khoanganh,
+            this.Khoap});
+            this.superGird1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.superGird1.Location = new System.Drawing.Point(0, 35);
+            this.superGird1.Name = "superGird1";
+            this.superGird1.PageSize = 10;
+            this.superGird1.Size = new System.Drawing.Size(981, 253);
+            this.superGird1.TabIndex = 30;
+            this.superGird1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SuperGird1_CellClick);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.AutoSize = true;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(216)))));
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(621, 81);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(91, 38);
+            this.btnSearch.TabIndex = 106;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TNUE_Patron_Excel.Properties.Resources.library_logo;
+            this.pictureBox2.Location = new System.Drawing.Point(816, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(160, 151);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
+            // 
             // panelUpdateSeris
             // 
             this.panelUpdateSeris.Controls.Add(this.lbCountHad);
@@ -1251,8 +1661,8 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             this.dgvHad.AllowUserToAddRows = false;
             this.dgvHad.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvHad.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvHad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1461,8 +1871,8 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             this.dgvPatron.AllowUserToAddRows = false;
             this.dgvPatron.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvPatron.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPatron.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
             this.dgvPatron.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPatron.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pationID,
@@ -1528,9 +1938,9 @@ namespace TNUE_Patron_Excel.ControlMember
             // ngaySinh
             // 
             this.ngaySinh.DataPropertyName = "ngaySinh";
-            dataGridViewCellStyle9.Format = "d";
-            dataGridViewCellStyle9.NullValue = null;
-            this.ngaySinh.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle24.Format = "d";
+            dataGridViewCellStyle24.NullValue = null;
+            this.ngaySinh.DefaultCellStyle = dataGridViewCellStyle24;
             this.ngaySinh.HeaderText = "Ngày Sinh";
             this.ngaySinh.Name = "ngaySinh";
             this.ngaySinh.ReadOnly = true;
@@ -1883,407 +2293,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.BtnThoat_Click_1);
             // 
-            // panelLdap
-            // 
-            this.panelLdap.Controls.Add(this.label15);
-            this.panelLdap.Controls.Add(this.txtKhoaHoc);
-            this.panelLdap.Controls.Add(this.label12);
-            this.panelLdap.Controls.Add(this.txtKhoaNganh);
-            this.panelLdap.Controls.Add(this.label13);
-            this.panelLdap.Controls.Add(this.txtLop);
-            this.panelLdap.Controls.Add(this.label14);
-            this.panelLdap.Controls.Add(this.txtHoTen);
-            this.panelLdap.Controls.Add(this.btnhien);
-            this.panelLdap.Controls.Add(this.label2);
-            this.panelLdap.Controls.Add(this.btnUnSearch);
-            this.panelLdap.Controls.Add(this.label4);
-            this.panelLdap.Controls.Add(this.txtSearch);
-            this.panelLdap.Controls.Add(this.label8);
-            this.panelLdap.Controls.Add(this.txtPassword);
-            this.panelLdap.Controls.Add(this.label9);
-            this.panelLdap.Controls.Add(this.txtPhone);
-            this.panelLdap.Controls.Add(this.label10);
-            this.panelLdap.Controls.Add(this.txtEmail);
-            this.panelLdap.Controls.Add(this.label11);
-            this.panelLdap.Controls.Add(this.txtMa);
-            this.panelLdap.Controls.Add(this.btnSua);
-            this.panelLdap.Controls.Add(this.panel2);
-            this.panelLdap.Controls.Add(this.btnSearch);
-            this.panelLdap.Controls.Add(this.pictureBox2);
-            this.panelLdap.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLdap.Location = new System.Drawing.Point(3, 66);
-            this.panelLdap.Name = "panelLdap";
-            this.panelLdap.Size = new System.Drawing.Size(987, 490);
-            this.panelLdap.TabIndex = 127;
-            // 
-            // btnhien
-            // 
-            this.btnhien.BackgroundImage = global::TNUE_Patron_Excel.Properties.Resources.Eye_icon;
-            this.btnhien.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnhien.Location = new System.Drawing.Point(299, 143);
-            this.btnhien.Name = "btnhien";
-            this.btnhien.Size = new System.Drawing.Size(30, 27);
-            this.btnhien.TabIndex = 122;
-            this.btnhien.UseVisualStyleBackColor = true;
-            this.btnhien.Click += new System.EventHandler(this.Btnhien_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(101, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(225, 17);
-            this.label2.TabIndex = 121;
-            this.label2.Text = "Để trống nếu không muốn thay đổi";
-            // 
-            // btnUnSearch
-            // 
-            this.btnUnSearch.AutoSize = true;
-            this.btnUnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnUnSearch.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnUnSearch.FlatAppearance.BorderSize = 0;
-            this.btnUnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnUnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUnSearch.Location = new System.Drawing.Point(718, 81);
-            this.btnUnSearch.Name = "btnUnSearch";
-            this.btnUnSearch.Size = new System.Drawing.Size(87, 38);
-            this.btnUnSearch.TabIndex = 120;
-            this.btnUnSearch.Text = "Bỏ tìm";
-            this.btnUnSearch.UseVisualStyleBackColor = false;
-            this.btnUnSearch.Click += new System.EventHandler(this.BtnUnSearch_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(650, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 25);
-            this.label4.TabIndex = 119;
-            this.label4.Text = "Tìm kiếm mã";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(621, 39);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(184, 33);
-            this.txtSearch.TabIndex = 118;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 144);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 25);
-            this.label8.TabIndex = 117;
-            this.label8.Text = "Mật khẩu";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(104, 140);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(195, 33);
-            this.txtPassword.TabIndex = 116;
-            this.txtPassword.UseSystemPasswordChar = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 87);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 25);
-            this.label9.TabIndex = 115;
-            this.label9.Text = "Phone";
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(104, 84);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(195, 33);
-            this.txtPhone.TabIndex = 114;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 48);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 25);
-            this.label10.TabIndex = 113;
-            this.label10.Text = "Email";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(104, 45);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(195, 33);
-            this.txtEmail.TabIndex = 112;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(2, 9);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(101, 25);
-            this.label11.TabIndex = 111;
-            this.label11.Text = "Mã SV/CB";
-            // 
-            // txtMa
-            // 
-            this.txtMa.Enabled = false;
-            this.txtMa.Location = new System.Drawing.Point(104, 6);
-            this.txtMa.Name = "txtMa";
-            this.txtMa.Size = new System.Drawing.Size(195, 33);
-            this.txtMa.TabIndex = 110;
-            // 
-            // btnSua
-            // 
-            this.btnSua.AutoSize = true;
-            this.btnSua.BackColor = System.Drawing.Color.Green;
-            this.btnSua.FlatAppearance.BorderSize = 0;
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(669, 138);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(103, 35);
-            this.btnSua.TabIndex = 109;
-            this.btnSua.Text = "Cập nhập";
-            this.btnSua.UseVisualStyleBackColor = false;
-            this.btnSua.Click += new System.EventHandler(this.BtnSua_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.bindingNavigator1);
-            this.panel2.Controls.Add(this.superGird1);
-            this.panel2.Location = new System.Drawing.Point(3, 206);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(973, 288);
-            this.panel2.TabIndex = 108;
-            // 
-            // bindingNavigator1
-            // 
-            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(973, 25);
-            this.bindingNavigator1.TabIndex = 31;
-            this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.AutoSize = true;
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(216)))));
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(621, 81);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(91, 38);
-            this.btnSearch.TabIndex = 106;
-            this.btnSearch.Text = "Tìm kiếm";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::TNUE_Patron_Excel.Properties.Resources.library_logo;
-            this.pictureBox2.Location = new System.Drawing.Point(816, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(160, 151);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 20;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(329, 87);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(57, 25);
-            this.label12.TabIndex = 128;
-            this.label12.Text = "Khoa";
-            // 
-            // txtKhoaNganh
-            // 
-            this.txtKhoaNganh.Location = new System.Drawing.Point(407, 84);
-            this.txtKhoaNganh.Name = "txtKhoaNganh";
-            this.txtKhoaNganh.Size = new System.Drawing.Size(195, 33);
-            this.txtKhoaNganh.TabIndex = 127;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(329, 48);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(46, 25);
-            this.label13.TabIndex = 126;
-            this.label13.Text = "Lớp";
-            // 
-            // txtLop
-            // 
-            this.txtLop.Location = new System.Drawing.Point(407, 45);
-            this.txtLop.Name = "txtLop";
-            this.txtLop.Size = new System.Drawing.Size(195, 33);
-            this.txtLop.TabIndex = 125;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(328, 9);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(73, 25);
-            this.label14.TabIndex = 124;
-            this.label14.Text = "Họ tên";
-            // 
-            // txtHoTen
-            // 
-            this.txtHoTen.Location = new System.Drawing.Point(407, 6);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(195, 33);
-            this.txtHoTen.TabIndex = 123;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(329, 126);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(57, 25);
-            this.label15.TabIndex = 130;
-            this.label15.Text = "Khóa";
-            // 
-            // txtKhoaHoc
-            // 
-            this.txtKhoaHoc.Location = new System.Drawing.Point(407, 123);
-            this.txtKhoaHoc.Name = "txtKhoaHoc";
-            this.txtKhoaHoc.Size = new System.Drawing.Size(195, 33);
-            this.txtKhoaHoc.TabIndex = 129;
-            // 
-            // superGird1
-            // 
-            this.superGird1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.superGird1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.superGird1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.userLogin,
-            this.userMail,
-            this.telephoneNumber,
-            this.HoTenp,
-            this.NgaySinhp,
-            this.Lopp,
-            this.Khoanganh,
-            this.Khoap});
-            this.superGird1.Location = new System.Drawing.Point(2, 28);
-            this.superGird1.Name = "superGird1";
-            this.superGird1.PageSize = 10;
-            this.superGird1.Size = new System.Drawing.Size(973, 253);
-            this.superGird1.TabIndex = 30;
-            this.superGird1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SuperGird1_CellClick);
-            // 
             // userLogin
             // 
             this.userLogin.DataPropertyName = "userLogin";
@@ -2301,9 +2310,9 @@ namespace TNUE_Patron_Excel.ControlMember
             // telephoneNumber
             // 
             this.telephoneNumber.DataPropertyName = "telephoneNumber";
-            this.telephoneNumber.HeaderText = "Số điện thoại";
+            this.telephoneNumber.HeaderText = "Điện thoại";
             this.telephoneNumber.Name = "telephoneNumber";
-            this.telephoneNumber.Width = 154;
+            this.telephoneNumber.Width = 128;
             // 
             // HoTenp
             // 
@@ -2353,6 +2362,15 @@ namespace TNUE_Patron_Excel.ControlMember
             this.groupBox4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panelLdap.ResumeLayout(false);
+            this.panelLdap.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
+            this.bindingNavigator1.ResumeLayout(false);
+            this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.superGird1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelUpdateSeris.ResumeLayout(false);
             this.panelUpdateSeris.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -2364,15 +2382,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).EndInit();
-            this.panelLdap.ResumeLayout(false);
-            this.panelLdap.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.superGird1)).EndInit();
             this.ResumeLayout(false);
 
         }
