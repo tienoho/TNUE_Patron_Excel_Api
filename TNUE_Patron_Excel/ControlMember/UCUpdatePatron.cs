@@ -267,8 +267,11 @@ namespace TNUE_Patron_Excel.ControlMember
         private DataGridViewTextBoxColumn Lopp;
         private DataGridViewTextBoxColumn Khoanganh;
         private DataGridViewTextBoxColumn Khoap;
+        private Button btnExcelMau;
         private Button btnhien;
-
+        private string urlExcelSinhVien = "https://drive.google.com/file/d/1j6DdSn56v0zP1E5YlmATXToouGTl3Mai/view?usp=sharing";
+        private string urlExcelCanBo = "https://drive.google.com/file/d/1fSyWFsXki4U4PfUPAugrEc8PNrxnbTdb/view?usp=sharing";
+        private string url = "";
         public UCUpdatePatron()
         {
             InitializeComponent();
@@ -458,6 +461,7 @@ namespace TNUE_Patron_Excel.ControlMember
         {
             panelLdap.Visible = false;
             panelUpdateSeris.Visible = true;
+            url = urlExcelSinhVien;
         }
 
         private void RbLdap_CheckedChanged(object sender, EventArgs e)
@@ -862,7 +866,6 @@ namespace TNUE_Patron_Excel.ControlMember
             CreateFolder(directoryPath);
             superGird1._pageSize = 100;
             IEnumerable<User> allListUser = new ModelLdap().GetAllListUser();
-
             List<LdapPatron> ldapPatrons = new List<LdapPatron>();
             foreach (User user in allListUser)
             {
@@ -885,16 +888,9 @@ namespace TNUE_Patron_Excel.ControlMember
                     }
                 }
             }
-
             IEnumerable<LdapPatron> allListLdapPatron = ldapPatrons.CloneObject();
-
-
             superGird1.DataSource = null;
             table = new DataTable();
-            //using (ObjectReader reader = ObjectReader.Create(allListUser, "userLogin", "userMail", "telephoneNumber"))
-            //{
-            //    table.Load(reader);
-            //}
             using (ObjectReader reader = ObjectReader.Create(allListLdapPatron, "userLogin", "userMail", "telephoneNumber", "HoTen", "NgaySinh", "Lop", "KhoaNganh", "KhoaHoc"))
             {
                 table.Load(reader);
@@ -1000,11 +996,13 @@ namespace TNUE_Patron_Excel.ControlMember
         {
             ComboxLoaiBanDoc();
             txtLine.Text = "12";
+            url = urlExcelSinhVien;
         }
         private void ShowStaff()
         {
             ComboxLoaiBanDocCaBo();
             txtLine.Text = "3";
+            url = urlExcelCanBo;
         }
 
         protected override void Dispose(bool disposing)
@@ -1020,9 +1018,9 @@ namespace TNUE_Patron_Excel.ControlMember
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCUpdatePatron));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -1064,7 +1062,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.superGird1 = new TNUE_Patron_Excel.SuperGird();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelUpdateSeris = new System.Windows.Forms.Panel();
@@ -1133,6 +1130,8 @@ namespace TNUE_Patron_Excel.ControlMember
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btnExcelMau = new System.Windows.Forms.Button();
+            this.superGird1 = new TNUE_Patron_Excel.SuperGird();
             this.userLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telephoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1147,7 +1146,6 @@ namespace TNUE_Patron_Excel.ControlMember
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.superGird1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelUpdateSeris.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1157,6 +1155,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.superGird1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -1167,7 +1166,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.groupBox4.Location = new System.Drawing.Point(0, 6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(993, 559);
+            this.groupBox4.Size = new System.Drawing.Size(993, 556);
             this.groupBox4.TabIndex = 33;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Cập nhập bạn đọc";
@@ -1234,9 +1233,9 @@ namespace TNUE_Patron_Excel.ControlMember
             this.panelLdap.Controls.Add(this.btnSearch);
             this.panelLdap.Controls.Add(this.pictureBox2);
             this.panelLdap.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLdap.Location = new System.Drawing.Point(3, 66);
+            this.panelLdap.Location = new System.Drawing.Point(3, 64);
             this.panelLdap.Name = "panelLdap";
-            this.panelLdap.Size = new System.Drawing.Size(987, 490);
+            this.panelLdap.Size = new System.Drawing.Size(987, 489);
             this.panelLdap.TabIndex = 127;
             // 
             // label15
@@ -1531,7 +1530,6 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -1564,27 +1562,6 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // superGird1
-            // 
-            this.superGird1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.superGird1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.superGird1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.userLogin,
-            this.userMail,
-            this.telephoneNumber,
-            this.HoTenp,
-            this.NgaySinhp,
-            this.Lopp,
-            this.Khoanganh,
-            this.Khoap});
-            this.superGird1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.superGird1.Location = new System.Drawing.Point(0, 35);
-            this.superGird1.Name = "superGird1";
-            this.superGird1.PageSize = 10;
-            this.superGird1.Size = new System.Drawing.Size(981, 253);
-            this.superGird1.TabIndex = 30;
-            this.superGird1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SuperGird1_CellClick);
             // 
             // btnSearch
             // 
@@ -1661,8 +1638,8 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             this.dgvHad.AllowUserToAddRows = false;
             this.dgvHad.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvHad.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvHad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1871,8 +1848,8 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             this.dgvPatron.AllowUserToAddRows = false;
             this.dgvPatron.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvPatron.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPatron.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPatron.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPatron.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pationID,
@@ -1938,9 +1915,9 @@ namespace TNUE_Patron_Excel.ControlMember
             // ngaySinh
             // 
             this.ngaySinh.DataPropertyName = "ngaySinh";
-            dataGridViewCellStyle24.Format = "d";
-            dataGridViewCellStyle24.NullValue = null;
-            this.ngaySinh.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            this.ngaySinh.DefaultCellStyle = dataGridViewCellStyle6;
             this.ngaySinh.HeaderText = "Ngày Sinh";
             this.ngaySinh.Name = "ngaySinh";
             this.ngaySinh.ReadOnly = true;
@@ -2071,6 +2048,7 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnExcelMau);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cbLoaiBanDoc);
@@ -2293,6 +2271,43 @@ namespace TNUE_Patron_Excel.ControlMember
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.BtnThoat_Click_1);
             // 
+            // btnExcelMau
+            // 
+            this.btnExcelMau.AutoSize = true;
+            this.btnExcelMau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(216)))));
+            this.btnExcelMau.FlatAppearance.BorderSize = 0;
+            this.btnExcelMau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcelMau.ForeColor = System.Drawing.Color.White;
+            this.btnExcelMau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcelMau.Location = new System.Drawing.Point(629, 67);
+            this.btnExcelMau.Name = "btnExcelMau";
+            this.btnExcelMau.Size = new System.Drawing.Size(120, 34);
+            this.btnExcelMau.TabIndex = 114;
+            this.btnExcelMau.Text = "Excel mẫu";
+            this.btnExcelMau.UseVisualStyleBackColor = false;
+            this.btnExcelMau.Click += new System.EventHandler(this.BtnExcelMau_Click);
+            // 
+            // superGird1
+            // 
+            this.superGird1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.superGird1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.superGird1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userLogin,
+            this.userMail,
+            this.telephoneNumber,
+            this.HoTenp,
+            this.NgaySinhp,
+            this.Lopp,
+            this.Khoanganh,
+            this.Khoap});
+            this.superGird1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.superGird1.Location = new System.Drawing.Point(0, 35);
+            this.superGird1.Name = "superGird1";
+            this.superGird1.PageSize = 10;
+            this.superGird1.Size = new System.Drawing.Size(981, 253);
+            this.superGird1.TabIndex = 30;
+            this.superGird1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SuperGird1_CellClick);
+            // 
             // userLogin
             // 
             this.userLogin.DataPropertyName = "userLogin";
@@ -2357,7 +2372,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCUpdatePatron";
-            this.Size = new System.Drawing.Size(1000, 565);
+            this.Size = new System.Drawing.Size(1000, 564);
             this.Load += new System.EventHandler(this.UCUpdatePatron_Load);
             this.groupBox4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -2369,7 +2384,6 @@ namespace TNUE_Patron_Excel.ControlMember
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.superGird1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelUpdateSeris.ResumeLayout(false);
             this.panelUpdateSeris.PerformLayout();
@@ -2382,8 +2396,21 @@ namespace TNUE_Patron_Excel.ControlMember
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.superGird1)).EndInit();
             this.ResumeLayout(false);
 
+        }
+
+        private void BtnExcelMau_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ToolP.RequestApi(url);
+            }
+            catch
+            {
+
+            }
         }
     }
 }

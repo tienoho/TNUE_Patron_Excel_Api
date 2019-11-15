@@ -199,5 +199,9 @@ namespace TNUE_Patron_Excel.Tool
                 return "";
             }
         }
+        public static void RequestApi(string url)
+        {
+            System.Diagnostics.Process.Start(url);
+        }
     }
 }

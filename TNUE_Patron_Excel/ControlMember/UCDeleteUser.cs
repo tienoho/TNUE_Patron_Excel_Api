@@ -141,9 +141,9 @@ namespace TNUE_Patron_Excel.ControlMember
         private DataGridViewTextBoxColumn MaDSKhongTonTai;
 
         private DataGridViewTextBoxColumn PatornIDKhongTonTai;
-
+        private Button btnExcelMau;
         private DataGridViewTextBoxColumn HoTenDSKhongTonTai;
-
+        private string url = "https://drive.google.com/file/d/1qi93hgis3A_kHN97lrA6oV4jjZLK38kn/view?usp=sharing";
         public UCDeleteUser()
         {
             InitializeComponent();
@@ -547,6 +547,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.pb_TaiChinh = new System.Windows.Forms.PictureBox();
+            this.btnExcelMau = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panelDeleteSeries.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -579,6 +580,7 @@ namespace TNUE_Patron_Excel.ControlMember
             // 
             // panelDeleteSeries
             // 
+            this.panelDeleteSeries.Controls.Add(this.btnExcelMau);
             this.panelDeleteSeries.Controls.Add(this.label6);
             this.panelDeleteSeries.Controls.Add(this.btnChooseFile);
             this.panelDeleteSeries.Controls.Add(this.btnDeleteSeris);
@@ -625,7 +627,7 @@ namespace TNUE_Patron_Excel.ControlMember
             this.btnDeleteSeris.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteSeris.ForeColor = System.Drawing.Color.White;
             this.btnDeleteSeris.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteSeris.Location = new System.Drawing.Point(683, 48);
+            this.btnDeleteSeris.Location = new System.Drawing.Point(575, 91);
             this.btnDeleteSeris.Name = "btnDeleteSeris";
             this.btnDeleteSeris.Size = new System.Drawing.Size(103, 36);
             this.btnDeleteSeris.TabIndex = 109;
@@ -1138,6 +1140,22 @@ namespace TNUE_Patron_Excel.ControlMember
             this.pb_TaiChinh.TabIndex = 20;
             this.pb_TaiChinh.TabStop = false;
             // 
+            // btnExcelMau
+            // 
+            this.btnExcelMau.AutoSize = true;
+            this.btnExcelMau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(216)))));
+            this.btnExcelMau.FlatAppearance.BorderSize = 0;
+            this.btnExcelMau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcelMau.ForeColor = System.Drawing.Color.White;
+            this.btnExcelMau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcelMau.Location = new System.Drawing.Point(683, 48);
+            this.btnExcelMau.Name = "btnExcelMau";
+            this.btnExcelMau.Size = new System.Drawing.Size(120, 36);
+            this.btnExcelMau.TabIndex = 115;
+            this.btnExcelMau.Text = "Excel mẫu";
+            this.btnExcelMau.UseVisualStyleBackColor = false;
+            this.btnExcelMau.Click += new System.EventHandler(this.BtnExcelMau_Click);
+            // 
             // UCDeleteUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1171,6 +1189,19 @@ namespace TNUE_Patron_Excel.ControlMember
             ((System.ComponentModel.ISupportInitialize)(this.pb_TaiChinh)).EndInit();
             this.ResumeLayout(false);
 
+        }
+
+        private void BtnExcelMau_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ToolP.RequestApi(url);
+
+            }
+            catch
+            {
+                MessageBox.Show("Error: ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
